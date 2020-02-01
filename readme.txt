@@ -96,5 +96,9 @@ Please go to HM Resume Manager menu, and setup your resume information.
 
 == Changelog ==
 
+= 1.0.1 =
+* Some bug fixes
+* Max width adjusted for input field in admin settings
+
 = 1.0.0 =
 * Initial release

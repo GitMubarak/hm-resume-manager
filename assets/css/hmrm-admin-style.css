@@ -1,5 +1,11 @@
 /* Your Admin Style */
 
+form#hmrm-general-settings-form input.regular-text,
+table.hmrm-education-info-table input.regular-text,
+table.hmrm-experience-info-table input.regular-text {
+    max-width: 300px;
+}
+
 #hmrm_shortcode {
     padding: 10px;
     text-align: center;
@@ -10,12 +16,15 @@
     max-width: 430px;
 }
 
-table.hmrm-education-info-table {
+table.hmrm-education-info-table,
+table.hmrm-experience-info-table {
     border: 1px solid #CCC;
 }
 
 table.hmrm-education-info-table th,
-table.hmrm-education-info-table td {
+table.hmrm-education-info-table td,
+table.hmrm-experience-info-table th,
+table.hmrm-experience-info-table td {
     padding: 10px;
     border-bottom: 1px solid #CCC;
     background: #F8F8F8;
@@ -23,11 +32,13 @@ table.hmrm-education-info-table td {
     vertical-align: middle;
 }
 
-a.delete {
+a.delete,
+a.hmrm-exp-delete {
     color: #CC0000;
 }
 
-a.delete:hover {
+a.delete:hover,
+a.hmrm-exp-delete:hover {
     color: #FF0000;
 }
 

@@ -27,10 +27,10 @@ $hmrmExpSettings = get_option('hmrm_exp_settings');
 
      <form name="wpre-table" role="form" class="form-horizontal" method="post" action="" id="hmrm-settings-form">
           <input type="hidden" name="hmrm_update_exp_setting" value="<?php printf('%s', wp_create_nonce('hmrm-update-exp-setting')); ?>" />
-          <table class="hmrm-form-table" border="1">
+          <table class="hmrm-form-table">
           <tr>
                <td colspan="2">
-                    <table class="hmrm-education-info-table table" width="100%" cellpadding="0" cellspacing="0">
+                    <table class="hmrm-experience-info-table table" width="100%" cellpadding="0" cellspacing="0">
                          <thead>
                               <tr>
                                    <th>#</th>
