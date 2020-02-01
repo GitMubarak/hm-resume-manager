@@ -1,7 +1,7 @@
 === HM Resume Manager ===
 Contributors: mhmrajib
 Donate link: https://www.paypal.me/mhmrajib/2
-Tags: Notification bar, alert bar, notification, alert, bar
+Tags: resume, cv, experience, skills, education
 Requires at least: 4.6
 Tested up to: 5.3.2
 Stable tag: 1.0.0
@@ -15,7 +15,7 @@ A Resume Manager plugin to display user resume at front page. Use shortcode: [hm
 
 This [HM Resume Manager](http://www.hossnimubarak.com) plugin create a resume with personal information, education & experience history, as well as a list of skills with career summary.
 
-**Plugin Features:**
+**🌟 Plugin Features:**
 
 * Easy to install
 * Fully integrated in WordPress
@@ -25,11 +25,42 @@ This [HM Resume Manager](http://www.hossnimubarak.com) plugin create a resume wi
 * Experience history
 * Skills and Career summary
 * Photo Upload option
-* Shortcoded: [hm_resume_manager]
+* Shortcoded
+
+➡️Useage of Shortcode:⬅️
+
+<strong> To display resume use the below shortcode </strong>
+
+<pre> [hm_resume_manager] </pre>
+
+
+**Demo:**
+[See the Demo](http://plugin.hossnimubarak.com/resume/)
+
+
+**📋 Feedback/Rating:**
+If you find this plugin helpful, feel free to give us your valuable review/rating and share this plugin with friends and others. This will help us to improve this plugin.
+
+
+**🔥 Other Plugins from [HM Plugins](http://www.hossnimubarak.com):**
+
+👉 [Worldwide Breaking News Headlines](https://wordpress.org/plugins/worldwide-breaking-news-headlines/) Breaking News, Headlines plugin
+👉 [WP Top News](https://wordpress.org/plugins/wp-top-news/) Top News, Breaking News, Headlines Plugin
+👉 [Tiny Bar](https://wordpress.org/plugins/tiny-bar/) Display a bar at Top or Bottom
+👉 [WP Books Gallery](https://wordpress.org/plugins/wp-books-gallery/) WP Books Gallery
+👉 [HM Product Catalog](https://wordpress.org/plugins/hm-product-catalog/) HM Product Catalog
+👉 [HM Wc Product Advertiser](https://wordpress.org/plugins/hm-wc-product-advertiser/) Wocommerce Product Advertiser
+👉 [HM – Cool Author Box](https://wordpress.org/plugins/hm-cool-author-box-widget/) Author Box plugin
+👉 [WP Scroll To Post](https://wordpress.org/plugins/wp-scroll-to-post/) Display random post(Single) at the bottom right corner
+👉 [HM Recent Posts Widget](https://wordpress.org/plugins/hm-recent-posts-widget/) Ticker Post plugin
+👉 [WP Alert Bars](https://wordpress.org/plugins/wp-alert-bars/) Notification/Alert box Plugin in Post/Page
+👉 [Classic Facebook LikeBox](https://wordpress.org/plugins/hm-simple-facebook-page/) Facebook LikeBox Plugin
+
 
 == Installation ==
 
 Install HM Resume Manager as a regular WordPress plugin. Here are different ways to install plugin:
+
 
 **Install by search plugin:**
 
@@ -38,6 +69,7 @@ Install HM Resume Manager as a regular WordPress plugin. Here are different ways
 3. Click to install
 4. Activate the plugin
 5. Setup the proper settings in HM Resume Manager menu
+
 
 **Install by upload plugin:**
 
@@ -57,12 +89,12 @@ Please go to HM Resume Manager menu, and setup your resume information.
 
 == Screenshots ==
 
-1. Download & install HM Resume Manager in admin panel
-2. Setup different notifications
-3. Put the Shortcode in a page/post
-4. Showing Bars in a page/post
+1. Download & install HM Resume Manager in admin -> plugin panel
+2. Give proper information in different settings panel
+3. Showing Resume at front page after applying shortcode
+
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.0 =
 * Initial release
