@@ -11,6 +11,7 @@ if(is_array(stripslashes_deep(unserialize(get_option('hmrm_general_settings'))))
 	$hmrmBiographicalInfo	= !empty($hmrmGeneralSettings['hmrm_biographical_info']) ? wp_kses_post($hmrmGeneralSettings['hmrm_biographical_info']) : '';
 	$hmrmContactNo 			= !empty($hmrmGeneralSettings['hmrm_contact_number']) ? $hmrmGeneralSettings['hmrm_contact_number'] : '';
 	$hmrmTwitter 			= !empty($hmrmGeneralSettings['hmrm_twitter']) ? $hmrmGeneralSettings['hmrm_twitter'] : '';
+	$hmrmFacebook 			= !empty($hmrmGeneralSettings['hmrm_facebook']) ? $hmrmGeneralSettings['hmrm_facebook'] : '';
 	$hmrmSkills				= !empty($hmrmGeneralSettings['hmrm_skills']) ? wp_kses_post($hmrmGeneralSettings['hmrm_skills']) : '';
 } else{
 	$hmrmPhotograph 		= "";
@@ -22,6 +23,7 @@ if(is_array(stripslashes_deep(unserialize(get_option('hmrm_general_settings'))))
 	$hmrmAuthorTitle 		= "";
 	$hmrmContactNo 			= '';
 	$hmrmTwitter			= '';
+	$hmrmFacebook 			= '';
 	$hmrmSkills				= '';
 }
 ?>
@@ -76,10 +78,10 @@ if(is_array(stripslashes_deep(unserialize(get_option('hmrm_general_settings'))))
 					<div class="social_title"><span class="dashicons dashicons-twitter"></span> <?php echo esc_html($hmrmTwitter); ?></div>
 				</li>
 				<!-- li id="linkedin" style="width:100%;">
-					<div class="social_title">bd.linkedin.com/in/hossnimubarak</div>
+					<div class="social_title">bd.linkedin.com/in/xyz</div>
 				</li -->
 				<li id="linkedin" style="width:100%;">
-					<div class="social_title"><span class="dashicons dashicons-facebook-alt"></span> https://www.facebook.com/EngrHossniMubarak</div>
+					<div class="social_title"><span class="dashicons dashicons-facebook-alt"></span> <?php echo esc_html($hmrmFacebook); ?></div>
 				</li>
 				<div style="clear:both"></div>
 			</ul>
