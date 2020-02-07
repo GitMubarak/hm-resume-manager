@@ -26,6 +26,7 @@ This [HM Resume Manager](http://www.hossnimubarak.com) plugin create a resume wi
 * Skills and Career summary
 * Photo Upload option
 * Shortcoded
+* Fully Responsive
 
 ➡️Useage of Shortcode:⬅️
 
@@ -97,7 +98,10 @@ Please go to HM Resume Manager menu, and setup your resume information.
 == Changelog ==
 
 = 1.0.2 =
+* Facebook link hardcoded issue fixed
 * Some bug fixes
+* Layout improved
+* Resposive issue fixed
 
 = 1.0.1 =
 * Some bug fixes
