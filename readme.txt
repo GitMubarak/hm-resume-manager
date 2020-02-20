@@ -4,7 +4,7 @@ Donate link: https://www.paypal.me/mhmrajib/2
 Tags: resume, cv, experience, skills, education
 Requires at least: 4.6
 Tested up to: 5.3.2
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 Requires PHP: 5.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -12,8 +12,11 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 A Resume Manager plugin to display user resume at front page. Use shortcode: [hm_resume_manager]
 
 == Description ==
+You have a domain and you are confused what to do with it? Why not use it as a resume landing page and point people to should a conversation occur surrounding job prospects. 
 
 This [HM Resume Manager](http://www.hossnimubarak.com) plugin create a resume with personal information, education & experience history, as well as a list of skills with career summary.
+
+It looks great, is fast and easy to manage.
 
 **🌟 Plugin Features:**
 
@@ -28,7 +31,15 @@ This [HM Resume Manager](http://www.hossnimubarak.com) plugin create a resume wi
 * Shortcoded
 * Fully Responsive
 
-➡️Useage of Shortcode:⬅️
+
+➡️ Benefits you’ll get by using this plugin:**
+
+* Convert your unused domain into a resume landing page
+* Replicated your print resume for the web
+* Sent recruiters to it and get hired!
+
+
+➡️ Useage of Shortcode:⬅️
 
 <strong> To display resume use the below shortcode </strong>
 
@@ -36,7 +47,7 @@ This [HM Resume Manager](http://www.hossnimubarak.com) plugin create a resume wi
 
 
 **Demo:**
-[See the Demo](http://plugin.hossnimubarak.com/resume/)
+[See the Demo](http://plugin.hossnimubarak.com/hm-resume-manager/)
 
 
 **📋 Feedback/Rating:**
@@ -50,6 +61,7 @@ If you find this plugin helpful, feel free to give us your valuable review/ratin
 👉 [Tiny Bar](https://wordpress.org/plugins/tiny-bar/) Display a bar at Top or Bottom
 👉 [WP Books Gallery](https://wordpress.org/plugins/wp-books-gallery/) WP Books Gallery
 👉 [HM Product Catalog](https://wordpress.org/plugins/hm-product-catalog/) HM Product Catalog
+👉 [WordPress Stripe Donation](https://wordpress.org/plugins/wp-stripe-donation/) A donation plugin using Stripe payment
 👉 [HM Wc Product Advertiser](https://wordpress.org/plugins/hm-wc-product-advertiser/) Wocommerce Product Advertiser
 👉 [HM – Cool Author Box](https://wordpress.org/plugins/hm-cool-author-box-widget/) Author Box plugin
 👉 [WP Scroll To Post](https://wordpress.org/plugins/wp-scroll-to-post/) Display random post(Single) at the bottom right corner
@@ -101,7 +113,7 @@ Please go to HM Resume Manager menu, and setup your resume information.
 * Facebook link hardcoded issue fixed
 * Some bug fixes
 * Layout improved
-* Resposive issue fixed
+* Responsive issue fixed
 
 = 1.0.1 =
 * Some bug fixes
