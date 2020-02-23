@@ -8,23 +8,10 @@ if (isset($_POST['updateStyleSettings'])) {
         'hmrm_skill_label_text'          => sanitize_text_field($_POST['hmrm_skill_label_text']) ? sanitize_text_field($_POST['hmrm_skill_label_text']) : 'Skills',
         'hmrm_edu_label_text'          => sanitize_text_field($_POST['hmrm_edu_label_text']) ? sanitize_text_field($_POST['hmrm_edu_label_text']) : 'Education',
         'hmrm_exp_label_text'          => sanitize_text_field($_POST['hmrm_exp_label_text']) ? sanitize_text_field($_POST['hmrm_exp_label_text']) : 'Experience',
-        /*'hmrm_author_title'         => (!empty($_POST['hmrm_author_title']) && (sanitize_text_field($_POST['hmrm_author_title']) != '')) ? sanitize_text_field($_POST['hmrm_author_title']) : '',
-        'hmrm_author_email'         => (!empty($_POST['hmrm_author_email']) && (sanitize_text_field($_POST['hmrm_author_email']) != '')) ? sanitize_text_field($_POST['hmrm_author_email']) : $hmrmCurrentUser->user_email,
-        'hmrm_author_website'       => (!empty($_POST['hmrm_author_website']) && (sanitize_text_field($_POST['hmrm_author_website']) != '')) ? sanitize_text_field($_POST['hmrm_author_website']) : $hmrmCurrentUser->user_url,
-        'hmrm_current_address'      => (!empty($_POST['hmrm_current_address']) && (sanitize_text_field($_POST['hmrm_current_address']) != '')) ? sanitize_text_field($_POST['hmrm_current_address']) : '',
-        'hmrm_contact_number'       => (!empty($_POST['hmrm_contact_number']) && (sanitize_text_field($_POST['hmrm_contact_number']) != '')) ? sanitize_text_field($_POST['hmrm_contact_number']) : '',
-        'hmrm_biographical_info'    => !empty($_POST['hmrm_biographical_info']) ? wp_kses_post($_POST['hmrm_biographical_info']) : '',
-        'hmrm_photograph'           => (sanitize_file_name($_POST['hmrm_photograph']) != '') ? sanitize_file_name($_POST['hmrm_photograph']) : '',
-        'hmrm_twitter'              => (!empty($_POST['hmrm_twitter']) && (sanitize_text_field($_POST['hmrm_twitter']) != '')) ? sanitize_text_field($_POST['hmrm_twitter']) : '',
-        'hmrm_facebook'             => (!empty($_POST['hmrm_facebook']) && (sanitize_text_field($_POST['hmrm_facebook']) != '')) ? sanitize_text_field($_POST['hmrm_facebook']) : '',
-        'hmrm_skills'               => !empty($_POST['hmrm_skills']) ? wp_kses_post($_POST['hmrm_skills']) : '',*/
     );
     $hmrmStyleShowMessage = update_option('hmrm_style_settings', serialize($hmrmStyleSettings));
 }
 $hmrmStyleSettings = stripslashes_deep(unserialize(get_option('hmrm_style_settings')));
-
-//echo '<pre>';
-//print_r($hmrmStyleSettings);
 ?>
 <div id="hmcs-wrap-all" class="wrap hmcs-settings-wrap">
     <div class="hmcs-header-bar">
