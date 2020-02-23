@@ -3,11 +3,27 @@
     // USE STRICT
     "use strict";
 
-    /*
-    $.each(hmrmAdminScript.hmrmIdsOfColorPicker, function(index, value) {
+    var hmrmColorPicker = ['#hmrm_bg_color', '#hmrm_border_color'];
+
+    $.each(hmrmColorPicker, function(index, value) {
         $(value).wpColorPicker();
     });
-	*/
+
+    $("#hmrm-exp-started-from-exp").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+
+    $("#hmrm-exp-started-from").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+
+    $("#hmrm-exp-ended-to-exp").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
+
+    $("#hmrm-exp-ended-to").datepicker({
+        dateFormat: "yy-mm-dd"
+    });
 
     $('input#hmrm-media-manager').click(function(e) {
 
@@ -117,56 +133,6 @@
         }
     });
 
-    //==================================================
-    // Experience Adding
-    //==================================================
-    $('.hmrm-exp-add').on('click', function() {
-        var hmrmexp_tr_sl = $('tr.hmrm-exp-add-row-tr').length;
-
-        var hmrm_exp_tr = '<tr class="hmrm-exp-add-row-tr">' +
-            '<td style="vertical-align: top;">' + (hmrmexp_tr_sl + 1) + '</td>' +
-            '<td class="hmrm_exp_company" style="vertical-align: top;">' +
-            '<input type="text" name="hmrm_exp_company[]" class="hmrm_exp_company regular-text" placeholder="Ex: Microsoft">' +
-            '</td>' +
-            '<td class="hmrm_exp_job_title" style="vertical-align: top;">' +
-            '<input type="text" name="hmrm_exp_job_title[]" class="hmrm_exp_job_title regular-text" placeholder="Ex: Senior Software Engineer">' +
-            '</td>' +
-            '<td class="hmrm_edu_start_month" style="vertical-align: top;">' +
-            '<select name="hmrm_edu_start_month[]" class="hmrm_edu_start_month">' +
-            '<option value="">Month</option>' + hmrmMonthOption +
-            '</select> ' +
-            '<select name="hmrm_exp_start_year[]" class="hmrm_exp_start_year">' +
-            '<option value="">Year</option>' + hmrmSyOption +
-            '</select>' +
-            '<td class="hmrm_exp_end_month" style="vertical-align: top;">' +
-            '<select name="hmrm_edu_end_month[]" class="hmrm_exp_end_month">' +
-            '<option value="">Month</option>' + hmrmMonthOption +
-            '</select> ' +
-            '<select name="hmrm_exp_end_year[]" class="hmrm_exp_end_year">' +
-            '<option value="">Year</option>' + hmrmEyOption +
-            '</select>' +
-            '</td>' +
-            '<td class="hmrm_edu_grade" style="vertical-align: top;">' +
-            '<textarea name="hmrm_exp_role[]" class="hmrm_exp_role" cols="50" rows="5"></textarea>' +
-            '<br><code> Accepts HTML Tag </code>' +
-            '</td>' +
-            '<td style="vertical-align: top;"><a href="#" class="dashicons dashicons-no hmrm-exp-delete">&nbsp;</a></td></tr>';
-        $('.hmrm-exp-add-row-tbody').append(hmrm_exp_tr);
-
-        $.each(['#hmrm_bg_color_' + (npstp_tr_sl + 1)], function(index, value) {
-            $(value).wpColorPicker();
-        });
-    });
-
-    //==================================================
-    // Delete Exp
-    $('tbody.hmrm-exp-add-row-tbody').delegate('.hmrm-exp-delete', 'click', function() {
-        var hmrmexp_tr_sl2 = $('tr.hmrm-exp-add-row-tr').length;
-        if (hmrmexp_tr_sl2 > 1) {
-            $(this).parent().parent().remove();
-        }
-    });
-
     //====================================================
     $('.hmrm-closebtn').on('click', function() {
         this.parentElement.style.display = 'none';
@@ -187,5 +153,32 @@
             }
         });
     }
+
+    $('.fancybox-close').click(function() {
+        $.fancybox.close();
+    });
+    $('.fancybox-clear').click(function() {
+        $.fancybox.close();
+    });
+
+    $(".fancybox").fancybox({
+        openEffect: 'elastic',
+        openSpeed: 11600,
+        closeEffect: 'elastic',
+        closeSpeed: 1111600,
+        closeClick: false,
+        arrows: false,
+        'scrolling': 'yes',
+        'type': 'inline',
+        helpers: {
+            overlay: {
+                closeClick: false
+            } // prevents closing when clicking OUTSIDE fancybox 
+        }
+    });
+
+    $(document).on("click", "input[type='reset']", function() {
+        $("select").trigger("change");
+    });
 
 })(jQuery);

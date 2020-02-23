@@ -1,160 +1,120 @@
 <?php
 $hmrmExpShowMessage = false;
+//delete_option('hmrm_exp_settings');
 
-if(isset($_POST['updateExpSettings'])){
-     if (!isset($_POST['hmrm_update_exp_setting'])) die("Something wrong!");
-     if (!wp_verify_nonce($_POST['hmrm_update_exp_setting'],'hmrm-update-exp-setting')) die("Something wrong!");
-     for($i=0; $i<count($_POST['hmrm_exp_company']); $i++){
-        $hmrmExpArr[$i] = array(
-        'hmrm_exp_company'      => (!empty($_POST['hmrm_exp_company'][$i]) && (sanitize_text_field($_POST['hmrm_exp_company'][$i])!='')) ? sanitize_text_field($_POST['hmrm_exp_company'][$i]) : '',
-        'hmrm_exp_job_title'    => (!empty($_POST['hmrm_exp_job_title'][$i]) && (sanitize_text_field($_POST['hmrm_exp_job_title'][$i])!='')) ? sanitize_text_field($_POST['hmrm_exp_job_title'][$i]) : '',
-        'hmrm_exp_start_month'  => (!empty($_POST['hmrm_exp_start_month'][$i]) && (sanitize_text_field($_POST['hmrm_exp_start_month'][$i])!='')) ? sanitize_text_field($_POST['hmrm_exp_start_month'][$i]) : '',
-        'hmrm_exp_start_year'   => (!empty($_POST['hmrm_exp_start_year'][$i]) && (sanitize_text_field($_POST['hmrm_exp_start_year'][$i])!='')) ? sanitize_text_field($_POST['hmrm_exp_start_year'][$i]) : '',
-        'hmrm_exp_end_month'    => (!empty($_POST['hmrm_exp_end_month'][$i]) && (sanitize_text_field($_POST['hmrm_exp_end_month'][$i])!='')) ? sanitize_text_field($_POST['hmrm_exp_end_month'][$i]) : '',
-        'hmrm_exp_end_year'     => (!empty($_POST['hmrm_exp_end_year'][$i]) && (sanitize_text_field($_POST['hmrm_exp_end_year'][$i])!='')) ? sanitize_text_field($_POST['hmrm_exp_end_year'][$i]) : '',
-        'hmrm_exp_role'         => (!empty($_POST['hmrm_exp_role'][$i]) && (wp_kses_post($_POST['hmrm_exp_role'][$i])!='')) ? wp_kses_post($_POST['hmrm_exp_role'][$i]) : ''
-        );
-     }
-     $hmrmExpShowMessage = update_option('hmrm_exp_settings', $hmrmExpArr);
+$hmrmExpArr = !empty(get_option('hmrm_exp_settings')) ? get_option('hmrm_exp_settings') : array();
+$hmrmExps = !empty(get_option('hmrm_exp_settings')) ? (intval(array_key_last(get_option('hmrm_exp_settings'))) + 1) : 0;
+
+if (isset($_POST['hmrm_exp_delete_btn'])) {
+    unset($hmrmExpArr[$_POST['hmrm_delete_key']]);
+    update_option('hmrm_exp_settings', $hmrmExpArr);
 }
-$hmrmExpSettings = get_option('hmrm_exp_settings');
-?>
-<div id="hmrm-wrap-all" class="wrap">
-     <div class="settings-banner">
-          <h2><?php esc_html_e('Experience Settings', HMRM_TXT_DOMAIN); ?></h2>
-     </div>
-     <?php if($hmrmExpShowMessage): $this->hmrm_display_notification('success', 'Your information updated successfully.'); endif; ?>
 
-     <form name="wpre-table" role="form" class="form-horizontal" method="post" action="" id="hmrm-settings-form">
-          <input type="hidden" name="hmrm_update_exp_setting" value="<?php printf('%s', wp_create_nonce('hmrm-update-exp-setting')); ?>" />
-          <table class="hmrm-form-table">
-          <tr>
-               <td colspan="2">
-                    <table class="hmrm-experience-info-table table" width="100%" cellpadding="0" cellspacing="0">
-                         <thead>
-                              <tr>
-                                   <th>#</th>
-                                   <th>Company</th>
-                                   <th>Title</th>
-                                   <th>Start From</th>
-                                   <th>End To</th>
-                                   <th>Role</th>
-                                   <th><input type="button" class="button button-primary hmrm-exp-add" value="Add New"></th>
-                              <tr>
-                         </thead>
-                         <tbody class="hmrm-exp-add-row-tbody">
-                              <?php
-                              $hmrm_months = $this->hmrm_months();
-                              $i=0;
-                              if($hmrmExpSettings) {
-                                   for($i=0; $i<count($hmrmExpSettings); $i++){
-                                        ?>
-                                        <tr class="hmrm-exp-add-row-tr">
-                                            <td style="vertical-align: top;"><?php printf('%d', $i+1); ?></td>
-                                            <td class="hmrm_exp_company" style="vertical-align: top;">
-                                                <input type="text" name="hmrm_exp_company[]" class="hmrm_exp_company regular-text" placeholder="Ex: Microsoft" value="<?php echo esc_attr($hmrmExpSettings[$i]['hmrm_exp_company']); ?>">
-                                            </td>
-                                            <td class="hmrm_exp_job_title" style="vertical-align: top;">
-                                                <input type="text" name="hmrm_exp_job_title[]" class="hmrm_exp_job_title regular-text" placeholder="Ex: Senior Software Engineer" value="<?php echo esc_attr($hmrmExpSettings[$i]['hmrm_exp_job_title']); ?>">
-                                            </td>
-                                            <td class="hmrm_exp_start_month" style="vertical-align: top;">
-                                                <select name="hmrm_exp_start_month[]" class="hmrm_exp_start_month">
-                                                    <option value="">Month</option>
-                                                    <?php
-                                                    for($hmrmExpSMonthC=0; $hmrmExpSMonthC < count($hmrm_months); $hmrmExpSMonthC++): ?>
-                                                        <option value="<?php echo esc_attr($hmrm_months[$hmrmExpSMonthC]); ?>" <?php if($hmrm_months[$hmrmExpSMonthC] == $hmrmExpSettings[$i]['hmrm_exp_start_month']) echo 'selected'; ?> ><?php echo esc_html($hmrm_months[$hmrmExpSMonthC]); ?></option>
-                                                        <?php
-                                                    endfor; ?>
-                                                </select>
-                                                <select name="hmrm_exp_start_year[]" class="hmrm_exp_start_year">
-                                                    <option value="">Year</option>
-                                                    <?php for($sy=date('Y'); $sy>=1900; $sy--): ?>
-                                                    <option value="<?php printf('%d', $sy); ?>" <?php if($sy == $hmrmExpSettings[$i]['hmrm_exp_start_year']) echo 'selected'; ?> ><?php printf('%d', $sy); ?></option>
-                                                    <?php endfor; ?>
-                                                </select>
-                                            </td>
-                                            <td class="hmrm_exp_end_month" style="vertical-align: top;">
-                                                <select name="hmrm_exp_end_month[]" class="hmrm_exp_end_month">
-                                                    <option value="">Month</option>
-                                                    <?php
-                                                    for($hmrmExpEMonthC=0; $hmrmExpEMonthC < count($hmrm_months); $hmrmExpEMonthC++): ?>
-                                                        <option value="<?php echo esc_attr($hmrm_months[$hmrmExpEMonthC]); ?>" <?php if($hmrm_months[$hmrmExpEMonthC] == $hmrmExpSettings[$i]['hmrm_exp_end_month']) echo 'selected'; ?> ><?php echo esc_html($hmrm_months[$hmrmExpEMonthC]); ?></option>
-                                                        <?php
-                                                    endfor; ?>
-                                                </select>
-                                                <select name="hmrm_exp_end_year[]" class="hmrm_exp_end_year">
-                                                    <option value="">Year</option>
-                                                    <?php for($ey=(date('Y')+7); $ey>=1900; $ey--): ?>
-                                                    <option value="<?php printf('%d', $ey); ?>" <?php if($ey == $hmrmExpSettings[$i]['hmrm_exp_end_year']) echo 'selected'; ?> ><?php printf('%d', $ey); ?></option>
-                                                    <?php endfor; ?>
-                                                </select>
-                                            </td>
-                                            <td class="hmrm_exp_role" style="vertical-align: top;">
-                                                <?php
-                                                    $hmrm_exp_role = wp_kses_post($hmrmExpSettings[$i]['hmrm_exp_role']);
-                                                ?>
-                                                <textarea name="hmrm_exp_role[]" class="hmrm_exp_role" cols="50" rows="5"><?php echo $hmrm_exp_role; ?></textarea>
-                                                <br>
-                                                <code>Accepts HTML Tag</code>
-                                            </td>
-                                            <td style="vertical-align: top;"><a href="#" class="dashicons dashicons-no hmrm-exp-delete">&nbsp;</a></td>
-                                        <tr>
-                                        <?php
-                                   }
-                              } else{ ?>
-                                        <tr class="hmrm-exp-add-row-tr">
-                                            <td style="vertical-align: top;"><?php printf('%d', $i+1); ?></td>
-                                            <td class="hmrm_edu_school" style="vertical-align: top;">
-                                                <input type="text" name="hmrm_exp_company[]" class="hmrm_exp_company regular-text" placeholder="Ex: Microsoft">
-                                            </td>
-                                            <td class="hmrm_edu_degree" style="vertical-align: top;">
-                                                <input type="text" name="hmrm_exp_job_title[]" class="hmrm_exp_job_title regular-text" placeholder="Ex: Senior Software Engineer">
-                                            </td>
-                                            <td class="hmrm_exp_start_month" style="vertical-align: top;">
-                                                <select name="hmrm_exp_start_month[]" class="hmrm_exp_start_month">
-                                                    <option value="">Month</option>
-                                                    <?php
-                                                    for($hmrmExpSMonthC=0; $hmrmExpSMonthC < count($hmrm_months); $hmrmExpSMonthC++): ?>
-                                                        <option value="<?php echo esc_attr($hmrm_months[$hmrmExpSMonthC]); ?>"><?php echo esc_html($hmrm_months[$hmrmExpSMonthC]); ?></option>
-                                                        <?php
-                                                    endfor; ?>
-                                                </select>
-                                                <select name="hmrm_edu_start_year[]" class="hmrm_edu_start_year">
-                                                    <option value="">Year</option>
-                                                    <?php for($sy=date('Y'); $sy>=1900; $sy--): ?>
-                                                    <option value="<?php printf('%d', $sy); ?>"><?php printf('%d', $sy); ?></option>
-                                                    <?php endfor; ?>
-                                                </select>
-                                            </td>
-                                            <td class="hmrm_exp_end_month" style="vertical-align: top;">
-                                                <select name="hmrm_exp_end_month[]" class="hmrm_exp_end_month">
-                                                    <option value="">Month</option>
-                                                    <?php
-                                                    for($hmrmExpEMonthC=0; $hmrmExpEMonthC < count($hmrm_months); $hmrmExpEMonthC++): ?>
-                                                        <option value="<?php echo esc_attr($hmrm_months[$hmrmExpEMonthC]); ?>"><?php echo esc_html($hmrm_months[$hmrmExpEMonthC]); ?></option>
-                                                        <?php
-                                                    endfor; ?>
-                                                </select>
-                                                <select name="hmrm_edu_end_year[]" class="hmrm_edu_end_year">
-                                                    <option value="">Year</option>
-                                                    <?php for($ey=(date('Y')+7); $ey>=1900; $ey--): ?>
-                                                    <option value="<?php printf('%d', $ey); ?>"><?php printf('%d', $ey); ?></option>
-                                                    <?php endfor; ?>
-                                                </select>
-                                            </td>
-                                            <td class="hmrm_exp_role" style="vertical-align: top;">
-                                                <textarea name="hmrm_exp_role[]" class="hmrm_exp_role" cols="50" rows="5"></textarea>
-                                                <br>
-                                                <code>Accepts HTML Tag</code>
-                                            </td>
-                                            <td style="vertical-align: top;"></td>
-                                        <tr>
-                              <?php } ?>
-                         </tbody>
-                    </table>
-               </td>
-          </tr>
-          </table>
-          <p class="submit"><button id="updateSettings" name="updateExpSettings" class="button button-primary"><?php esc_attr_e('Update Settings', HMRM_TXT_DOMAIN); ?></button></p>
-     </form>
+if (isset($_POST['createExpSettings'])) {
+    if (!isset($_POST['hmrm_create_exp_setting'])) die("Something wrong!");
+    if (!wp_verify_nonce($_POST['hmrm_create_exp_setting'], 'hmrm-create-exp-setting')) die("Something wrong!");
+
+    $hmrmExpArr[$hmrmExps] = array(
+        'hmrm_exp_company'      => (!empty($_POST['hmrm_exp_company']) && (sanitize_text_field($_POST['hmrm_exp_company']) != '')) ? sanitize_text_field($_POST['hmrm_exp_company']) : '',
+        'hmrm_exp_job_title'    => (!empty($_POST['hmrm_exp_job_title']) && (sanitize_text_field($_POST['hmrm_exp_job_title']) != '')) ? sanitize_text_field($_POST['hmrm_exp_job_title']) : '',
+        'hmrm_exp_start_month'  => (!empty($_POST['hmrm_exp_started_from']) && (sanitize_text_field($_POST['hmrm_exp_started_from']) != '')) ? sanitize_text_field(date('m', strtotime($_POST['hmrm_exp_started_from']))) : '',
+        'hmrm_exp_start_year'   => (!empty($_POST['hmrm_exp_started_from']) && (sanitize_text_field($_POST['hmrm_exp_started_from']) != '')) ? sanitize_text_field(date('Y', strtotime($_POST['hmrm_exp_started_from']))) : '',
+        'hmrm_exp_end_month'    => (!empty($_POST['hmrm_exp_ended_to']) && (sanitize_text_field($_POST['hmrm_exp_ended_to']) != '')) ? sanitize_text_field(date('m', strtotime($_POST['hmrm_exp_ended_to']))) : '',
+        'hmrm_exp_end_year'     => (!empty($_POST['hmrm_exp_ended_to']) && (sanitize_text_field($_POST['hmrm_exp_ended_to']) != '')) ? sanitize_text_field(date('Y', strtotime($_POST['hmrm_exp_ended_to']))) : '',
+        'hmrm_exp_role'         => (!empty($_POST['hmrm_exp_role']) && (wp_kses_post($_POST['hmrm_exp_role']) != '')) ? wp_kses_post($_POST['hmrm_exp_role']) : ''
+    );
+    $hmrmExpShowMessage = update_option('hmrm_exp_settings', $hmrmExpArr);
+}
+
+if (isset($_POST['updateExpSettings'])) {
+    if (!isset($_POST['hmrm_update_exp_setting'])) die("Something wrong!");
+    if (!wp_verify_nonce($_POST['hmrm_update_exp_setting'], 'hmrm-update-exp-setting')) die("Something wrong!");
+
+    $hmrmExpArr[$_POST['hmrm_exp_id']] = array(
+        'hmrm_exp_company'      => (!empty($_POST['hmrm_exp_company']) && (sanitize_text_field($_POST['hmrm_exp_company']) != '')) ? sanitize_text_field($_POST['hmrm_exp_company']) : '',
+        'hmrm_exp_job_title'    => (!empty($_POST['hmrm_exp_job_title']) && (sanitize_text_field($_POST['hmrm_exp_job_title']) != '')) ? sanitize_text_field($_POST['hmrm_exp_job_title']) : '',
+        'hmrm_exp_start_month'  => (!empty($_POST['hmrm_exp_started_from']) && (sanitize_text_field($_POST['hmrm_exp_started_from']) != '')) ? sanitize_text_field(date('m', strtotime($_POST['hmrm_exp_started_from']))) : '',
+        'hmrm_exp_start_year'   => (!empty($_POST['hmrm_exp_started_from']) && (sanitize_text_field($_POST['hmrm_exp_started_from']) != '')) ? sanitize_text_field(date('Y', strtotime($_POST['hmrm_exp_started_from']))) : '',
+        'hmrm_exp_end_month'    => (!empty($_POST['hmrm_exp_ended_to']) && (sanitize_text_field($_POST['hmrm_exp_ended_to']) != '')) ? sanitize_text_field(date('m', strtotime($_POST['hmrm_exp_ended_to']))) : '',
+        'hmrm_exp_end_year'     => (!empty($_POST['hmrm_exp_ended_to']) && (sanitize_text_field($_POST['hmrm_exp_ended_to']) != '')) ? sanitize_text_field(date('Y', strtotime($_POST['hmrm_exp_ended_to']))) : '',
+        'hmrm_exp_role'         => (!empty($_POST['hmrm_exp_role']) && (wp_kses_post($_POST['hmrm_exp_role']) != '')) ? wp_kses_post($_POST['hmrm_exp_role']) : ''
+    );
+    $hmrmExpShowMessage = update_option('hmrm_exp_settings', $hmrmExpArr);
+}
+
+$hmrmExpSettings = get_option('hmrm_exp_settings');
+
+//echo '<pre>';
+//print_r($hmrmExpSettings);
+?>
+<div id="hmcs-wrap-all" class="wrap hmcs-settings-wrap">
+    <div class="hmcs-header-bar">
+        <div class="hmcs-header-left">
+            <div class="hmcs-header-bar-logo">
+                <img src="<?php echo esc_attr(HMRM_ASSETS . 'img/exp.png'); ?>" alt="hm-resume-manager">
+            </div>
+            <h3 class="hmcs-header-title"><?php esc_html_e('Experience History', HMRM_TXT_DOMAIN);
+                                            ?></h3>
+        </div>
+        <div class="hmcs-header-right"></div>
+    </div>
+    <?php
+    $hmrm_months = $this->hmrm_months();
+    $hmrmExpC = 1;
+    if ($hmrmExpSettings) {
+        foreach ($hmrmExpSettings as $key => $value) {
+    ?>
+    <table style="width:100%" class="hmcs-table">
+        <tbody>
+            <tr>
+                <td width="20%" class="hmcs-table-td-title-left">
+                    <?php printf('%s: %d', 'Experience', $hmrmExpC++); ?></td>
+                <td width="80%" class="hmcs-table-td-title-right">
+                    <a href="javascript:;" data-src="#form-employment-history-edit" class="fancybox hmcs-btn small edit"
+                        data-fancybox onclick="javascript: hmrmLoadExperience(<?php printf('%d', $key); ?>);">Edit</a>
+                    <?php
+                            $this->hmrm_load_delete_button($key);
+                            ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Company:</td>
+                <td><?php echo esc_attr($value['hmrm_exp_company']); ?></td>
+            </tr>
+            <tr>
+                <td>Job Title:</td>
+                <td><?php echo esc_attr($value['hmrm_exp_job_title']); ?></td>
+            </tr>
+            <tr>
+                <td>Started From:</td>
+                <td>
+                    <?php
+                            $hmrmExpStartMonth = (intval($value['hmrm_exp_start_month']) - 1);
+                            echo esc_attr($hmrm_months[$hmrmExpStartMonth]) . ', ' . esc_attr($value['hmrm_exp_start_year']); ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Ended To:</td>
+                <td>
+                    <?php
+                            $hmrmExpEndMonth = (intval($value['hmrm_exp_end_month']) - 1);
+                            echo esc_attr($hmrm_months[$hmrmExpEndMonth]) . ', ' . esc_attr($value['hmrm_exp_end_year']); ?>
+                </td>
+            </tr>
+            <tr>
+                <td>Role:</td>
+                <td><?php echo wp_kses_post($value['hmrm_exp_role']); ?></td>
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <?php
+        }
+    } ?>
+    <div class="hmcs-form-group">
+        <a rel="group" data-src="#form-employment-history" href="javascript:;" class="fancybox hmcs-btn"
+            data-fancybox><i class='fa fa-plus-circle'></i> <?php echo esc_html('Add Experience'); ?></a>
+    </div>
 </div>
+<?php require_once plugin_dir_path(__FILE__) . 'popup/employment-history.php'; ?>
+<?php require_once plugin_dir_path(__FILE__) . 'popup/employment-history-edit.php'; ?>

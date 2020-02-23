@@ -13,6 +13,10 @@
         background: #FFFAF0;
     }
     
+    .hm_cv_experience hr {
+        padding-top: 10px;
+    }
+    
     .hmrm-header,
     .hmrm-level-two {
         border: 0px solid #000;
@@ -154,10 +158,12 @@
         padding: 30px 30px 0;
     }
     
+    .hmrm-education-item-wrapper {
+        display: grid;
+        grid-gap: 20px;
+    }
+    
     div.education_block {
-        float: left;
-        width: 31%;
-        margin-right: 2%;
         border: 0px solid #CC0000;
         text-align: center;
         min-height: 150px;
@@ -181,7 +187,6 @@
         letter-spacing: 1px;
         font-weight: 600;
         color: #333;
-        text-transform: uppercase;
         border-bottom: 3px solid #333;
     }
     
@@ -189,18 +194,17 @@
         font-size: 20px;
         font-weight: 600;
         color: #FF6633;
-        text-transform: uppercase;
     }
     
     div.hm_cv_experience_period {
         font-size: 16px;
         font-weight: 600;
         color: #666;
-        text-transform: uppercase;
     }
     
     .hm_cv_experience_role {
         margin: 0;
+        margin-bottom: 10px;
         padding: 0;
         line-height: 24px;
     }
@@ -298,7 +302,22 @@
         background: #FF6633;
     }
     
+    @media only screen and (min-width: 1025px) {
+        .hmrm-education-item-wrapper {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+    
+    @media only screen and (max-width: 1024px) and (min-width: 551px) {
+        .hmrm-education-item-wrapper {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    
     @media only screen and (max-width:550px) {
+        .hmrm-education-item-wrapper {
+            grid-template-columns: repeat(1, 1fr);
+        }
         .hmrm-header,
         .hmrm-level-two {
             display: block;

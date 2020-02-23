@@ -1,0 +1,203 @@
+.hmcs-settings-wrap {
+    padding: 15px;
+}
+
+.hmcs-header-bar {
+    height: auto;
+    padding: 10px;
+    background: #fff;
+    -webkit-display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border-radius: 5px;
+    -webkit-box-shadow: 0px 8px 21px 0px rgba(36, 39, 50, 0.08);
+    box-shadow: 0px 8px 21px 0px rgba(36, 39, 50, 0.08);
+    margin-bottom: 20px;
+}
+
+.hmcs-header-bar .hmcs-header-right {
+    text-align: right;
+}
+
+.hmcs-header-bar .hmcs-header-left,
+.hmcs-header-bar .hmcs-header-right {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+
+.hmcs-header-bar .hmcs-header-left {
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+
+.hmcs-header-bar .hmcs-header-bar-logo {
+    width: 60px;
+    padding: 5px 10px;
+    margin-right: 5px;
+}
+
+.hmcs-header-bar .hmcs-header-bar-logo img {
+    width: 100%;
+    border: none;
+}
+
+.hmcs-header-bar .hmcs-header-title {
+    font-size: 22px;
+    color: #3f3f3f;
+    font-weight: 500;
+    margin: 0px;
+    line-height: 2.5;
+}
+
+.hmcs-btn {
+    border-radius: 3px;
+    background-image: -moz-linear-gradient(-169deg, rgb(177, 56, 122) 0%, rgb(192, 27, 77) 100%);
+    background-image: -webkit-linear-gradient(-169deg, rgb(177, 56, 122) 0%, rgb(192, 27, 77) 100%);
+    background-image: -ms-linear-gradient(-169deg, rgb(177, 56, 122) 0%, rgb(192, 27, 77) 100%);
+    width: 160px;
+    height: 50px;
+    line-height: 50px;
+    transition: all 300ms ease-in-out;
+    color: #fff;
+    border: none;
+    box-shadow: none;
+    font-size: 14px;
+    text-transform: uppercase;
+    text-shadow: none;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.hmcs-btn.small {
+    height: 30px;
+    line-height: 30px;
+    width: 60px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.hmcs-btn.small.edit {
+    background-image: -moz-linear-gradient(-169deg, rgb(56, 74, 177) 0%, rgb(27, 57, 192) 100%);
+    background-image: -webkit-linear-gradient(-169deg, rgb(56, 74, 177) 0%, rgb(27, 57, 192) 100%);
+    background-image: -ms-linear-gradient(-169deg, rgb(56, 74, 177) 0%, rgb(27, 57, 192) 100%);
+}
+
+.hmcs-delete-form {
+    display: inline-block;
+}
+
+.hmcs-form-group {
+    border-bottom: 1px solid #DDD;
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    min-height: 10px;
+}
+
+
+/* Form Styles Started */
+
+form.hmcs-form input[type=text],
+form.hmcs-form select,
+form.hmcs-form textarea {
+    width: 100%;
+    padding: 5px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+form.hmcs-form input[type=submit],
+form.hmcs-form button {
+    width: 100%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form.hmcs-form input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+form.hmcs-form label {
+    display: block;
+}
+
+form.hmcs-form {
+    border-radius: 5px;
+    background-color: #F8FAFB;
+    padding: 20px;
+}
+
+
+/* Form Styles Ended */
+
+table.hmcs-table {
+    border: none;
+    background: #FFFFFF;
+}
+
+table.hmcs-table td {
+    padding: 10px;
+    margin: 0;
+    border: 0px;
+    border-bottom: 1px solid #F8FAFB;
+}
+
+table.hmcs-table td.hmcs-table-td-title-left,
+table.hmcs-table td.hmcs-table-td-title-right {
+    background: #F8FAFB;
+}
+
+table.hmcs-table td.hmcs-table-td-title-left {
+    color: #252525;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+table.hmcs-table td.hmcs-table-td-title-right {
+    text-align: right;
+}
+
+
+/* button */
+
+.hmcs-btn-submit,
+.hmcs-btn-reset {
+    display: inline;
+}
+
+.hmcs-btn-reset {
+    background-color: #3b85da !important;
+    color: white !important;
+    padding: 9px 20px !important;
+    margin: 8px 0 !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+}
+
+.hmcs-btn-submit.half {
+    width: 50%;
+}
+
+.hmcs-btn-reset.half {
+    width: 49% !important;
+}
