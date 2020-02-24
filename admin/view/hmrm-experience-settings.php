@@ -3,7 +3,10 @@ $hmrmExpShowMessage = false;
 //delete_option('hmrm_exp_settings');
 
 $hmrmExpArr = !empty(get_option('hmrm_exp_settings')) ? get_option('hmrm_exp_settings') : array();
-$hmrmExps = !empty(get_option('hmrm_exp_settings')) ? (intval(array_key_last(get_option('hmrm_exp_settings'))) + 1) : 0;
+end($hmrmExpArr);
+$hmrmExpArrLastKey = key($hmrmExpArr);
+$hmrmExps = ($hmrmExpArrLastKey > -1) ? (intval($hmrmExpArrLastKey) + 1) : 0;
+//echo $hmrmExps = !empty(get_option('hmrm_exp_settings')) ? (intval(end(get_option('hmrm_exp_settings'))) + 1) : 0;
 
 if (isset($_POST['hmrm_exp_delete_btn'])) {
     unset($hmrmExpArr[$_POST['hmrm_delete_key']]);
@@ -118,3 +121,27 @@ $hmrmExpSettings = get_option('hmrm_exp_settings');
 </div>
 <?php require_once plugin_dir_path(__FILE__) . 'popup/employment-history.php'; ?>
 <?php require_once plugin_dir_path(__FILE__) . 'popup/employment-history-edit.php'; ?>
+<script type="text/javascript">
+function hmrmLoadExperience(id) {
+    //alert(hmrm_admin_ajax_object.ajaxurl);
+    jQuery.ajax({
+        url: hmrm_admin_ajax_object.ajaxurl,
+        type: "POST",
+        data: {
+            action: 'hmrm_load_experience',
+            exp: id
+        },
+        dataType: 'json',
+        success: function(response) {
+            jQuery('#hmrm-exp-id-edit').val(id);
+            jQuery('#hmrm-exp-company-edit').val(response.hmrm_exp_company);
+            jQuery('#hmrm-exp-job-title-edit').val(response.hmrm_exp_job_title);
+            jQuery('#hmrm-exp-started-from-exp').val(response.hmrm_exp_start_year + '-' + response
+                .hmrm_exp_start_month + '-01');
+            jQuery('#hmrm-exp-ended-to-exp').val(response.hmrm_exp_end_year + '-' + response
+                .hmrm_exp_end_month + '-01');
+            jQuery('#hmrm-exp-role-edit').val(response.hmrm_exp_role);
+        }
+    });
+}
+</script>

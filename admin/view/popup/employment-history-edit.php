@@ -33,27 +33,3 @@
 
     </form>
 </div>
-
-<script type="text/javascript">
-function hmrmLoadExperience(id) {
-    $.ajax({
-        url: hmrm_admin_ajax_object.ajaxurl,
-        type: "POST",
-        data: {
-            action: 'hmrm_load_experience',
-            exp: id
-        },
-        dataType: 'json',
-        success: function(response) {
-            $('#hmrm-exp-id-edit').val(id);
-            $('#hmrm-exp-company-edit').val(response.hmrm_exp_company);
-            $('#hmrm-exp-job-title-edit').val(response.hmrm_exp_job_title);
-            $('#hmrm-exp-started-from-exp').val(response.hmrm_exp_start_year + '-' + response
-                .hmrm_exp_start_month + '-01');
-            $('#hmrm-exp-ended-to-exp').val(response.hmrm_exp_end_year + '-' + response
-                .hmrm_exp_end_month + '-01');
-            $('#hmrm-exp-role-edit').val(response.hmrm_exp_role);
-        }
-    });
-}
-</script>
