@@ -81,7 +81,7 @@ $hmrmSkillsSettings = get_option('hmrm_skills_settings');
                                 }
                             } else { ?>
                             <tr class="hmrm-add-skill-row">
-                                <td style="vertical-align: middle;"><?php printf('%d', $i + 1); ?></td>
+                                <td style="vertical-align: middle;">1</td>
                                 <td class="hmrm_skill_name" style="vertical-align: middle;">
                                     <input type="text" name="hmrm_skill_name[]" class="hmrm_skill_name"
                                         placeholder="PHP">
@@ -92,7 +92,7 @@ $hmrmSkillsSettings = get_option('hmrm_skills_settings');
                                 </td>
                                 <td class="hmrm_skill_bg_color" style="vertical-align: middle;">
                                     <input class="hmrm-wp-color" type="text" name="hmrm_skill_bg_color[]"
-                                        id="hmrm_skill_bg_color_<?php printf('%d', $i + 1); ?>">
+                                        id="hmrm_skill_bg_color_0">
                                     <div id="colorpicker"></div>
                                 </td>
                                 <td style="vertical-align: middle;"></td>

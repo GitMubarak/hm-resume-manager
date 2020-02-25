@@ -177,21 +177,23 @@ div.hm_cv_top {
         <?php
         $hmrmExpSettings = get_option('hmrm_exp_settings');
         if ($hmrmExpSettings) {
-            for ($hmrmExp = 0; $hmrmExp < count($hmrmExpSettings); $hmrmExp++) {
+            $hmrmExp = 0;
+            foreach ($hmrmExpSettings as $hmrmExpSetting) {
+                $hmrmExp++;
         ?>
-        <div class="hm_cv_experience_cmp"><?php printf('%d', $hmrmExp + 1); ?>.
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_company']); ?></div>
+        <div class="hm_cv_experience_cmp"><?php printf('%d', $hmrmExp); ?>.
+            <?php echo esc_html($hmrmExpSetting['hmrm_exp_company']); ?></div>
         <div class="hm_cv_experience_position">
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_job_title']); ?>
+            <?php echo esc_html($hmrmExpSetting['hmrm_exp_job_title']); ?>
         </div>
         <div class="hm_cv_experience_period">
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_start_month']); ?>,
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_start_year']); ?> -
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_end_month']); ?>,
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_end_year']); ?>
+            <?php echo esc_html($hmrmExpSetting['hmrm_exp_start_month']); ?>,
+            <?php echo esc_html($hmrmExpSetting['hmrm_exp_start_year']); ?> -
+            <?php echo esc_html($hmrmExpSetting['hmrm_exp_end_month']); ?>,
+            <?php echo esc_html($hmrmExpSetting['hmrm_exp_end_year']); ?>
         </div>
         <div class="hm_cv_experience_role">
-            <?php echo wp_kses_post($hmrmExpSettings[$hmrmExp]['hmrm_exp_role']); ?>
+            <?php echo wp_kses_post($hmrmExpSetting['hmrm_exp_role']); ?>
         </div>
         <hr>
         <?php
