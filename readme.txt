@@ -23,13 +23,19 @@ It looks great, is fast and easy to manage.
 * Easy to install
 * Fully integrated in WordPress
 * Easy to use
-* Contact Information
-* Education Information
-* Experience history
-* Skills and Career summary
+* Display Contact Information
+* Display Education Information
+* Display Experience History
+* Display Skills and Career summary
 * Photo Upload option
+* Option to change resume background color
+* Option to change resume border color
+* Option to change skill label name
+* Option to change education label name
+* Option to change experience label name
 * Shortcoded
 * Fully Responsive
+* Display Skills with progressbar (New)
 
 
 ➡️ Benefits you’ll get by using this plugin:**
@@ -60,14 +66,13 @@ If you find this plugin helpful, feel free to give us your valuable review/ratin
 👉 [WP Top News](https://wordpress.org/plugins/wp-top-news/) Top News, Breaking News, Headlines Plugin
 👉 [Tiny Bar](https://wordpress.org/plugins/tiny-bar/) Display a bar at Top or Bottom
 👉 [WP Books Gallery](https://wordpress.org/plugins/wp-books-gallery/) WP Books Gallery
-👉 [HM Product Catalog](https://wordpress.org/plugins/hm-product-catalog/) HM Product Catalog
+👉 [HM Product Catalog](https://wordpress.org/plugins/hm-product-catalog/) A product catalog plugin
 👉 [WordPress Stripe Donation](https://wordpress.org/plugins/wp-stripe-donation/) A donation plugin using Stripe payment
 👉 [HM Wc Product Advertiser](https://wordpress.org/plugins/hm-wc-product-advertiser/) Wocommerce Product Advertiser
 👉 [HM – Cool Author Box](https://wordpress.org/plugins/hm-cool-author-box-widget/) Author Box plugin
 👉 [WP Scroll To Post](https://wordpress.org/plugins/wp-scroll-to-post/) Display random post(Single) at the bottom right corner
 👉 [HM Recent Posts Widget](https://wordpress.org/plugins/hm-recent-posts-widget/) Ticker Post plugin
 👉 [WP Alert Bars](https://wordpress.org/plugins/wp-alert-bars/) Notification/Alert box Plugin in Post/Page
-👉 [Classic Facebook LikeBox](https://wordpress.org/plugins/hm-simple-facebook-page/) Facebook LikeBox Plugin
 
 
 == Installation ==
@@ -108,6 +113,23 @@ Please go to HM Resume Manager menu, and setup your resume information.
 
 
 == Changelog ==
+
+= 1.0.4 =
+* Skills settings page added
+* Display Skills with progressbar (New)
+* Bug fixes
+
+
+= 1.0.3 =
+* Admin panel design improved
+* Experience settings page re-structured
+* Styles settings page added
+* Add option to change resume background color
+* Add option to change resume border color
+* Add option to change skill label name
+* Add option to change education label name
+* Add option to change experience label name
+
 
 = 1.0.2 =
 * Facebook link hardcoded issue fixed

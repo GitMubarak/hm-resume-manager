@@ -12,7 +12,7 @@ if (is_array(stripslashes_deep(unserialize(get_option('hmrm_general_settings')))
     $hmrmContactNo             = !empty($hmrmGeneralSettings['hmrm_contact_number']) ? $hmrmGeneralSettings['hmrm_contact_number'] : '';
     $hmrmTwitter             = !empty($hmrmGeneralSettings['hmrm_twitter']) ? $hmrmGeneralSettings['hmrm_twitter'] : '';
     $hmrmFacebook             = !empty($hmrmGeneralSettings['hmrm_facebook']) ? $hmrmGeneralSettings['hmrm_facebook'] : '';
-    $hmrmSkills                = !empty($hmrmGeneralSettings['hmrm_skills']) ? wp_kses_post($hmrmGeneralSettings['hmrm_skills']) : '';
+    //$hmrmSkills                = !empty($hmrmGeneralSettings['hmrm_skills']) ? wp_kses_post($hmrmGeneralSettings['hmrm_skills']) : '';
 } else {
     $hmrmPhotograph         = "";
     $hmrmAuthorName         = $hmrmCurrentUser->display_name;
@@ -24,7 +24,7 @@ if (is_array(stripslashes_deep(unserialize(get_option('hmrm_general_settings')))
     $hmrmContactNo             = '';
     $hmrmTwitter            = '';
     $hmrmFacebook             = '';
-    $hmrmSkills                = '';
+    //$hmrmSkills                = '';
 }
 
 if (is_array(stripslashes_deep(unserialize(get_option('hmrm_style_settings'))))) {

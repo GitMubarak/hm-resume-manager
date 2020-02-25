@@ -15,7 +15,7 @@ if (isset($_POST['updateGeneralSettings'])) {
         'hmrm_photograph'           => (sanitize_file_name($_POST['hmrm_photograph']) != '') ? sanitize_file_name($_POST['hmrm_photograph']) : '',
         'hmrm_twitter'              => (!empty($_POST['hmrm_twitter']) && (sanitize_text_field($_POST['hmrm_twitter']) != '')) ? sanitize_text_field($_POST['hmrm_twitter']) : '',
         'hmrm_facebook'             => (!empty($_POST['hmrm_facebook']) && (sanitize_text_field($_POST['hmrm_facebook']) != '')) ? sanitize_text_field($_POST['hmrm_facebook']) : '',
-        'hmrm_skills'               => !empty($_POST['hmrm_skills']) ? wp_kses_post($_POST['hmrm_skills']) : '',
+        //'hmrm_skills'               => !empty($_POST['hmrm_skills']) ? wp_kses_post($_POST['hmrm_skills']) : '',
     );
     $hmrmShowGeneralMessage = update_option('hmrm_general_settings', serialize($hmrmGeneralSettingsInfo));
 }
@@ -131,21 +131,6 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                         $hmrmBiographicalInfoContent    = wp_kses_post($hmrmGeneralSettings['hmrm_biographical_info']);
                         $hmrmBiographicalInfoId         = 'hmrm_biographical_info';
                         wp_editor($hmrmBiographicalInfoContent, $hmrmBiographicalInfoId, $hmrmBiographicalInfoSettings);
-                        ?>
-                    </div>
-                </td>
-            </tr>
-            <tr class="hmrm_skills">
-                <th scope="row">
-                    <label for="hmrm_skills"><?php esc_html_e('Skills:', HMRM_TXT_DOMAIN); ?></label>
-                </th>
-                <td>
-                    <div style="width:700px;">
-                        <?php
-                        $hmrmSkillsSettings = array('media_buttons' => false, 'textarea_rows' => '10');
-                        $hmrmSkillsContent  = wp_kses_post($hmrmGeneralSettings['hmrm_skills']);
-                        $hmrmSkillsId       = 'hmrm_skills';
-                        wp_editor($hmrmSkillsContent, $hmrmSkillsId, $hmrmSkillsSettings);
                         ?>
                     </div>
                 </td>
