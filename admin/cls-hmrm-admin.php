@@ -59,6 +59,15 @@ class Hmrm_Admin
 
 		add_submenu_page(
 			'hmrm-admin-panel',
+			esc_html__('Skills Settings', HMRM_TXT_DOMAIN),
+			esc_html__('Skills Settings', HMRM_TXT_DOMAIN),
+			'manage_options',
+			'hmrm-skills-settings',
+			array($this, 'hmrm_skills_settings')
+		);
+
+		add_submenu_page(
+			'hmrm-admin-panel',
 			esc_html__('Style Settings', HMRM_TXT_DOMAIN),
 			esc_html__('Style Settings', HMRM_TXT_DOMAIN),
 			'manage_options',
@@ -127,7 +136,12 @@ class Hmrm_Admin
 			$this->hmrm_version,
 			TRUE
 		);
-		wp_localize_script('hmrm-admin-script', 'hmrm_admin_ajax_object', array('ajaxurl' => admin_url('admin-ajax.php')));
+
+		$hmrmAdminArray = array(
+			'ajaxurl' => admin_url('admin-ajax.php'),
+		);
+
+		wp_localize_script('hmrm-admin-script', 'hmrm_admin_ajax_object', $hmrmAdminArray);
 	}
 
 	/**
@@ -146,6 +160,11 @@ class Hmrm_Admin
 	function hmrm_experience_info_settings()
 	{
 		require_once HMRM_PATH . 'admin/view/' . $this->hmrm_assets_prefix . 'experience-settings.php';
+	}
+
+	function hmrm_skills_settings()
+	{
+		require_once HMRM_PATH . 'admin/view/' . $this->hmrm_assets_prefix . 'skills-settings.php';
 	}
 
 	function hmrm_style_settings()

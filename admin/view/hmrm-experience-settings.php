@@ -1,12 +1,10 @@
 <?php
 $hmrmExpShowMessage = false;
-//delete_option('hmrm_exp_settings');
 
 $hmrmExpArr = !empty(get_option('hmrm_exp_settings')) ? get_option('hmrm_exp_settings') : array();
 end($hmrmExpArr);
 $hmrmExpArrLastKey = key($hmrmExpArr);
 $hmrmExps = ($hmrmExpArrLastKey > -1) ? (intval($hmrmExpArrLastKey) + 1) : 0;
-//echo $hmrmExps = !empty(get_option('hmrm_exp_settings')) ? (intval(end(get_option('hmrm_exp_settings'))) + 1) : 0;
 
 if (isset($_POST['hmrm_exp_delete_btn'])) {
     unset($hmrmExpArr[$_POST['hmrm_delete_key']]);
@@ -46,9 +44,6 @@ if (isset($_POST['updateExpSettings'])) {
 }
 
 $hmrmExpSettings = get_option('hmrm_exp_settings');
-
-//echo '<pre>';
-//print_r($hmrmExpSettings);
 ?>
 <div id="hmcs-wrap-all" class="wrap hmcs-settings-wrap">
     <div class="hmcs-header-bar">
@@ -123,7 +118,6 @@ $hmrmExpSettings = get_option('hmrm_exp_settings');
 <?php require_once plugin_dir_path(__FILE__) . 'popup/employment-history-edit.php'; ?>
 <script type="text/javascript">
 function hmrmLoadExperience(id) {
-    //alert(hmrm_admin_ajax_object.ajaxurl);
     jQuery.ajax({
         url: hmrm_admin_ajax_object.ajaxurl,
         type: "POST",

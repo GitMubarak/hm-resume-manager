@@ -3,13 +3,16 @@
     // USE STRICT
     "use strict";
 
-
-
-    function reset_form() {
-        $('#calculator')[0].reset();
+    var hmrmPercentage = 0;
+    var hmrmPb;
+    var hmrmColor = '';
+    for (hmrmPb = 0; hmrmPb < $('.hmrm-skill-item').length; hmrmPb++) {
+        hmrmPercentage = $('.single-progressbar #progressbar_' + hmrmPb).data('percentage');
+        hmrmColor = $('.single-progressbar #progressbar_' + hmrmPb).data('color');
+        $('.single-progressbar #progressbar_' + hmrmPb).rProgressbar({
+            percentage: hmrmPercentage,
+            fillBackgroundColor: hmrmColor
+        });
     }
-
-
-    $(reset_form);
 
 })(jQuery);

@@ -23,12 +23,20 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
 //echo "<pre>";
 //print_r($hmrmGeneralSettings);
 ?>
-<div id="wph-wrap-all" class="wrap hmrm-settings-page">
-    <div class="settings-banner">
-        <h2><?php esc_html_e('HM Resume Personal Info Settings', HMRM_TXT_DOMAIN); ?></h2>
-    </div>
-    <?php //if($hmrmShowGeneralMessage): $this->hmrm_display_notification('success', 'Your information updated successfully.'); endif; 
+<div id="hmcs-wrap-all" class="wrap hmcs-settings-wrap">
+    <?php if ($hmrmShowGeneralMessage) : $this->hmrm_display_notification('success', 'Your information updated successfully.');
+    endif;
     ?>
+    <div class="hmcs-header-bar">
+        <div class="hmcs-header-left">
+            <div class="hmcs-header-bar-logo">
+                <img src="<?php echo esc_attr(HMRM_ASSETS . 'img/tools.png'); ?>" alt="hm-resume-manager">
+            </div>
+            <h3 class="hmcs-header-title"><?php esc_html_e('Personal Info Settings', HMRM_TXT_DOMAIN);
+                                            ?></h3>
+        </div>
+        <div class="hmcs-header-right"></div>
+    </div>
 
     <form name="hmrm_general_settings_form" role="form" class="form-horizontal" method="post" action=""
         id="hmrm-general-settings-form">
@@ -164,6 +172,6 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
             </tr>
         </table>
         <p class="submit"><button id="updateGeneralSettings" name="updateGeneralSettings"
-                class="button button-primary"><?php esc_attr_e('Update Personal Info', HMRM_TXT_DOMAIN); ?></button></p>
+                class="hmcs-btn"><?php esc_html_e('Update Settings', HMRM_TXT_DOMAIN); ?></button></p>
     </form>
 </div>

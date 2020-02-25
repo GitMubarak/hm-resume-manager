@@ -83,7 +83,6 @@
         font-size: 36px;
         text-align: center;
         font-weight: 600;
-        text-transform: uppercase;
         margin-bottom: 5px;
     }
     
@@ -92,7 +91,6 @@
         letter-spacing: 1px;
         text-align: center;
         font-weight: 600;
-        text-transform: uppercase;
         margin-bottom: 5px;
     }
     
@@ -133,7 +131,7 @@
     
     .hmrm-cv-skills>.hm_skills_items {
         border: 0px solid #000;
-        padding-left: 0px;
+        padding: 0 20px;
     }
     
     .hmrm-cv-skills>.hm_skills_items>ul,
@@ -301,6 +299,29 @@
         font-weight: 600;
         background: #FF6633;
     }
+    /* progressbar started */
+    
+    .single-progressbar .title {
+        font-size: 14px;
+        line-height: 22px;
+        font-weight: 600;
+        margin: 0;
+    }
+    
+    .single-progressbar {
+        width: 90%;
+        border: 0px solid #000;
+        padding: 0;
+    }
+    
+    .percentCount {
+        margin-top: -35px!important;
+    }
+    
+    .progressbar {
+        margin-bottom: 10px!important;
+    }
+    /* progressbar ended */
     
     @media only screen and (min-width: 1025px) {
         .hmrm-education-item-wrapper {

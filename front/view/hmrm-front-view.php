@@ -35,12 +35,14 @@ if (is_array(stripslashes_deep(unserialize(get_option('hmrm_style_settings')))))
     $hmrmBgClr         = !empty($hmrmStyleSettings['hmrm_bg_color']) ? $hmrmStyleSettings['hmrm_bg_color'] : "#FFFAF0";
     $hmrmBrdrClr         = !empty($hmrmStyleSettings['hmrm_border_color']) ? $hmrmStyleSettings['hmrm_border_color'] : "#FF6633";
 } else {
-    $hmrmSkillLabelText         = "";
-    $hmrmEduLabelText = "";
-    $hmrmExpLabelText = "";
+    $hmrmSkillLabelText = "Skills";
+    $hmrmEduLabelText = "Education";
+    $hmrmExpLabelText = "Experience";
     $hmrmBgClr = "#FFFAF0";
     $hmrmBrdrClr = "#FF6633";
 }
+
+$hmrmSkillsSettings = get_option('hmrm_skills_settings');
 ?>
 
 <style type="text/css">
@@ -119,7 +121,22 @@ div.hm_cv_top {
             <div class="hmrm-cv-skills">
                 <div class="hm_cv_skills_title"><?php echo esc_html($hmrmSkillLabelText); ?></div>
                 <div class="hm_skills_items">
-                    <?php echo wpautop(wp_kses_post($hmrmSkills)); ?>
+                    <?php
+                    if ($hmrmSkillsSettings) {
+                        $hmrmSkillsC = 0;
+                        foreach ($hmrmSkillsSettings as $hmrmSkills) {
+
+                    ?>
+                    <div class="single-progressbar hmrm-skill-item">
+                        <h4 class="title"><?php echo esc_html($hmrmSkills['hmrm_skill_name']); ?></h4>
+                        <div id="progressbar_<?php printf('%d', $hmrmSkillsC); ?>"
+                            data-percentage="<?php echo esc_attr($hmrmSkills['hmrm_skill_percentage']); ?>"
+                            data-color="<?php echo esc_attr($hmrmSkills['hmrm_skill_bg_color']); ?>">
+                        </div>
+                    </div>
+                    <?php $hmrmSkillsC++;
+                        }
+                    } ?>
                 </div>
             </div>
             <!-- SKILLS ENDED -->
