@@ -1,4 +1,7 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  *	Admin Parent Class
@@ -23,9 +26,9 @@ class Hmrm_Admin
 		add_menu_page(
 			esc_html__('HM Resume Manager', HMRM_TXT_DOMAIN),
 			esc_html__('HM Resume Manager', HMRM_TXT_DOMAIN),
-			'',
+			'manage_options',
 			'hmrm-admin-panel',
-			'',
+			array($this, 'hmrm_personal_info_settings'),
 			'dashicons-id-alt',
 			100
 		);
@@ -79,12 +82,18 @@ class Hmrm_Admin
 	/**
 	 *	Loading admin panel assets
 	 */
-	function hmrm_enqueue_assets()
-	{
+	function hmrm_enqueue_assets() {
+		wp_enqueue_style(
+            $this->hmrm_assets_prefix . 'font-awesome',
+            HMRM_ASSETS . 'css/font-awesome/css/font-awesome.min.css',
+            array(),
+            $this->hmrm_version,
+            FALSE
+        );
 
 		wp_enqueue_style(
-			$this->hmrm_assets_prefix . 'admin-style',
-			HMRM_ASSETS . 'css/' . $this->hmrm_assets_prefix . 'admin-style.css',
+			$this->hmrm_assets_prefix . 'admin',
+			HMRM_ASSETS . 'css/' . $this->hmrm_assets_prefix . 'admin.css',
 			array(),
 			$this->hmrm_version,
 			FALSE
@@ -147,29 +156,29 @@ class Hmrm_Admin
 	/**
 	 *	Loading admin panel view/forms
 	 */
-	function hmrm_personal_info_settings()
-	{
-		require_once HMRM_PATH . 'admin/view/' . $this->hmrm_assets_prefix . 'personal-info-settings.php';
+	function hmrm_personal_info_settings() {
+		
+		require_once HMRM_PATH . 'admin/view/personal-info.php';
 	}
 
-	function hmrm_education_info_settings()
-	{
-		require_once HMRM_PATH . 'admin/view/' . $this->hmrm_assets_prefix . 'education-settings.php';
+	function hmrm_education_info_settings() {
+
+		require_once HMRM_PATH . 'admin/view/education.php';
 	}
 
-	function hmrm_experience_info_settings()
-	{
-		require_once HMRM_PATH . 'admin/view/' . $this->hmrm_assets_prefix . 'experience-settings.php';
+	function hmrm_experience_info_settings() {
+
+		require_once HMRM_PATH . 'admin/view/experience.php';
 	}
 
-	function hmrm_skills_settings()
-	{
-		require_once HMRM_PATH . 'admin/view/' . $this->hmrm_assets_prefix . 'skills-settings.php';
+	function hmrm_skills_settings() {
+
+		require_once HMRM_PATH . 'admin/view/skills.php';
 	}
 
-	function hmrm_style_settings()
-	{
-		require_once HMRM_PATH . 'admin/view/' . $this->hmrm_assets_prefix . 'style-settings.php';
+	function hmrm_style_settings() {
+		
+		require_once HMRM_PATH . 'admin/view/style.php';
 	}
 
 	function hmrm_get_image()

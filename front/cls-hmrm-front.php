@@ -13,16 +13,26 @@ class Hmrm_Front
 		$this->hmrm_assets_prefix = substr(HMRM_PRFX, 0, -1) . '-';
 	}
 
-	function hmrm_front_assets()
-	{
+	function hmrm_front_assets() {
+
+		wp_enqueue_style(
+            $this->hmrm_assets_prefix . 'font-awesome',
+            HMRM_ASSETS . 'css/font-awesome/css/font-awesome.min.css',
+            array(),
+            $this->hmrm_version,
+            FALSE
+        );
+
 		wp_enqueue_style('dashicons');
+		
 		wp_enqueue_style(
 			'hmrm-front',
-			HMRM_ASSETS . 'css/' . $this->hmrm_assets_prefix . 'front-style.css',
+			HMRM_ASSETS . 'css/' . $this->hmrm_assets_prefix . 'front.css',
 			'',
 			$this->hmrm_version,
 			FALSE
 		);
+
 		wp_enqueue_style(
 			'hmrm-progressbar',
 			HMRM_ASSETS . 'css/jquery.rprogessbar.min.css',
@@ -60,16 +70,16 @@ class Hmrm_Front
 		);
 	}
 
-	function hmrm_load_shortcode()
-	{
+	function hmrm_load_shortcode() {
+
 		add_shortcode('hm_resume_manager', array($this, 'hmrm_load_shortcode_view'));
 	}
 
-	function hmrm_load_shortcode_view()
-	{
+	function hmrm_load_shortcode_view() {
+		
 		$output = '';
 		ob_start();
-		include HMRM_PATH . 'front/view/' . $this->hmrm_assets_prefix . 'front-view.php';
+		include HMRM_PATH . 'front/view/resume.php';
 		$output .= ob_get_clean();
 		return $output;
 	}

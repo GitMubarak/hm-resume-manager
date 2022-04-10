@@ -2,9 +2,9 @@
 Contributors: hmplugin, mhmrajib
 Donate link: https://www.paypal.me/mhmrajib
 Tags: resume, cv, experience, skills, education, Resume Maker, Free Resume, Make Resume, Online Resume, best resume plugin, free resume plugin, best free resume plugin, resume manager, personal info, display resume, display portfolio, career, career info, skills info, display skill
-Requires at least: 5.0
-Tested up to: 5.9
-Stable tag: 1.0.5
+Requires at least: 5.2
+Tested up to: 5.9.3
+Stable tag: 2.0
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -41,7 +41,7 @@ It looks great, is fast and easy to manage.
 * Option to change education label text
 * Option to change experience label text
 * Shortcoded
-* Display Skills with progressbar (New)
+* Display Skills with progressbar
 
 
 **🌟 Resume Included:**
@@ -141,6 +141,13 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 
 
 == Changelog ==
+
+= 2.0 =
+* Freemius integrated
+* Font Awesome integrated
+* Image icon removed
+* Code optimized
+* Styles fixed
 
 = 1.0.5 =
 * CSS changed
