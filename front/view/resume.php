@@ -119,13 +119,13 @@ div.hm_cv_top {
     <div class="hmrm-level-two">
         <div class="hmrm-level-two-left">
             <div class="hm_cv_name">
-                <?php echo esc_html($hmrmAuthorName); ?>
+                <?php esc_html_e( $hmrmAuthorName ); ?>
             </div>
             <div class="hm_cv_title">
-                <?php echo esc_html($hmrmAuthorTitle); ?>
+                <?php esc_html_e( $hmrmAuthorTitle ); ?>
             </div>
             <div class="hm_cv_carrer_summary">
-                <?php echo wpautop(wp_kses_post($hmrmBiographicalInfo)); ?>
+                <?php echo wpautop( wp_kses_post( $hmrmBiographicalInfo ) ); ?>
             </div>
         </div>
         <div class="hmrm-level-two-right">
