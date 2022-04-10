@@ -146,8 +146,9 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 * Freemius integrated
 * Font Awesome integrated
 * Image icon removed
-* Code optimized
+* Code optimized and bug fixed
 * Styles fixed
+* Admin sidebar added
 
 = 1.0.5 =
 * CSS changed
