@@ -138,21 +138,24 @@ div.hm_cv_top {
                 
                 <div class="hm_skills_items">
                     <?php
-                    if ($hmrmSkillsSettings) {
+                    if ( $hmrmSkillsSettings ) {
                         $hmrmSkillsC = 0;
-                        foreach ($hmrmSkillsSettings as $hmrmSkills) {
-
-                    ?>
-                    <div class="single-progressbar hmrm-skill-item">
-                        <h4 class="title"><?php echo esc_html($hmrmSkills['hmrm_skill_name']); ?></h4>
-                        <div id="progressbar_<?php printf('%d', $hmrmSkillsC); ?>"
-                            data-percentage="<?php echo esc_attr($hmrmSkills['hmrm_skill_percentage']); ?>"
-                            data-color="<?php echo esc_attr($hmrmSkills['hmrm_skill_bg_color']); ?>">
-                        </div>
-                    </div>
-                    <?php $hmrmSkillsC++;
+                        foreach ( $hmrmSkillsSettings as $hmrmSkills ) {
+                            if ( $hmrmSkillsC >= 5 ) { break; } else {
+                            ?>
+                            <div class="single-progressbar hmrm-skill-item">
+                                <h4 class="title"><?php echo esc_html($hmrmSkills['hmrm_skill_name']); ?></h4>
+                                <div id="progressbar_<?php printf('%d', $hmrmSkillsC); ?>"
+                                    data-percentage="<?php echo esc_attr($hmrmSkills['hmrm_skill_percentage']); ?>"
+                                    data-color="<?php echo esc_attr($hmrmSkills['hmrm_skill_bg_color']); ?>">
+                                </div>
+                            </div>
+                            <?php
+                            $hmrmSkillsC++;
+                            }
                         }
-                    } ?>
+                    } 
+                    ?>
                 </div>
             </div>
             <!-- SKILLS ENDED -->
@@ -171,7 +174,7 @@ div.hm_cv_top {
         $hmrmEdu = 0;
         if ($hmrm_edu_info_settings) { ?>
         <div class="hmrm-education-item-wrapper">
-            <?php for ($hmrmEdu = 0; $hmrmEdu < count($hmrm_edu_info_settings); $hmrmEdu++) { ?>
+            <?php for ($hmrmEdu = 0; $hmrmEdu < 3; $hmrmEdu++) { ?>
             <div class="education_block">
                 <div class="hm_cv_experience_cmp edu">
                     <b><?php echo esc_html($hmrm_edu_info_settings[$hmrmEdu]['hmrm_edu_degree']); ?></b>
@@ -200,25 +203,25 @@ div.hm_cv_top {
         
         <?php
         $hmrmExpSettings = get_option('hmrm_exp_settings');
-        if ($hmrmExpSettings) {
-            for ($hmrmExp = 0; $hmrmExp < count($hmrmExpSettings); $hmrmExp++) {
-        ?>
-        <div class="hm_cv_experience_cmp"><?php printf('%d', $hmrmExp + 1); ?>.
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_company']); ?></div>
-        <div class="hm_cv_experience_position">
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_job_title']); ?>
-        </div>
-        <div class="hm_cv_experience_period">
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_start_month']); ?>,
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_start_year']); ?> -
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_end_month']); ?>,
-            <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_end_year']); ?>
-        </div>
-        <div class="hm_cv_experience_role">
-            <?php echo wp_kses_post($hmrmExpSettings[$hmrmExp]['hmrm_exp_role']); ?>
-        </div>
-        <hr>
-        <?php
+        if ( $hmrmExpSettings ) {
+            for ( $hmrmExp = 0; $hmrmExp < 5; $hmrmExp++ ) {
+            ?>
+            <div class="hm_cv_experience_cmp"><?php printf('%d', $hmrmExp + 1); ?>.
+                <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_company']); ?></div>
+            <div class="hm_cv_experience_position">
+                <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_job_title']); ?>
+            </div>
+            <div class="hm_cv_experience_period">
+                <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_start_month']); ?>,
+                <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_start_year']); ?> -
+                <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_end_month']); ?>,
+                <?php echo esc_html($hmrmExpSettings[$hmrmExp]['hmrm_exp_end_year']); ?>
+            </div>
+            <div class="hm_cv_experience_role">
+                <?php echo wp_kses_post($hmrmExpSettings[$hmrmExp]['hmrm_exp_role']); ?>
+            </div>
+            <hr>
+            <?php
             }
         } ?>
 
