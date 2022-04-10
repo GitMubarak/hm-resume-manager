@@ -159,6 +159,7 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                         </td>
                     </tr>
                 </table>
+                <hr>
                 <p class="submit"><button id="updateGeneralSettings" name="updateGeneralSettings"
                         class="hmcs-btn"><?php esc_html_e('Update Settings', HMRM_TXT_DOMAIN); ?></button></p>
             </form>

@@ -115,7 +115,7 @@ $hmrmExpSettings = get_option('hmrm_exp_settings');
                         </tr>
                     </tbody>
                 </table>
-                <br>
+                <br><hr>
                 <?php
                 }
             }
