@@ -32,7 +32,3 @@
 
     </form>
 </div>
-
-<script type="text/javascript">
-
-</script>
