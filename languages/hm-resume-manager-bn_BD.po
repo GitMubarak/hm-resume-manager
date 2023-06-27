@@ -1,0 +1,203 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: hm-cool-author-box-widget\n"
+"POT-Creation-Date: 2023-06-28 05:14+0600\n"
+"PO-Revision-Date: 2023-06-27 23:38+0000\n"
+"Last-Translator: \n"
+"Language-Team: Bengali (Bangladesh)\n"
+"Language: bn_BD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html;esc_attr;esc_html__;esc_attr__;"
+"esc_html_e;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Loco-Version: 2.6.4; wp-6.2.2"
+
+#: admin/cls-hmrm-admin.php:27 admin/cls-hmrm-admin.php:28
+msgid "HM Resume Manager"
+msgstr "HM পুনঃসূচনা ম্যানেজার"
+
+#: admin/cls-hmrm-admin.php:38 admin/cls-hmrm-admin.php:39
+#: admin/view/personal-info.php:30
+msgid "Personal Info Settings"
+msgstr "ব্যক্তিগত তথ্য সেটিংস"
+
+#: admin/cls-hmrm-admin.php:47 admin/cls-hmrm-admin.php:48
+msgid "Education Settings"
+msgstr "শিক্ষা সেটিংস"
+
+#: admin/cls-hmrm-admin.php:56 admin/cls-hmrm-admin.php:57
+msgid "Experience Settings"
+msgstr "অভিজ্ঞতা সেটিংস"
+
+#: admin/cls-hmrm-admin.php:65 admin/cls-hmrm-admin.php:66
+#: admin/view/skills.php:25
+msgid "Skills Settings"
+msgstr "দক্ষতা সেটিংস"
+
+#: admin/cls-hmrm-admin.php:74 admin/cls-hmrm-admin.php:75
+msgid "Style Settings"
+msgstr "স্টাইল সেটিংস"
+
+#: admin/view/education.php:25
+msgid "Education Info Settings"
+msgstr "শিক্ষা তথ্য সেটিংস"
+
+#: admin/view/education.php:128 admin/view/personal-info.php:164
+msgid "Update Settings"
+msgstr "আপডেট সেটিংস"
+
+#: admin/view/experience.php:56
+msgid "Experience History"
+msgstr "অভিজ্ঞতা ইতিহাস"
+
+#: admin/view/experience.php:74
+msgid "Experience"
+msgstr "অভিজ্ঞতা"
+
+#: admin/view/experience.php:78
+msgid "Edit"
+msgstr "সম্পাদনা"
+
+#: admin/view/experience.php:83
+msgid "Company"
+msgstr "কোম্পানি"
+
+#: admin/view/experience.php:87
+msgid "Job Title"
+msgstr "কাজের শিরোনাম"
+
+#: admin/view/experience.php:91
+msgid "Started From"
+msgstr "শুরু থেকে"
+
+#: admin/view/experience.php:102
+msgid "Ended To"
+msgstr "শেষ করতে"
+
+#: admin/view/experience.php:113
+msgid "Role"
+msgstr "ভূমিকা"
+
+#: admin/view/experience.php:125
+msgid "Add Experience"
+msgstr "অভিজ্ঞতা যোগ"
+
+#: admin/view/personal-info.php:36 admin/view/skills.php:31
+#: admin/view/style.php:26
+msgid "Your information updated successfully"
+msgstr "আপনার তথ্য সফলভাবে আপডেট করা হয়েছে"
+
+#: admin/view/personal-info.php:49
+msgid "Name:"
+msgstr "নাম:"
+
+#: admin/view/personal-info.php:55
+msgid "Keep null to display profile Display Name"
+msgstr "রাখা নাল প্রদর্শন প্রোফাইল প্রদর্শন নাম"
+
+#: admin/view/personal-info.php:61
+msgid "Title:"
+msgstr "শিরোনাম:"
+
+#: admin/view/personal-info.php:70
+msgid "Email:"
+msgstr "ইমেইল:"
+
+#: admin/view/personal-info.php:76
+msgid "Keep null to display profile Email"
+msgstr "রাখা নাল প্রদর্শন প্রোফাইল ইমেইল"
+
+#: admin/view/personal-info.php:81
+msgid "Website:"
+msgstr "ওয়েবসাইট:"
+
+#: admin/view/personal-info.php:87
+msgid "Keep null to display profile Website"
+msgstr "রাখা নাল প্রদর্শন করার জন্য প্রোফাইল, ওয়েবসাইট"
+
+#: admin/view/personal-info.php:92
+msgid "Address:"
+msgstr "ঠিকানা:"
+
+#: admin/view/personal-info.php:101
+msgid "Contact No.:"
+msgstr "যোগাযোগ কোন.:"
+
+#: admin/view/personal-info.php:110
+msgid "Twitter:"
+msgstr "টুইটার:"
+
+#: admin/view/personal-info.php:119
+msgid "Facebook:"
+msgstr "Facebook:"
+
+#: admin/view/personal-info.php:128
+msgid "Career Summary:"
+msgstr "পেশা সারাংশ:"
+
+#: admin/view/personal-info.php:143
+msgid "Photgraph:"
+msgstr "Photgraph:"
+
+#: admin/view/personal-info.php:148
+msgid "Select Photograph"
+msgstr "নির্বাচন আলোকচিত্র"
+
+#: admin/view/popup/employment-history-edit.php:31
+#: admin/view/popup/employment-history.php:29
+msgid "Submit"
+msgstr "জমা"
+
+#: admin/view/popup/employment-history.php:30
+msgid "Reset"
+msgstr "রিসেট"
+
+#: admin/view/skills.php:110
+msgid "Update Skills"
+msgstr "আপডেট দক্ষতা"
+
+#: admin/view/style.php:20
+msgid "Styles Settings"
+msgstr "শৈলী সেটিংস"
+
+#: admin/view/style.php:39
+msgid "Background Color:"
+msgstr "পটভূমির রঙ:"
+
+#: admin/view/style.php:49
+msgid "Border Color:"
+msgstr "সীমানা রং:"
+
+#: admin/view/style.php:60
+msgid "Skills Label Text:"
+msgstr "দক্ষতা লেবেল টেক্সট:"
+
+#: admin/view/style.php:70
+msgid "Education Label Text:"
+msgstr "শিক্ষা লেবেল টেক্সট:"
+
+#: admin/view/style.php:80
+msgid "Experience Label Text:"
+msgstr "অভিজ্ঞতা লেবেল টেক্সট:"
+
+#: admin/view/style.php:91
+msgid "Update Styles"
+msgstr "আপডেট শৈলী"
+
+#: freemius/templates/account/partials/site.php:339
+msgid " "
+msgstr " "
+
+#: freemius/templates/plugin-info/description.php:30
+msgid "selling_point_"
+msgstr "selling_point_"
+
+#: front/view/resume.php:196
+msgid "CGPA"
+msgstr "CGPA"

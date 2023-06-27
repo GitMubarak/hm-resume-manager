@@ -14,9 +14,15 @@ class Hmrm_Master
 	function __construct()
 	{
 		$this->hmrm_version = HMRM_VERSION;
+		add_action( 'plugins_loaded', array($this, 'hmrm_load_plugin_textdomain') );
 		$this->hmrm_load_dependencies();
 		$this->hmrm_trigger_admin_hooks();
 		$this->hmrm_trigger_front_hooks();
+	}
+
+	function hmrm_load_plugin_textdomain() {
+
+		load_plugin_textdomain( HMRM_TXT_DOMAIN, FALSE, HMRM_TXT_DOMAIN . '/languages/' );
 	}
 
 	private function hmrm_load_dependencies()

@@ -143,6 +143,8 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 == Changelog ==
 
 = 2.1 =
+* Language POT file added
+* Small bug fixed
 * Freemius sdk upgraded
 
 = 2.0 =

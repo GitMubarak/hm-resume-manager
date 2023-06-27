@@ -1,0 +1,320 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: hm-cool-author-box-widget\n"
+"POT-Creation-Date: 2023-06-28 05:14+0600\n"
+"PO-Revision-Date: 2022-05-10 02:03+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: bn_BD\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
+"X-Generator: Poedit 3.3.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;_e;esc_html;esc_attr;esc_html__;esc_attr__;esc_html_e;esc_attr_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: admin/cls-hmrm-admin.php:27 admin/cls-hmrm-admin.php:28
+msgid "HM Resume Manager"
+msgstr ""
+
+#: admin/cls-hmrm-admin.php:38 admin/cls-hmrm-admin.php:39
+#: admin/view/personal-info.php:30
+msgid "Personal Info Settings"
+msgstr ""
+
+#: admin/cls-hmrm-admin.php:47 admin/cls-hmrm-admin.php:48
+msgid "Education Settings"
+msgstr ""
+
+#: admin/cls-hmrm-admin.php:56 admin/cls-hmrm-admin.php:57
+msgid "Experience Settings"
+msgstr ""
+
+#: admin/cls-hmrm-admin.php:65 admin/cls-hmrm-admin.php:66
+#: admin/view/skills.php:25
+msgid "Skills Settings"
+msgstr ""
+
+#: admin/cls-hmrm-admin.php:74 admin/cls-hmrm-admin.php:75
+msgid "Style Settings"
+msgstr ""
+
+#: admin/view/education.php:25
+msgid "Education Info Settings"
+msgstr ""
+
+#: admin/view/education.php:128 admin/view/personal-info.php:164
+msgid "Update Settings"
+msgstr ""
+
+#: admin/view/experience.php:56
+msgid "Experience History"
+msgstr ""
+
+#: admin/view/experience.php:74
+msgid "Experience"
+msgstr ""
+
+#: admin/view/experience.php:78
+msgid "Edit"
+msgstr ""
+
+#: admin/view/experience.php:83
+msgid "Company"
+msgstr ""
+
+#: admin/view/experience.php:87
+msgid "Job Title"
+msgstr ""
+
+#: admin/view/experience.php:91
+msgid "Started From"
+msgstr ""
+
+#: admin/view/experience.php:102
+msgid "Ended To"
+msgstr ""
+
+#: admin/view/experience.php:113
+msgid "Role"
+msgstr ""
+
+#: admin/view/experience.php:125
+msgid "Add Experience"
+msgstr ""
+
+#: admin/view/personal-info.php:36 admin/view/skills.php:31
+#: admin/view/style.php:26
+msgid "Your information updated successfully"
+msgstr ""
+
+#: admin/view/personal-info.php:49
+msgid "Name:"
+msgstr ""
+
+#: admin/view/personal-info.php:55
+msgid "Keep null to display profile Display Name"
+msgstr ""
+
+#: admin/view/personal-info.php:61
+msgid "Title:"
+msgstr ""
+
+#: admin/view/personal-info.php:70
+msgid "Email:"
+msgstr ""
+
+#: admin/view/personal-info.php:76
+msgid "Keep null to display profile Email"
+msgstr ""
+
+#: admin/view/personal-info.php:81
+msgid "Website:"
+msgstr ""
+
+#: admin/view/personal-info.php:87
+msgid "Keep null to display profile Website"
+msgstr ""
+
+#: admin/view/personal-info.php:92
+msgid "Address:"
+msgstr ""
+
+#: admin/view/personal-info.php:101
+msgid "Contact No.:"
+msgstr ""
+
+#: admin/view/personal-info.php:110
+msgid "Twitter:"
+msgstr ""
+
+#: admin/view/personal-info.php:119
+msgid "Facebook:"
+msgstr ""
+
+#: admin/view/personal-info.php:128
+msgid "Career Summary:"
+msgstr ""
+
+#: admin/view/personal-info.php:143
+msgid "Photgraph:"
+msgstr ""
+
+#: admin/view/personal-info.php:148
+msgid "Select Photograph"
+msgstr ""
+
+#: admin/view/popup/employment-history-edit.php:31
+#: admin/view/popup/employment-history.php:29
+msgid "Submit"
+msgstr ""
+
+#: admin/view/popup/employment-history.php:30
+msgid "Reset"
+msgstr ""
+
+#: admin/view/skills.php:110
+msgid "Update Skills"
+msgstr ""
+
+#: admin/view/style.php:20
+msgid "Styles Settings"
+msgstr ""
+
+#: admin/view/style.php:39
+msgid "Background Color:"
+msgstr ""
+
+#: admin/view/style.php:49
+msgid "Border Color:"
+msgstr ""
+
+#: admin/view/style.php:60
+msgid "Skills Label Text:"
+msgstr ""
+
+#: admin/view/style.php:70
+msgid "Education Label Text:"
+msgstr ""
+
+#: admin/view/style.php:80
+msgid "Experience Label Text:"
+msgstr ""
+
+#: admin/view/style.php:91
+msgid "Update Styles"
+msgstr ""
+
+#: freemius/templates/account/partials/site.php:339
+msgid " "
+msgstr ""
+
+#: freemius/templates/plugin-info/description.php:30
+msgid "selling_point_"
+msgstr ""
+
+#: front/view/resume.php:196
+msgid "CGPA"
+msgstr ""
+
+#~ msgid "HM Author Box"
+#~ msgstr "এইচ এম লেখক বক্স"
+
+#~ msgid "Information Settings"
+#~ msgstr "তথ্য সেটিংস"
+
+#~ msgid "Social Settings"
+#~ msgstr "সামাজিক সেটিংস"
+
+#~ msgid "Template Settings"
+#~ msgstr "টেমপ্লেট সেটিংস"
+
+#~ msgid "Author Box General Settings"
+#~ msgstr "লেখক বাক্স সাধারণ সেটিংস"
+
+#~ msgid "Name:"
+#~ msgstr "নামঃ"
+
+#~ msgid "Keep null to display profile Display Name"
+#~ msgstr "প্রোফাইল প্রদর্শনের নাম প্রদর্শন করতে নাল রাখুন"
+
+#~ msgid "Title:"
+#~ msgstr "শিরোনামঃ"
+
+#~ msgid "Email:"
+#~ msgstr "ইমেইল:"
+
+#~ msgid "Keep null to display profile Email"
+#~ msgstr "প্রোফাইল ইমেল প্রদর্শন করতে নাল রাখুন"
+
+#~ msgid "Website:"
+#~ msgstr "ওয়েভসাইট"
+
+#~ msgid "Keep null to display profile Website"
+#~ msgstr "প্রোফাইল ওয়েভসাইট প্রদর্শন করতে নাল রাখুন"
+
+#~ msgid "Biographical Info"
+#~ msgstr "জীবনীসংক্রান্ত তথ্য"
+
+#~ msgid "Keep null to display profile Biographical Info"
+#~ msgstr "প্রোফাইল জীবনীসংক্রান্ত তথ্য প্রদর্শন করতে নাল রাখুন"
+
+#~ msgid "Biographical Info Font Size:"
+#~ msgstr "জীবনীসংক্রান্ত তথ্য ফন্ট সাইজ"
+
+#~ msgid "Author Image?"
+#~ msgstr "লেখকের ছবি"
+
+#~ msgid "Gravatar"
+#~ msgstr "গ্রাভাটার"
+
+#~ msgid "Upload Image"
+#~ msgstr "ছবি আপলোড"
+
+#~ msgid "Upload Image:"
+#~ msgstr "ছবি আপলোড"
+
+#~ msgid "Update General Settings"
+#~ msgstr "সাধারণ সেটিংস আপডেট"
+
+#~ msgid "Author Box Social Settings"
+#~ msgstr "লেখক বাক্স সামাজিক সেটিংস"
+
+#, php-format
+#~ msgid "Show %s?"
+#~ msgstr "দেখান"
+
+#, php-format
+#~ msgid "%s Url:"
+#~ msgstr "লিঙ্ক"
+
+#~ msgid "Update Social Settings"
+#~ msgstr "সামাজিক সেটিংস আপডেট"
+
+#~ msgid "Author Box Template Settings"
+#~ msgstr "লেখক বাক্স টেমপ্লেট সেটিংস"
+
+#~ msgid "Select a Template:"
+#~ msgstr "টেমপ্লেট পছন্দ করুন"
+
+#~ msgid "Show In Post/Page?"
+#~ msgstr "পস্ট/পেজে দেখাতে চান?"
+
+#~ msgid "Where to Display?"
+#~ msgstr "কোথায় দেখাতে চান?"
+
+#~ msgid "Top of Content"
+#~ msgstr "কন্টেন্টের উপরে"
+
+#~ msgid "Bottom of Content"
+#~ msgstr "কন্টেন্টের নীচে"
+
+#~ msgid "Display Title?"
+#~ msgstr "শিরোনাম দেখাতে চান?"
+
+#~ msgid "Display Email?"
+#~ msgstr "ইমেইল দেখাতে চান?"
+
+#~ msgid "Display Website?"
+#~ msgstr "ওয়েভসাইট দেখাতে চান"
+
+#~ msgid "Photo/Icon Shape"
+#~ msgstr "ঞ্ছবির আকৃতি"
+
+#~ msgid "Square"
+#~ msgstr "স্কয়ার"
+
+#~ msgid "Rounded"
+#~ msgstr "রাউন্ডেড"
+
+#~ msgid "Circle"
+#~ msgstr "সারকেল"
+
+#~ msgid "Photo/Gravatar Width"
+#~ msgstr "ছবি প্রস্থ"
+
+#~ msgid "Update Template Settings"
+#~ msgstr "টেমপ্লেট সেটিংস আপডেট"
