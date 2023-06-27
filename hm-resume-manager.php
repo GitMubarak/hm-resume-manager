@@ -4,12 +4,12 @@
  * Plugin Name:	HM Resume Manager
  * Plugin URI:	http://wordpress.org/plugins/hm-resume-manager/
  * Description:	This plugin display a Resume in a front page with personal information, education & experience history, as well as a list of skills with career summary. Use shortcode: [hm_resume_manager]
- * Version:		2.0
+ * Version:		2.1
  * Author:		        HM Plugin
  * Author URI:	        https://hmplugin.com
  * Requires at least:   5.2
  * Requires PHP:        7.2
- * Tested up to:        5.9.3
+ * Tested up to:        6.2.2
  * Text Domain:         hm-resume-manager
  * Domain Path:         /languages/
  * License:		GPL-2.0+
@@ -59,7 +59,7 @@ define('HMRM_SLUG', plugin_basename(__FILE__));
 define('HMRM_PRFX', 'hmrm_');
 define('HMRM_CLS_PRFX', 'cls-hmrm-');
 define('HMRM_TXT_DOMAIN', 'hm-resume-manager');
-define('HMRM_VERSION', '2.0');
+define('HMRM_VERSION', '2.1');
 
 require_once HMRM_PATH . 'inc/' . HMRM_CLS_PRFX . 'master.php';
 $hmrm = new Hmrm_Master();

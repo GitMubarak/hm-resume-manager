@@ -1,25 +1,25 @@
 === HM Resume Manager ===
 Contributors: hmplugin, mhmrajib
 Donate link: https://www.paypal.me/mhmrajib
-Tags: resume, cv, experience, skills, education, Resume Maker, Free Resume, Make Resume, Online Resume, best resume plugin, free resume plugin, best free resume plugin, resume manager, personal info, display resume, display portfolio, career, career info, skills info, display skill
+Tags: resume, cv, experience, skills, education
 Requires at least: 5.2
-Tested up to: 5.9.3
-Stable tag: 2.0
+Tested up to: 6.2.2
+Stable tag: 2.1
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-HM Resume Manager is the best resume plugin for WordPress to display personal resume at webpage.
+WordPress Resume Manager plugin to display and manage personal resume or CV at your WordPress webpage.
 
 == Description ==
 
-[__Live Demo__](https://demo.hmplugin.com/hm-resume-manager/) | [__Live Chat__](https://hmplugin.com) | [__Support__](https://hmplugin.com/contact/)
+[__Live Demo__](https://hmplugin.com/demo/resume-demo/) | [__Live Chat__](https://hmplugin.com/demo/resume-demo/) | [__Support__](https://hmplugin.com/contact/)
 
 [youtube https://youtu.be/RO4fParfoAU]
 
 = Overview =
 
-**HM Resume Manager** is the **Best Resume Plugin for WordPress** to display personal resume at webpage.
+**WordPress Resume Manager Plugin** to display and manage personal resume or CV at your WordPress webpage
 
 You have a domain and you are confused what to do with it? Why not use it as a resume landing page and point people to should a conversation occur surrounding job prospects. 
 
@@ -141,6 +141,9 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 
 
 == Changelog ==
+
+= 2.1 =
+* Freemius
 
 = 2.0 =
 * Freemius integrated
