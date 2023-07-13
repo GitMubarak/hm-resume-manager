@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: hm-cool-author-box-widget\n"
-"POT-Creation-Date: 2023-06-28 05:14+0600\n"
+"POT-Creation-Date: 2023-07-14 04:10+0600\n"
 "PO-Revision-Date: 2022-05-10 02:03+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Poedit 3.3.1\n"
+"X-Generator: Poedit 3.3.2\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html;esc_attr;esc_html__;esc_attr__;esc_html_e;esc_attr_e\n"
 "X-Poedit-SearchPath-0: .\n"
@@ -190,6 +190,10 @@ msgstr ""
 
 #: freemius/templates/account/partials/site.php:339
 msgid " "
+msgstr ""
+
+#: freemius/templates/connect.php:368
+msgid "_activate_existing"
 msgstr ""
 
 #: freemius/templates/plugin-info/description.php:30
