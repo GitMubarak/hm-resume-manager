@@ -34,6 +34,7 @@ if (is_array(stripslashes_deep(unserialize(get_option('hmrm_style_settings')))))
     $hmrmExpLabelText         = !empty($hmrmStyleSettings['hmrm_exp_label_text']) ? $hmrmStyleSettings['hmrm_exp_label_text'] : "Experience";
     $hmrmBgClr         = !empty($hmrmStyleSettings['hmrm_bg_color']) ? $hmrmStyleSettings['hmrm_bg_color'] : "#FFFAF0";
     $hmrmBrdrClr         = !empty($hmrmStyleSettings['hmrm_border_color']) ? $hmrmStyleSettings['hmrm_border_color'] : "#FF6633";
+    $hmrm_name_color    = sanitize_text_field($hmrmStyleSettings['hmrm_name_color']) ? sanitize_text_field($hmrmStyleSettings['hmrm_name_color']) : '#333333';
 } else {
     $hmrmSkillLabelText = "Skills";
     $hmrmEduLabelText = "Education";
@@ -47,10 +48,11 @@ $hmrmSkillsSettings = get_option('hmrm_skills_settings');
 
 <style type="text/css">
 div.hm_cv_top {
-    background-color: <?php echo esc_attr($hmrmBgClr);
-    ?>;
-    border-color: <?php echo esc_attr($hmrmBrdrClr);
-    ?>;
+    background-color: <?php esc_attr_e($hmrmBgClr); ?>;
+    border-color: <?php esc_attr_e($hmrmBrdrClr); ?>;
+}
+div.hm_cv_name {
+    color: <?php esc_attr_e( $hmrm_name_color ); ?>;
 }
 </style>
 

@@ -8,7 +8,11 @@
         $('#hmrm_skill_bg_color_' + skl).wpColorPicker();
     }
 
-    var hmrmColorPicker = ['#hmrm_bg_color', '#hmrm_border_color'];
+    var hmrmColorPicker = [
+        '#hmrm_bg_color',
+        '#hmrm_border_color',
+        '#hmrm_name_color'
+    ];
 
     $.each(hmrmColorPicker, function(index, value) {
         $(value).wpColorPicker();

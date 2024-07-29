@@ -8,6 +8,7 @@ if (isset($_POST['updateStyleSettings'])) {
         'hmrm_skill_label_text'          => sanitize_text_field($_POST['hmrm_skill_label_text']) ? sanitize_text_field($_POST['hmrm_skill_label_text']) : 'Skills',
         'hmrm_edu_label_text'          => sanitize_text_field($_POST['hmrm_edu_label_text']) ? sanitize_text_field($_POST['hmrm_edu_label_text']) : 'Education',
         'hmrm_exp_label_text'          => sanitize_text_field($_POST['hmrm_exp_label_text']) ? sanitize_text_field($_POST['hmrm_exp_label_text']) : 'Experience',
+        'hmrm_name_color'          => sanitize_text_field($_POST['hmrm_name_color']) ? sanitize_text_field($_POST['hmrm_name_color']) : '#333333',
     );
     $hmrmStyleShowMessage = update_option('hmrm_style_settings', serialize($hmrmStyleSettings));
 }
@@ -51,6 +52,21 @@ $hmrmStyleSettings = stripslashes_deep(unserialize(get_option('hmrm_style_settin
                         <td>
                             <input class="wsp-wp-color" type="text" name="hmrm_border_color" id="hmrm_border_color"
                                 value="<?php echo esc_attr($hmrmStyleSettings['hmrm_border_color']); ?>">
+                            <div id="colorpicker"></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="2">
+                            <hr><b><?php esc_html_e('Personal Info', HMRM_TXT_DOMAIN); ?></b><hr>
+                        </th>
+                    </tr>
+                    <tr class="hmrm_name_color">
+                        <th scope="row">
+                            <label for="hmrm_name_color"><?php esc_html_e('Name Color:', HMRM_TXT_DOMAIN); ?></label>
+                        </th>
+                        <td>
+                            <input class="wsp-wp-color" type="text" name="hmrm_name_color" id="hmrm_name_color"
+                                value="<?php echo esc_attr($hmrmStyleSettings['hmrm_name_color']); ?>">
                             <div id="colorpicker"></div>
                         </td>
                     </tr>
