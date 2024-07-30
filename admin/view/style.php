@@ -14,6 +14,7 @@ if (isset($_POST['updateStyleSettings'])) {
         'hmrm_title_font_size'      => isset($_POST['hmrm_title_font_size']) && filter_var( $_POST['hmrm_title_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_title_font_size']) : 18,
         'hmrm_carrer_summary_color' => isset($_POST['hmrm_carrer_summary_color']) ? sanitize_text_field($_POST['hmrm_carrer_summary_color']) : '#333333',
         'hmrm_carrer_summary_font_size' => isset($_POST['hmrm_carrer_summary_font_size']) && filter_var( $_POST['hmrm_carrer_summary_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_carrer_summary_font_size']) : 12,
+        'hmrm_contact_color'        => isset($_POST['hmrm_contact_color']) ? sanitize_text_field($_POST['hmrm_contact_color']) : '#333333',
     );
     $hmrmStyleShowMessage = update_option('hmrm_style_settings', serialize($hmrmStyleSettings));
 }
@@ -112,6 +113,16 @@ $hmrmStyleSettings = stripslashes_deep(unserialize(get_option('hmrm_style_settin
                         <td>
                             <input type="number" class="small-text" min="11" max="100" name="hmrm_carrer_summary_font_size" id="hmrm_carrer_summary_font_size" value="<?php esc_attr_e( $hmrmStyleSettings['hmrm_carrer_summary_font_size'] ); ?>">
                             <code>px</code>
+                        </td>
+                    </tr>
+                    <tr class="hmrm_contact_color">
+                        <th scope="row">
+                            <label for="hmrm_contact_color"><?php esc_html_e('Contact Color', HMRM_TXT_DOMAIN); ?></label>
+                        </th>
+                        <td>
+                            <input class="wsp-wp-color" type="text" name="hmrm_contact_color" id="hmrm_contact_color"
+                                value="<?php echo esc_attr($hmrmStyleSettings['hmrm_contact_color']); ?>">
+                            <div id="colorpicker"></div>
                         </td>
                     </tr>
                     <tr class="hmrm_skill_label_text">
