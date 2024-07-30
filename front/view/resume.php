@@ -35,6 +35,7 @@ if (is_array(stripslashes_deep(unserialize(get_option('hmrm_style_settings')))))
     $hmrmBgClr         = !empty($hmrmStyleSettings['hmrm_bg_color']) ? $hmrmStyleSettings['hmrm_bg_color'] : "#FFFAF0";
     $hmrmBrdrClr         = !empty($hmrmStyleSettings['hmrm_border_color']) ? $hmrmStyleSettings['hmrm_border_color'] : "#FF6633";
     $hmrm_name_color    = sanitize_text_field($hmrmStyleSettings['hmrm_name_color']) ? sanitize_text_field($hmrmStyleSettings['hmrm_name_color']) : '#333333';
+    $hmrm_name_font_size = isset($hmrmStyleSettings['hmrm_name_font_size']) && filter_var( $hmrmStyleSettings['hmrm_name_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($hmrmStyleSettings['hmrm_name_font_size']) : 28;
 } else {
     $hmrmSkillLabelText = "Skills";
     $hmrmEduLabelText = "Education";
@@ -53,6 +54,7 @@ div.hm_cv_top {
 }
 div.hm_cv_name {
     color: <?php esc_attr_e( $hmrm_name_color ); ?>;
+    font-size: <?php esc_attr_e( $hmrm_name_font_size ); ?>px;
 }
 </style>
 

@@ -9,6 +9,7 @@ if (isset($_POST['updateStyleSettings'])) {
         'hmrm_edu_label_text'          => sanitize_text_field($_POST['hmrm_edu_label_text']) ? sanitize_text_field($_POST['hmrm_edu_label_text']) : 'Education',
         'hmrm_exp_label_text'          => sanitize_text_field($_POST['hmrm_exp_label_text']) ? sanitize_text_field($_POST['hmrm_exp_label_text']) : 'Experience',
         'hmrm_name_color'          => sanitize_text_field($_POST['hmrm_name_color']) ? sanitize_text_field($_POST['hmrm_name_color']) : '#333333',
+        'hmrm_name_font_size'          => isset($_POST['hmrm_name_font_size']) && filter_var( $_POST['hmrm_name_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_name_font_size']) : 28,
     );
     $hmrmStyleShowMessage = update_option('hmrm_style_settings', serialize($hmrmStyleSettings));
 }
@@ -37,17 +38,15 @@ $hmrmStyleSettings = stripslashes_deep(unserialize(get_option('hmrm_style_settin
                 <table class="form-table">
                     <tr class="hmrm_bg_color">
                         <th scope="row">
-                            <label for="hmrm_bg_color"><?php esc_html_e('Background Color:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_bg_color"><?php esc_html_e('Background Color', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input class="wsp-wp-color" type="text" name="hmrm_bg_color" id="hmrm_bg_color"
                                 value="<?php echo esc_attr($hmrmStyleSettings['hmrm_bg_color']); ?>">
                             <div id="colorpicker"></div>
                         </td>
-                    </tr>
-                    <tr class="hmrm_border_color">
                         <th scope="row">
-                            <label for="hmrm_border_color"><?php esc_html_e('Border Color:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_border_color"><?php esc_html_e('Border Color', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input class="wsp-wp-color" type="text" name="hmrm_border_color" id="hmrm_border_color"
@@ -56,26 +55,33 @@ $hmrmStyleSettings = stripslashes_deep(unserialize(get_option('hmrm_style_settin
                         </td>
                     </tr>
                     <tr>
-                        <th colspan="2">
+                        <th colspan="4">
                             <hr><b><?php esc_html_e('Personal Info', HMRM_TXT_DOMAIN); ?></b><hr>
                         </th>
                     </tr>
                     <tr class="hmrm_name_color">
                         <th scope="row">
-                            <label for="hmrm_name_color"><?php esc_html_e('Name Color:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_name_color"><?php esc_html_e('Name Color', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input class="wsp-wp-color" type="text" name="hmrm_name_color" id="hmrm_name_color"
                                 value="<?php echo esc_attr($hmrmStyleSettings['hmrm_name_color']); ?>">
                             <div id="colorpicker"></div>
                         </td>
+                        <th scope="row">
+                            <label for="hmrm_name_font_size"><?php esc_html_e('Font Size', HMRM_TXT_DOMAIN); ?></label>
+                        </th>
+                        <td>
+                            <input type="number" class="small-text" min="12" max="100" name="hmrm_name_font_size" id="hmrm_name_font_size" value="<?php esc_attr_e( $hmrmStyleSettings['hmrm_name_font_size'] ); ?>">
+                            <code>px</code>
+                        </td>
                     </tr>
                     <tr class="hmrm_skill_label_text">
                         <th scope="row">
                             <label
-                                for="hmrm_skill_label_text"><?php esc_html_e('Skills Label Text:', HMRM_TXT_DOMAIN); ?></label>
+                                for="hmrm_skill_label_text"><?php esc_html_e('Skills Label Text', HMRM_TXT_DOMAIN); ?></label>
                         </th>
-                        <td>
+                        <td colspan="3">
                             <input type="text" name="hmrm_skill_label_text" placeholder="Skills" class="regular-text"
                                 value="<?php echo esc_attr($hmrmStyleSettings['hmrm_skill_label_text']); ?>">
                         </td>
@@ -83,9 +89,9 @@ $hmrmStyleSettings = stripslashes_deep(unserialize(get_option('hmrm_style_settin
                     <tr class="hmrm_edu_label_text">
                         <th scope="row">
                             <label
-                                for="hmrm_edu_label_text"><?php esc_html_e('Education Label Text:', HMRM_TXT_DOMAIN); ?></label>
+                                for="hmrm_edu_label_text"><?php esc_html_e('Education Label Text', HMRM_TXT_DOMAIN); ?></label>
                         </th>
-                        <td>
+                        <td colspan="3">
                             <input type="text" name="hmrm_edu_label_text" placeholder="Education" class="regular-text"
                                 value="<?php echo esc_attr($hmrmStyleSettings['hmrm_edu_label_text']); ?>">
                         </td>
@@ -93,9 +99,9 @@ $hmrmStyleSettings = stripslashes_deep(unserialize(get_option('hmrm_style_settin
                     <tr class="hmrm_exp_label_text">
                         <th scope="row">
                             <label
-                                for="hmrm_exp_label_text"><?php esc_html_e('Experience Label Text:', HMRM_TXT_DOMAIN); ?></label>
+                                for="hmrm_exp_label_text"><?php esc_html_e('Experience Label Text', HMRM_TXT_DOMAIN); ?></label>
                         </th>
-                        <td>
+                        <td colspan="3">
                             <input type="text" name="hmrm_exp_label_text" placeholder="Experience" class="regular-text"
                                 value="<?php echo esc_attr($hmrmStyleSettings['hmrm_exp_label_text']); ?>">
                         </td>
