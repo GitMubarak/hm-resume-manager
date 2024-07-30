@@ -17,7 +17,7 @@ class Hmrm_Front
 
 		wp_enqueue_style(
             $this->hmrm_assets_prefix . 'font-awesome',
-            HMRM_ASSETS . 'css/font-awesome/css/font-awesome.min.css',
+            HMRM_ASSETS . 'css/fontawesome/css/all.min.css',
             array(),
             $this->hmrm_version,
             FALSE
