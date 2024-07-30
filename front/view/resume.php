@@ -111,19 +111,19 @@ div.hm_cv_carrer_summary p {
                     </li>
                     <li>
                         <div class="social-title">
-                            <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                            <i class="fa-solid fa-envelope"></i>
                             <?php esc_html_e( $hmrmAuthorEmail ); ?>
                         </div>
                     </li>
                     <li>
                         <div class="social-title">
-                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                            <i class="fa-brands fa-twitter"></i>
                             <?php esc_html_e( $hmrmTwitter ); ?>
                         </div>
                     </li>
                     <li>
                         <div class="social-title">
-                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                            <i class="fa-brands fa-facebook"></i>
                             <?php esc_html_e( $hmrmFacebook ); ?>
                         </div>
                     </li>

@@ -148,6 +148,7 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 * Title font color and font size option added
 * Career Summary font color option added
 * Career Summary Font Size option added
+* Contact info icon issue fixed
 * Font Awesome Free 6.1.1 added
 * Freemius SDK update to 2.7.3
 
