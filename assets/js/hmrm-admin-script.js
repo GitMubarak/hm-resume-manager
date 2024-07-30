@@ -12,7 +12,8 @@
         '#hmrm_bg_color',
         '#hmrm_border_color',
         '#hmrm_name_color',
-        '#hmrm_title_color'
+        '#hmrm_title_color',
+        '#hmrm_carrer_summary_color'
     ];
 
     $.each(hmrmColorPicker, function(index, value) {

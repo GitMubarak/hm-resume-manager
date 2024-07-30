@@ -146,6 +146,7 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 * Resume owner name font color option added
 * Resume owner name font size option added
 * Resume owner title font color and size option added
+* Resume owner Career Summary font color option added
 * Freemius SDK update to 2.7.3
 
 = 2.2 =
