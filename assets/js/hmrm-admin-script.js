@@ -11,7 +11,8 @@
     var hmrmColorPicker = [
         '#hmrm_bg_color',
         '#hmrm_border_color',
-        '#hmrm_name_color'
+        '#hmrm_name_color',
+        '#hmrm_title_color'
     ];
 
     $.each(hmrmColorPicker, function(index, value) {
