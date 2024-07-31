@@ -22,17 +22,39 @@ table.hmrm-skills-table {
     border: 1px solid #CCC;
 }
 
+table.hmrm-styles-table {
+    width: 100%;
+    border: 0;
+}
+
 table.hmrm-education-info-table th,
 table.hmrm-education-info-table td,
 table.hmrm-experience-info-table th,
 table.hmrm-experience-info-table td,
 table.hmrm-skills-table th,
-table.hmrm-skills-table td {
+table.hmrm-skills-table td,
+table.hmrm-styles-table th,
+table.hmrm-styles-table td {
     padding: 10px;
     border-bottom: 1px solid #CCC;
     background: #F8F8F8;
     text-align: left;
     vertical-align: middle;
+}
+
+table.hmrm-styles-table th,
+table.hmrm-styles-table td {
+    border: 0px solid #000;
+    max-width: 160px;
+}
+
+table.hmrm-styles-table input.regular-text {
+    max-width: 100%;
+    width: 100%;
+}
+
+table.hmrm-styles-table th {
+    max-width: 100px;
 }
 
 a.hmrm-skills-delete,

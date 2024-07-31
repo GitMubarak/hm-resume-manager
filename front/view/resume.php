@@ -78,6 +78,7 @@ ul.hmrm-social-ul li div {
 }
 div.hm_cv_skills_title {
     color: <?php esc_attr_e( $hmrm_skill_label_color ); ?>;
+    border-bottom: 3px solid <?php esc_attr_e( $hmrm_skill_label_color ); ?>;
 }
 </style>
 
