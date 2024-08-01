@@ -15,7 +15,8 @@
         '#hmrm_title_color',
         '#hmrm_carrer_summary_color',
         '#hmrm_contact_color',
-        '#hmrm_skill_label_color'
+        '#hmrm_skill_label_color',
+        '#hmrm_edu_label_color'
     ];
 
     $.each(hmrmColorPicker, function(index, value) {
