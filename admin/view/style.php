@@ -22,6 +22,7 @@ if (isset($_POST['updateStyleSettings'])) {
         'hmrm_edu_label_color'      => isset($_POST['hmrm_edu_label_color']) ? sanitize_text_field($_POST['hmrm_edu_label_color']) : '#333333',
         'hmrm_edu_label_font_size'  => isset($_POST['hmrm_edu_label_font_size']) && filter_var( $_POST['hmrm_edu_label_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_edu_label_font_size']) : 28,
         'hmrm_exp_label_color'      => isset($_POST['hmrm_exp_label_color']) ? sanitize_text_field($_POST['hmrm_exp_label_color']) : '#333333',
+        'hmrm_exp_label_font_size'  => isset($_POST['hmrm_exp_label_font_size']) && filter_var( $_POST['hmrm_exp_label_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_exp_label_font_size']) : 28,
     );
     $hmrmStyleShowMessage = update_option('hmrm_style_settings', serialize($hmrmStyleSettings));
 }
@@ -215,6 +216,12 @@ $hmrmStyleSettings = stripslashes_deep(unserialize(get_option('hmrm_style_settin
                         </th>
                         <td>
                             <input class="wsp-wp-color" type="text" name="hmrm_exp_label_color" id="hmrm_exp_label_color" value="<?php echo esc_attr($hmrmStyleSettings['hmrm_exp_label_color']); ?>"><div id="colorpicker"></div>
+                        </td>
+                        <th scope="row" style="text-align: right;">
+                            <label for="hmrm_exp_label_font_size"><?php esc_html_e('Font Size', HMRM_TXT_DOMAIN); ?></label>
+                        </th>
+                        <td>
+                            <input type="number" class="small-text" min="14" max="100" name="hmrm_exp_label_font_size" id="hmrm_exp_label_font_size" value="<?php esc_attr_e( $hmrmStyleSettings['hmrm_exp_label_font_size'] ); ?>"><code>px</code>
                         </td>
                     </tr>
                 </table>
