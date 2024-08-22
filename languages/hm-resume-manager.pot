@@ -1,8 +1,10 @@
+
+#, fuzzy
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: hm-cool-author-box-widget\n"
-"POT-Creation-Date: 2023-07-14 04:10+0600\n"
+"POT-Creation-Date: 2024-08-23 03:29+0600\n"
 "PO-Revision-Date: 2022-05-10 02:03+0600\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -11,34 +13,34 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n==0 || n==1);\n"
-"X-Generator: Poedit 3.3.2\n"
+"X-Generator: Poedit 3.4.4\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __;_e;esc_html;esc_attr;esc_html__;esc_attr__;esc_html_e;esc_attr_e\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: admin/cls-hmrm-admin.php:27 admin/cls-hmrm-admin.php:28
+#: admin/cls-hmrm-admin.php:25 admin/cls-hmrm-admin.php:26
 msgid "HM Resume Manager"
 msgstr ""
 
-#: admin/cls-hmrm-admin.php:38 admin/cls-hmrm-admin.php:39
+#: admin/cls-hmrm-admin.php:36 admin/cls-hmrm-admin.php:37
 #: admin/view/personal-info.php:30
 msgid "Personal Info Settings"
 msgstr ""
 
-#: admin/cls-hmrm-admin.php:47 admin/cls-hmrm-admin.php:48
+#: admin/cls-hmrm-admin.php:45 admin/cls-hmrm-admin.php:46
 msgid "Education Settings"
 msgstr ""
 
-#: admin/cls-hmrm-admin.php:56 admin/cls-hmrm-admin.php:57
+#: admin/cls-hmrm-admin.php:54 admin/cls-hmrm-admin.php:55
 msgid "Experience Settings"
 msgstr ""
 
-#: admin/cls-hmrm-admin.php:65 admin/cls-hmrm-admin.php:66
+#: admin/cls-hmrm-admin.php:63 admin/cls-hmrm-admin.php:64
 #: admin/view/skills.php:25
 msgid "Skills Settings"
 msgstr ""
 
-#: admin/cls-hmrm-admin.php:74 admin/cls-hmrm-admin.php:75
+#: admin/cls-hmrm-admin.php:72 admin/cls-hmrm-admin.php:73
 msgid "Style Settings"
 msgstr ""
 
@@ -54,7 +56,7 @@ msgstr ""
 msgid "Experience History"
 msgstr ""
 
-#: admin/view/experience.php:74
+#: admin/view/experience.php:74 admin/view/style.php:203
 msgid "Experience"
 msgstr ""
 
@@ -87,7 +89,7 @@ msgid "Add Experience"
 msgstr ""
 
 #: admin/view/personal-info.php:36 admin/view/skills.php:31
-#: admin/view/style.php:26
+#: admin/view/style.php:41
 msgid "Your information updated successfully"
 msgstr ""
 
@@ -160,31 +162,65 @@ msgstr ""
 msgid "Update Skills"
 msgstr ""
 
-#: admin/view/style.php:20
+#: admin/view/style.php:35
 msgid "Styles Settings"
 msgstr ""
 
-#: admin/view/style.php:39
-msgid "Background Color:"
+#: admin/view/style.php:54
+msgid "Background Color"
 msgstr ""
 
-#: admin/view/style.php:49
-msgid "Border Color:"
+#: admin/view/style.php:62
+msgid "Border Color"
 msgstr ""
 
-#: admin/view/style.php:60
-msgid "Skills Label Text:"
+#: admin/view/style.php:72
+msgid "Personal Info"
 msgstr ""
 
-#: admin/view/style.php:70
-msgid "Education Label Text:"
+#: admin/view/style.php:77
+msgid "Name Color"
 msgstr ""
 
-#: admin/view/style.php:80
-msgid "Experience Label Text:"
+#: admin/view/style.php:85 admin/view/style.php:102 admin/view/style.php:119
+#: admin/view/style.php:141 admin/view/style.php:169 admin/view/style.php:195
+#: admin/view/style.php:221
+msgid "Font Size"
 msgstr ""
 
-#: admin/view/style.php:91
+#: admin/view/style.php:94
+msgid "Title Color"
+msgstr ""
+
+#: admin/view/style.php:111
+msgid "Career Summary Color"
+msgstr ""
+
+#: admin/view/style.php:128
+msgid "Contact Info"
+msgstr ""
+
+#: admin/view/style.php:133
+msgid "Font Color"
+msgstr ""
+
+#: admin/view/style.php:150
+msgid "Skills"
+msgstr ""
+
+#: admin/view/style.php:156 admin/view/style.php:183 admin/view/style.php:208
+msgid "Label Text"
+msgstr ""
+
+#: admin/view/style.php:163 admin/view/style.php:189 admin/view/style.php:215
+msgid "Label Color"
+msgstr ""
+
+#: admin/view/style.php:177
+msgid "Education"
+msgstr ""
+
+#: admin/view/style.php:231
 msgid "Update Styles"
 msgstr ""
 
@@ -192,7 +228,7 @@ msgstr ""
 msgid " "
 msgstr ""
 
-#: freemius/templates/connect.php:368
+#: freemius/templates/connect.php:367
 msgid "_activate_existing"
 msgstr ""
 
@@ -200,7 +236,7 @@ msgstr ""
 msgid "selling_point_"
 msgstr ""
 
-#: front/view/resume.php:196
+#: front/view/resume.php:241
 msgid "CGPA"
 msgstr ""
 
