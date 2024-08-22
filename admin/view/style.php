@@ -21,6 +21,7 @@ if (isset($_POST['updateStyleSettings'])) {
         'hmrm_skill_label_font_size' => isset($_POST['hmrm_skill_label_font_size']) && filter_var( $_POST['hmrm_skill_label_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_skill_label_font_size']) : 28,
         'hmrm_edu_label_color'      => isset($_POST['hmrm_edu_label_color']) ? sanitize_text_field($_POST['hmrm_edu_label_color']) : '#333333',
         'hmrm_edu_label_font_size'  => isset($_POST['hmrm_edu_label_font_size']) && filter_var( $_POST['hmrm_edu_label_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_edu_label_font_size']) : 28,
+        'hmrm_exp_label_color'      => isset($_POST['hmrm_exp_label_color']) ? sanitize_text_field($_POST['hmrm_exp_label_color']) : '#333333',
     );
     $hmrmStyleShowMessage = update_option('hmrm_style_settings', serialize($hmrmStyleSettings));
 }
@@ -205,9 +206,15 @@ $hmrmStyleSettings = stripslashes_deep(unserialize(get_option('hmrm_style_settin
                         <th scope="row" style="text-align: right;">
                             <label for="hmrm_exp_label_text"><?php esc_html_e('Label Text', HMRM_TXT_DOMAIN); ?></label>
                         </th>
-                        <td colspan="5">
+                        <td>
                             <input type="text" name="hmrm_exp_label_text" placeholder="Experience" class="regular-text"
                                 value="<?php echo esc_attr($hmrmStyleSettings['hmrm_exp_label_text']); ?>">
+                        </td>
+                        <th scope="row" style="text-align: right;">
+                            <label for="hmrm_exp_label_color"><?php esc_html_e('Label Color', HMRM_TXT_DOMAIN); ?></label>
+                        </th>
+                        <td>
+                            <input class="wsp-wp-color" type="text" name="hmrm_exp_label_color" id="hmrm_exp_label_color" value="<?php echo esc_attr($hmrmStyleSettings['hmrm_exp_label_color']); ?>"><div id="colorpicker"></div>
                         </td>
                     </tr>
                 </table>

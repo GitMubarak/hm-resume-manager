@@ -20,9 +20,7 @@ class Hmrm_Admin
 	/**
 	 *	Loading the admin menu
 	 */
-	public function hmrm_admin_menu()
-	{
-
+	public function hmrm_admin_menu() {
 		add_menu_page(
 			esc_html__('HM Resume Manager', HMRM_TXT_DOMAIN),
 			esc_html__('HM Resume Manager', HMRM_TXT_DOMAIN),
@@ -85,7 +83,7 @@ class Hmrm_Admin
 	function hmrm_enqueue_assets() {
 		wp_enqueue_style(
             $this->hmrm_assets_prefix . 'font-awesome',
-            HMRM_ASSETS . 'css/font-awesome/css/font-awesome.min.css',
+            HMRM_ASSETS . 'css/fontawesome/css/all.min.css',
             array(),
             $this->hmrm_version,
             FALSE

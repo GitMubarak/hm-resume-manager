@@ -59,9 +59,7 @@
 
 .hmcs-btn {
     border-radius: 3px;
-    background-image: -moz-linear-gradient(-169deg, rgb(177, 56, 122) 0%, rgb(192, 27, 77) 100%);
-    background-image: -webkit-linear-gradient(-169deg, rgb(177, 56, 122) 0%, rgb(192, 27, 77) 100%);
-    background-image: -ms-linear-gradient(-169deg, rgb(177, 56, 122) 0%, rgb(192, 27, 77) 100%);
+    background: #c0274e;
     width: 160px;
     height: 50px;
     line-height: 50px;
@@ -70,12 +68,18 @@
     border: none;
     box-shadow: none;
     font-size: 14px;
+    font-weight: 600;
     text-transform: uppercase;
     text-shadow: none;
     letter-spacing: 0.05em;
     text-decoration: none;
     display: inline-block;
     text-align: center;
+    cursor: pointer;
+}
+
+.hmcs-btn:hover {
+    background: #94082b;
 }
 
 .hmcs-btn.small {
