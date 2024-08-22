@@ -158,7 +158,7 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 * Experience label color option added
 * Experience label font size option added
 * Font Awesome Free 6.1.1 added
-* Freemius SDK update to 2.7.3
+* Freemius SDK update to 2.7.4
 
 = 2.2 =
 * Freemius SDK update to 2.5.10
