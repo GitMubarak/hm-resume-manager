@@ -2,9 +2,9 @@
 Contributors: hmplugin, mhmrajib
 Donate link: https://www.paypal.me/mhmrajib
 Tags: resume, cv, experience, skills, education
-Requires at least: 5.2
-Tested up to: 6.6.1
-Stable tag: 2.3
+Requires at least: 5.4
+Tested up to: 6.7
+Stable tag: 2.4
 Requires PHP: 7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -141,6 +141,9 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 
 
 == Changelog ==
+
+= 2.4 =
+* Freemius SDK update to 2.5.10
 
 = 2.3 =
 * Name font color option added
