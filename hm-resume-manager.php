@@ -9,7 +9,7 @@
  * Author URI:	        https://hmplugin.com
  * Requires at least:   5.4
  * Requires PHP:        7.2
- * Tested up to:        6.7
+ * Tested up to:        6.7.1
  * Text Domain:         hm-resume-manager
  * Domain Path:         /languages/
  * License:		GPL-2.0+
