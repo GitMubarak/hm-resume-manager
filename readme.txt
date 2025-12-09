@@ -143,7 +143,7 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 == Changelog ==
 
 = 2.4.2 =
-* Freemius SDK updated to 2.9.0
+* Freemius SDK updated to 2.13.0
 
 = 2.4.1 =
 * Updated Freemius SDK to the latest version
