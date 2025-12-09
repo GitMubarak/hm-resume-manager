@@ -42,18 +42,29 @@ if ( ! defined( 'ABSPATH' ) ) {
                 <?php esc_html_e( $hmrmAuthorEmail ); ?>
             </div>
         </li>
-        <li>
-            <div class="social-title">
-                <i class="fa-brands fa-twitter"></i>
-                <?php esc_html_e( $hmrmTwitter ); ?>
-            </div>
-        </li>
-        <li>
-            <div class="social-title">
-                <i class="fa-brands fa-facebook"></i>
-                <?php esc_html_e( $hmrmFacebook ); ?>
-            </div>
-        </li>
+        <?php
+        if ( '' !== $hmrmTwitter ) {
+            ?>
+            <li>
+                <div class="social-title">
+                    <i class="fa-brands fa-twitter"></i>
+                    <?php esc_html_e( $hmrmTwitter ); ?>
+                </div>
+            </li>
+            <?php
+        }
+
+        if ( '' !== $hmrmFacebook ) {
+            ?>
+            <li>
+                <div class="social-title">
+                    <i class="fa-brands fa-facebook"></i>
+                    <?php esc_html_e( $hmrmFacebook ); ?>
+                </div>
+            </li>
+            <?php
+        }
+        ?>
     </ul>
 </div>
 <!-- PERSONAL INFO ENDED -->
