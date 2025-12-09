@@ -144,6 +144,8 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 
 = 2.4.2 =
 * Freemius SDK updated to 2.13.0
+* Code reorganized
+* Address, contact number icon issue fixed when no info given
 
 = 2.4.1 =
 * Updated Freemius SDK to the latest version

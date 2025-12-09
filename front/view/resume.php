@@ -1,164 +1,27 @@
 <?php
-$hmrmCurrentUser = wp_get_current_user();
-if (is_array(stripslashes_deep(unserialize(get_option('hmrm_general_settings'))))) {
-    $hmrmGeneralSettings     = stripslashes_deep(unserialize(get_option('hmrm_general_settings')));
-    $hmrmPhotograph         = !empty($hmrmGeneralSettings['hmrm_photograph']) ? $hmrmGeneralSettings['hmrm_photograph'] : "";
-    $hmrmAuthorName         = !empty($hmrmGeneralSettings['hmrm_author_name']) ? $hmrmGeneralSettings['hmrm_author_name'] : $hmrmCurrentUser->display_name;
-    $hmrmAuthorTitle         = !empty($hmrmGeneralSettings['hmrm_author_title']) ? $hmrmGeneralSettings['hmrm_author_title'] : '';
-    $hmrmAuthorEmail         = !empty($hmrmGeneralSettings['hmrm_author_email']) ? $hmrmGeneralSettings['hmrm_author_email'] : $hmrmCurrentUser->user_email;
-    $hmrmAuthorWebsite         = !empty($hmrmGeneralSettings['hmrm_author_website']) ? $hmrmGeneralSettings['hmrm_author_website'] : $hmrmCurrentUser->user_url;
-    $hmrmCurrentAddress     = !empty($hmrmGeneralSettings['hmrm_current_address']) ? $hmrmGeneralSettings['hmrm_current_address'] : '';
-    $hmrmBiographicalInfo    = !empty($hmrmGeneralSettings['hmrm_biographical_info']) ? wp_kses_post($hmrmGeneralSettings['hmrm_biographical_info']) : '';
-    $hmrmContactNo             = !empty($hmrmGeneralSettings['hmrm_contact_number']) ? $hmrmGeneralSettings['hmrm_contact_number'] : '';
-    $hmrmTwitter             = !empty($hmrmGeneralSettings['hmrm_twitter']) ? $hmrmGeneralSettings['hmrm_twitter'] : '';
-    $hmrmFacebook             = !empty($hmrmGeneralSettings['hmrm_facebook']) ? $hmrmGeneralSettings['hmrm_facebook'] : '';
-    //$hmrmSkills                = !empty($hmrmGeneralSettings['hmrm_skills']) ? wp_kses_post($hmrmGeneralSettings['hmrm_skills']) : '';
-} else {
-    $hmrmPhotograph         = "";
-    $hmrmAuthorName         = $hmrmCurrentUser->display_name;
-    $hmrmBiographicalInfo     = '';
-    $hmrmAuthorEmail         = $hmrmCurrentUser->user_email;
-    $hmrmAuthorWebsite         =  $hmrmCurrentUser->user_url;
-    $hmrmCurrentAddress        = '';
-    $hmrmAuthorTitle         = "";
-    $hmrmContactNo             = '';
-    $hmrmTwitter            = '';
-    $hmrmFacebook             = '';
-    //$hmrmSkills                = '';
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
 
-if (is_array(stripslashes_deep(unserialize(get_option('hmrm_style_settings'))))) {
+include 'header.php';
 
-    $hmrmStyleSettings              = stripslashes_deep(unserialize(get_option('hmrm_style_settings')));
-    $hmrmSkillLabelText             = !empty($hmrmStyleSettings['hmrm_skill_label_text']) ? $hmrmStyleSettings['hmrm_skill_label_text'] : "Skills";
-    $hmrmEduLabelText               = !empty($hmrmStyleSettings['hmrm_edu_label_text']) ? $hmrmStyleSettings['hmrm_edu_label_text'] : "Education";
-    $hmrmExpLabelText               = !empty($hmrmStyleSettings['hmrm_exp_label_text']) ? $hmrmStyleSettings['hmrm_exp_label_text'] : "Experience";
-    $hmrmBgClr                      = !empty($hmrmStyleSettings['hmrm_bg_color']) ? $hmrmStyleSettings['hmrm_bg_color'] : "#FFFAF0";
-    $hmrmBrdrClr                    = !empty($hmrmStyleSettings['hmrm_border_color']) ? $hmrmStyleSettings['hmrm_border_color'] : "#FF6633";
-    $hmrm_name_color                = isset($hmrmStyleSettings['hmrm_name_color']) ? sanitize_text_field($hmrmStyleSettings['hmrm_name_color']) : '#333333';
-    $hmrm_name_font_size            = isset($hmrmStyleSettings['hmrm_name_font_size']) && filter_var( $hmrmStyleSettings['hmrm_name_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($hmrmStyleSettings['hmrm_name_font_size']) : 28;
-    $hmrm_title_color               = isset($hmrmStyleSettings['hmrm_title_color']) ? sanitize_text_field($hmrmStyleSettings['hmrm_title_color']) : '#333333';
-    $hmrm_title_font_size           = isset($hmrmStyleSettings['hmrm_title_font_size']) && filter_var( $hmrmStyleSettings['hmrm_title_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($hmrmStyleSettings['hmrm_title_font_size']) : 18;
-    $hmrm_carrer_summary_color      = isset($hmrmStyleSettings['hmrm_carrer_summary_color']) ? sanitize_text_field($hmrmStyleSettings['hmrm_carrer_summary_color']) : '#111111';
-    $hmrm_carrer_summary_font_size  = isset($hmrmStyleSettings['hmrm_carrer_summary_font_size']) && filter_var( $hmrmStyleSettings['hmrm_carrer_summary_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field( $hmrmStyleSettings['hmrm_carrer_summary_font_size'] ) : 12;
-    $hmrm_contact_color             = isset($hmrmStyleSettings['hmrm_contact_color']) ? sanitize_text_field($hmrmStyleSettings['hmrm_contact_color']) : '#444444';
-    $hmrm_contact_font_size         = isset($hmrmStyleSettings['hmrm_contact_font_size']) && filter_var( $hmrmStyleSettings['hmrm_contact_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field( $hmrmStyleSettings['hmrm_contact_font_size'] ) : 22;
-    $hmrm_skill_label_color         = isset($hmrmStyleSettings['hmrm_skill_label_color']) ? sanitize_text_field($hmrmStyleSettings['hmrm_skill_label_color']) : '#444444';
-    $hmrm_skill_label_font_size     = isset($hmrmStyleSettings['hmrm_skill_label_font_size']) && filter_var( $hmrmStyleSettings['hmrm_skill_label_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field( $hmrmStyleSettings['hmrm_skill_label_font_size'] ) : 28;
-    $hmrm_edu_label_color           = isset($hmrmStyleSettings['hmrm_edu_label_color']) ? sanitize_text_field($hmrmStyleSettings['hmrm_edu_label_color']) : '#444444';
-    $hmrm_edu_label_font_size       = isset($hmrmStyleSettings['hmrm_edu_label_font_size']) && filter_var( $hmrmStyleSettings['hmrm_edu_label_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field( $hmrmStyleSettings['hmrm_edu_label_font_size'] ) : 28;
-    $hmrm_exp_label_color           = isset($hmrmStyleSettings['hmrm_exp_label_color']) ? sanitize_text_field($hmrmStyleSettings['hmrm_exp_label_color']) : '#444444';
-    $hmrm_exp_label_font_size       = isset($hmrmStyleSettings['hmrm_exp_label_font_size']) && filter_var( $hmrmStyleSettings['hmrm_exp_label_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field( $hmrmStyleSettings['hmrm_exp_label_font_size'] ) : 28;
-} else {
-    $hmrmSkillLabelText = "Skills";
-    $hmrmEduLabelText = "Education";
-    $hmrmExpLabelText = "Experience";
-    $hmrmBgClr = "#FFFAF0";
-    $hmrmBrdrClr = "#FF6633";
-}
-
-$hmrmSkillsSettings = get_option('hmrm_skills_settings');
+// Load Styling
+include HMRM_PATH . 'assets/css/resume-front.php';
 ?>
-
-<style type="text/css">
-div.hm_cv_top {
-    background-color: <?php esc_attr_e($hmrmBgClr); ?>;
-    border-color: <?php esc_attr_e($hmrmBrdrClr); ?>;
-}
-div.hm_cv_name {
-    color: <?php esc_attr_e( $hmrm_name_color ); ?>;
-    font-size: <?php esc_attr_e( $hmrm_name_font_size ); ?>px;
-}
-div.hm_cv_title {
-    color: <?php esc_attr_e( $hmrm_title_color ); ?>;
-    font-size: <?php esc_attr_e( $hmrm_title_font_size ); ?>px;
-}
-div.hm_cv_carrer_summary,
-div.hm_cv_carrer_summary p {
-    color: <?php esc_attr_e( $hmrm_carrer_summary_color ); ?>;
-    font-size: <?php esc_attr_e( $hmrm_carrer_summary_font_size ); ?>px;
-}
-ul.hmrm-social-ul li div {
-    color: <?php esc_attr_e( $hmrm_contact_color ); ?>;
-    font-size: <?php esc_attr_e( $hmrm_contact_font_size ); ?>px;
-}
-div.hm_cv_skills_title {
-    color: <?php esc_attr_e( $hmrm_skill_label_color ); ?>;
-    border-bottom: 3px solid <?php esc_attr_e( $hmrm_skill_label_color ); ?>;
-    font-size: <?php esc_attr_e( $hmrm_skill_label_font_size ); ?>px;
-}
-div.hm_cv_education_title {
-    color: <?php esc_attr_e( $hmrm_edu_label_color ); ?>;
-    border-bottom: 3px solid <?php esc_attr_e( $hmrm_edu_label_color ); ?>;
-    font-size: <?php esc_attr_e( $hmrm_edu_label_font_size ); ?>px;
-}
-div.hm_cv_experience_title {
-    color: <?php esc_attr_e( $hmrm_exp_label_color ); ?>;
-    border-bottom: 3px solid <?php esc_attr_e( $hmrm_exp_label_color ); ?>;
-    font-size: <?php esc_attr_e( $hmrm_exp_label_font_size ); ?>px;
-}
-</style>
-
 <div class="hm_cv_top">
 
     <div class="hmrm-header">
+
         <div class="hmrm-header-left">
-            <?php
-            $hmrmImage = array();
-            $hmrmPhotograph2 = "";
-            if (intval($hmrmPhotograph) > 0) {
-                $hmrmImage = wp_get_attachment_image_src($hmrmPhotograph, 'fulll', false);
-                $hmrmPhotograph2 = $hmrmImage[0];
-            } else {
-                $hmrmPhotograph2 = HMRM_ASSETS . 'img/noimage.jpg';
-            }
-            ?>
+        
             <img src="<?php esc_attr_e( $hmrmPhotograph2 ); ?>" />
+        
         </div>
+        
         <div class="hmrm-header-right">
-            <!-- PERSONAL INFO STARTED -->
-            <div class="hmrm-social">
-                <ul class="hmrm-social-ul">
-                    <li>
-                        <div class="social-title">
-                            <i class="fa fa-home" aria-hidden="true"></i>
-                            <?php esc_html_e( $hmrmCurrentAddress ); ?>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="social-title">
-                            <i class="fa fa-globe" aria-hidden="true"></i>
-                            <?php esc_html_e( $hmrmAuthorWebsite ); ?>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="social-title">
-                            <i class="fa fa-phone" aria-hidden="true"></i>
-                            <?php esc_html_e( $hmrmContactNo ); ?>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="social-title">
-                            <i class="fa-solid fa-envelope"></i>
-                            <?php esc_html_e( $hmrmAuthorEmail ); ?>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="social-title">
-                            <i class="fa-brands fa-twitter"></i>
-                            <?php esc_html_e( $hmrmTwitter ); ?>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="social-title">
-                            <i class="fa-brands fa-facebook"></i>
-                            <?php esc_html_e( $hmrmFacebook ); ?>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <!-- PERSONAL INFO ENDED -->
+            <?php include 'personal-info.php'; ?>
         </div>
+        
     </div>
 
     <div class="hmrm-level-two">
