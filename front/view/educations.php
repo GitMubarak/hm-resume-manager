@@ -15,14 +15,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     if ( $hmrm_edu_info_settings ) { ?>
     <div class="hmrm-education-item-wrapper">
         <?php 
-        for ($hmrmEdu = 0; $hmrmEdu < 3; $hmrmEdu++) {
+        for ($hmrmEdu = 0; $hmrmEdu < 10; $hmrmEdu++) {
             if ( ! empty( $hmrm_edu_info_settings[$hmrmEdu]['hmrm_edu_degree'] ) ) {
             ?>
             <div class="education_block">
                 <div class="hm_cv_experience_cmp edu">
                     <?php 
                     echo '<strong>' . esc_html( $hmrm_edu_info_settings[$hmrmEdu]['hmrm_edu_degree'] ) . '</strong><br>' .
-                    esc_html($hmrm_edu_info_settings[$hmrmEdu]['hmrm_edu_subject']); 
+                    esc_html($hmrm_edu_info_settings[$hmrmEdu]['hmrm_edu_subject']) . '<br>';
                     ?>
                     <span>
                         <?php echo esc_html( $hmrm_edu_info_settings[$hmrmEdu]['hmrm_edu_start_year'] ) . '-' . esc_html( $hmrm_edu_info_settings[$hmrmEdu]['hmrm_edu_end_year'] ); ?>

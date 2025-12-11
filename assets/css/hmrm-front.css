@@ -154,10 +154,9 @@
     }
     
     div.education_block {
-        border: 0px solid #CC0000;
         text-align: center;
         min-height: 150px;
-        margin-bottom: 5px;
+        padding: 10px;
     }
     
     .edu,
