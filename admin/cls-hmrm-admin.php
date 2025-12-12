@@ -6,15 +6,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  *	Admin Parent Class
  */
-class Hmrm_Admin
-{
+class Hmrm_Admin {
+
+	use Hmrm_Core, Hmrm_Personal_Info_Settings;
+
 	private $hmrm_version;
 	private $hmrm_assets_prefix;
 
 	function __construct($version)
 	{
 		$this->hmrm_version = $version;
-		$this->hmrm_assets_prefix = substr(HMRM_PRFX, 0, -1) . '-';
+		$this->hmrm_assets_prefix = substr( HMRM_PRFX, 0, -1 ) . '-';
 	}
 
 	/**
@@ -81,6 +83,7 @@ class Hmrm_Admin
 	 *	Loading admin panel assets
 	 */
 	function hmrm_enqueue_assets() {
+
 		wp_enqueue_style(
             $this->hmrm_assets_prefix . 'font-awesome',
             HMRM_ASSETS . 'css/fontawesome/css/all.min.css',
@@ -155,6 +158,24 @@ class Hmrm_Admin
 	 *	Loading admin panel view/forms
 	 */
 	function hmrm_personal_info_settings() {
+
+		if ( ! current_user_can( 'edit_others_posts' ) ) {
+			return;
+		}
+
+		$hmrmAdminNotification = false;
+
+		if ( isset( $_POST['updatePersonalInfoSettings'] ) ) {
+			if ( ! isset( $_POST['hmrm_personal_info_nonce_field'] ) 
+				|| ! wp_verify_nonce( $_POST['hmrm_personal_info_nonce_field'], 'hmrm_personal_info_action_filed' ) ) {
+				print 'Sorry, your nonce did not verify.';
+				exit;
+			} else {
+				$hmrmAdminNotification = $this->hmrm_set_personal_info_settings( $_POST );
+			}
+		}
+
+		$hmrmPersonalInfoSettings = $this->hmrm_get_personal_info_settings();
 		
 		require_once HMRM_PATH . 'admin/view/personal-info.php';
 	}
@@ -179,50 +200,59 @@ class Hmrm_Admin
 		require_once HMRM_PATH . 'admin/view/style.php';
 	}
 
-	function hmrm_get_image()
-	{
-		if (isset($_GET['id'])) {
-			$image = wp_get_attachment_image(filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT), 'thumbnail', false, array('id' => 'hmrm-preview-image'));
+	function hmrm_get_image() {
+
+		if ( isset( $_GET['id'] ) ) {
+
+			$image = wp_get_attachment_image( filter_input( INPUT_GET, 'id', FILTER_VALIDATE_INT ), 'thumbnail', false, array('id' => 'hmrm-preview-image') );
+			
 			$data = array(
 				'image' => $image,
 			);
+
 			wp_send_json_success($data);
+		
 		} else {
+			
 			wp_send_json_error();
 		}
 	}
 
-	protected function hmrm_display_notification($type, $msg)
-	{ ?>
-<div class="hmrm-alert <?php printf('%s', $type); ?>">
-    <span class="hmrm-closebtn">&times;</span>
-    <strong><?php esc_html_e(ucfirst($type), HMRM_TXT_DOMAIN); ?>!</strong> <?php esc_html_e($msg, HMRM_TXT_DOMAIN); ?>
-</div>
-<?php }
+	protected function hmrm_display_notification($type, $msg) { 
+		?>
+		<div class="hmrm-alert <?php printf('%s', $type); ?>">
+			<span class="hmrm-closebtn">&times;</span>
+			<strong><?php esc_html_e(ucfirst($type), HMRM_TXT_DOMAIN); ?>!</strong> <?php esc_html_e($msg, HMRM_TXT_DOMAIN); ?>
+		</div>
+		<?php 
+	}
 
-	protected function hmrm_months()
-	{
+	protected function hmrm_months() {
+
 		return array('Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec');
 	}
 
-	protected function hmrm_load_delete_button($key)
-	{
-	?>
-<form action="admin.php?page=hmrm-experience-settings" id="hmrm-exp-delete-form" name="hmrm-exp-delete-form"
-    class="hmcs-delete-form" method="POST">
-    <input type="hidden" name="hmrm_delete_key" value="<?php printf('%s', $key); ?>" />
-    <input id="hmrm-exp-delete-btn" name="hmrm_exp_delete_btn" class="hmcs-btn small" type="submit" value="Delete"
-        class="button">
-</form>
-<?php
+	protected function hmrm_load_delete_button( $key ) {
+		?>
+		<form action="admin.php?page=hmrm-experience-settings" id="hmrm-exp-delete-form" name="hmrm-exp-delete-form"
+			class="hmcs-delete-form" method="POST">
+			<input type="hidden" name="hmrm_delete_key" value="<?php printf('%s', $key); ?>" />
+			<input id="hmrm-exp-delete-btn" name="hmrm_exp_delete_btn" class="hmcs-btn small" type="submit" value="Delete"
+				class="button">
+		</form>
+		<?php
 	}
 
-	function hmrm_load_experience()
-	{
+	function hmrm_load_experience() {
+
 		$id = $_POST['exp'];
+
 		$hmrmExpArr = !empty(get_option('hmrm_exp_settings')) ? get_option('hmrm_exp_settings') : array();
+
 		$returnExp = array_key_exists($id, $hmrmExpArr) ? $hmrmExpArr[$id] : '';
+		
 		echo json_encode($returnExp);
+		
 		die();
 	}
 }

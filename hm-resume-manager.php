@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Plugin Name:	HM Resume Manager
  * Plugin URI:	http://wordpress.org/plugins/hm-resume-manager/
@@ -20,48 +19,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-if ( ! function_exists( 'hrm_fs' ) ) {
-    // Create a helper function for easy SDK access.
-    function hrm_fs() {
-        global $hrm_fs;
+if ( function_exists( 'hrm_fs' ) ) {
+    
+    hrm_fs()->set_basename( true, __FILE__ );
 
-        if ( ! isset( $hrm_fs ) ) {
-            // Include Freemius SDK.
-            require_once dirname(__FILE__) . '/freemius/start.php';
+} else {
 
-            $hrm_fs = fs_dynamic_init( array(
-                'id'                  => '10195',
-                'slug'                => 'hm-resume-manager',
-                'type'                => 'plugin',
-                'public_key'          => 'pk_735808551710fc0a4e8fb62bcd385',
-                'is_premium'          => false,
-                'has_addons'          => false,
-                'has_paid_plans'      => false,
-                'menu'                => array(
-                    'slug'           => 'hmrm-admin-panel',
-                    'first-path'     => 'admin.php?page=hmrm-admin-panel',
-                ),
-            ) );
+    if ( ! class_exists('Hmrm_Master') ) {
+
+        define('HMRM_PATH', plugin_dir_path(__FILE__));
+        define('HMRM_ASSETS', plugins_url('/assets/', __FILE__));
+        define('HMRM_SLUG', plugin_basename(__FILE__));
+        define('HMRM_PRFX', 'hmrm_');
+        define('HMRM_CLS_PRFX', 'cls-hmrm-');
+        define('HMRM_TXT_DOMAIN', 'hm-resume-manager');
+        define('HMRM_VERSION', '2.4.2');
+
+        require_once HMRM_PATH . '/lib/freemius-integrator.php';
+        require_once HMRM_PATH . 'inc/' . HMRM_CLS_PRFX . 'master.php';
+
+        $hmrm = new Hmrm_Master();
+        $hmrm->hmrm_run();
+
+        // Donation link to plugin description
+        add_filter( 'plugin_row_meta', 'hmrm_plugin_row_meta', 10, 2 );
+        function hmrm_plugin_row_meta( $links, $file ) {
+        
+            if ( HMRM_SLUG === $file ) {
+
+                $row_meta = array(
+                    'hmtb_donation'    => '<a href="' . esc_url( 'https://www.paypal.me/mhmrajib/' ) . '" target="_blank" aria-label="' . esc_attr__( 'Plugin Additional Links', 'hm-resume-manager' ) . '" style="color:green; font-weight: bold;">' . esc_html__( 'Donate us', 'hm-resume-manager' ) . '</a>'
+                );
+        
+                return array_merge( $links, $row_meta );
+            }
+            return (array) $links;
         }
-
-        return $hrm_fs;
+    
     }
-
-    // Init Freemius.
-    hrm_fs();
-    // Signal that SDK was initiated.
-    do_action( 'hrm_fs_loaded' );
 }
-
-define('HMRM_PATH', plugin_dir_path(__FILE__));
-define('HMRM_ASSETS', plugins_url('/assets/', __FILE__));
-define('HMRM_SLUG', plugin_basename(__FILE__));
-define('HMRM_PRFX', 'hmrm_');
-define('HMRM_CLS_PRFX', 'cls-hmrm-');
-define('HMRM_TXT_DOMAIN', 'hm-resume-manager');
-define('HMRM_VERSION', '2.4.2');
-
-require_once HMRM_PATH . 'inc/' . HMRM_CLS_PRFX . 'master.php';
-$hmrm = new Hmrm_Master();
-$hmrm->hmrm_run();
-register_deactivation_hook(__FILE__, array($hmrm, HMRM_PRFX . 'unregister_settings'));

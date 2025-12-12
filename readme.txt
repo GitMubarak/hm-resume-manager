@@ -148,6 +148,7 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 * Address, contact number icon issue fixed when no info given
 * Twitter, Facebook icon issue fixed when no info given
 * CSS fixed
+* Unlimited education display applied
 
 = 2.4.1 =
 * Updated Freemius SDK to the latest version

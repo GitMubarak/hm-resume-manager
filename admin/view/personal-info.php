@@ -1,11 +1,20 @@
 <?php
-$hmrmCurrentUser = wp_get_current_user();
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
-$hmrmShowGeneralMessage = false;
+//print_r( $hmrmPersonalInfoSettings );
+foreach ( $hmrmPersonalInfoSettings as $option_name => $option_value ) {
+    if ( isset( $hmrmPersonalInfoSettings[$option_name] ) ) {
+        ${"" . $option_name} = $option_value;
+    }
+}
 
-if (isset($_POST['updateGeneralSettings'])) {
+/*
+if ( isset( $_POST['updateGeneralSettings'] ) ) {
+
     $hmrmGeneralSettingsInfo = array(
-        'hmrm_author_name'          => (!empty($_POST['hmrm_author_name']) && (sanitize_text_field($_POST['hmrm_author_name']) != '')) ? sanitize_text_field($_POST['hmrm_author_name']) : $hmrmCurrentUser->display_name,
+        'hmrm_author_name'          => ! empty( $_POST['hmrm_author_name'] ) ? sanitize_text_field($_POST['hmrm_author_name']) : $hmrmCurrentUser->display_name,
         'hmrm_author_title'         => (!empty($_POST['hmrm_author_title']) && (sanitize_text_field($_POST['hmrm_author_title']) != '')) ? sanitize_text_field($_POST['hmrm_author_title']) : '',
         'hmrm_author_email'         => (!empty($_POST['hmrm_author_email']) && (sanitize_text_field($_POST['hmrm_author_email']) != '')) ? sanitize_text_field($_POST['hmrm_author_email']) : $hmrmCurrentUser->user_email,
         'hmrm_author_website'       => (!empty($_POST['hmrm_author_website']) && (sanitize_text_field($_POST['hmrm_author_website']) != '')) ? sanitize_text_field($_POST['hmrm_author_website']) : $hmrmCurrentUser->user_url,
@@ -17,22 +26,24 @@ if (isset($_POST['updateGeneralSettings'])) {
         'hmrm_facebook'             => (!empty($_POST['hmrm_facebook']) && (sanitize_text_field($_POST['hmrm_facebook']) != '')) ? sanitize_text_field($_POST['hmrm_facebook']) : '',
         //'hmrm_skills'               => !empty($_POST['hmrm_skills']) ? wp_kses_post($_POST['hmrm_skills']) : '',
     );
-    $hmrmShowGeneralMessage = update_option('hmrm_general_settings', serialize($hmrmGeneralSettingsInfo));
+
+    $hmrmShowGeneralMessage = update_option( 'hmrm_general_settings', serialize( $hmrmGeneralSettingsInfo ) );
 }
-$hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_settings')));
-//echo "<pre>";
-//print_r($hmrmGeneralSettings);
+
+$hmrmGeneralSettings = stripslashes_deep( unserialize( get_option('hmrm_general_settings') ) );
+*/
 ?>
 <div id="hmcs-wrap-all" class="wrap hmcs-settings-wrap">
     
     <div class="hmcs-header-bar">
         <div class="hmcs-header-left">
-            <h3 class="hmcs-header-title"><i class="fa fa-user-secret" aria-hidden="true"></i>&nbsp;<?php _e('Personal Info Settings', HMRM_TXT_DOMAIN); ?></h3>
+            <h2 class="hmcs-header-title"><i class="fa fa-user-secret" aria-hidden="true"></i>&nbsp;<?php _e('Personal Info Settings', HMRM_TXT_DOMAIN); ?></h2>
         </div>
     </div>
 
     <?php 
-    if ( $hmrmShowGeneralMessage ) {
+    if ( $hmrmAdminNotification ) {
+
         $this->hmrm_display_notification('success', __('Your information updated successfully', HMRM_TXT_DOMAIN) );
     }
     ?>
@@ -41,24 +52,22 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
 
         <div class="hmrm_personal_wrap hmrm_personal_help" style="width: 75%; float: left;">
 
-            <form name="hmrm_general_settings_form" role="form" class="form-horizontal" method="post" action=""
-                id="hmrm-general-settings-form">
+            <form name="hmrm_general_settings_form" role="form" class="form-horizontal" method="post" action="" id="hmrm-general-settings-form">
+                <?php wp_nonce_field( 'hmrm_personal_info_action_filed', 'hmrm_personal_info_nonce_field' ); ?>
                 <table class="form-table">
                     <tr class="hmrm_author_name">
                         <th scope="row">
-                            <label for="hmrm_author_name"><?php esc_html_e('Name:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_author_name"><?php esc_html_e('Name', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input type="text" name="hmrm_author_name" placeholder="Name" class="regular-text"
-                                value="<?php echo esc_attr($hmrmGeneralSettings['hmrm_author_name']); ?>">
-                            <br>
-                            <code><i><?php esc_html_e('Keep null to display profile Display Name', HMRM_TXT_DOMAIN); ?></i></code>
+                                value="<?php esc_attr_e( $hmrm_author_name ); ?>">
                         </td>
                     </tr>
 
                     <tr class="hmrm_author_title">
                         <th scope="row">
-                            <label for="hmrm_author_title"><?php echo esc_attr('Title:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_author_title"><?php esc_html_e('Title', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input type="text" name="hmrm_author_title" placeholder="Title" class="regular-text"
@@ -67,7 +76,7 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                     </tr>
                     <tr class="hmrm_author_email">
                         <th scope="row">
-                            <label for="hmrm_author_email"><?php esc_html_e('Email:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_author_email"><?php esc_html_e('Email', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_author_email" type="text" placeholder="Email" class="regular-text"
@@ -78,7 +87,7 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                     </tr>
                     <tr class="hmrm_author_website">
                         <th scope="row">
-                            <label for="hmrm_author_website"><?php esc_html_e('Website:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_author_website"><?php esc_html_e('Website', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_author_website" type="text" placeholder="Website" class="regular-text"
@@ -89,7 +98,7 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                     </tr>
                     <tr class="hmrm_current_address">
                         <th scope="row">
-                            <label for="hmrm_current_address"><?php esc_html_e('Address:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_current_address"><?php esc_html_e('Address', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_current_address" type="text" placeholder="Address" class="regular-text"
@@ -98,7 +107,7 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                     </tr>
                     <tr class="hmrm_contact_number">
                         <th scope="row">
-                            <label for="hmrm_contact_number"><?php esc_html_e('Contact No.:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_contact_number"><?php esc_html_e('Contact No.', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_contact_number" type="text" placeholder="Contact No." class="regular-text"
@@ -107,7 +116,7 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                     </tr>
                     <tr class="hmrm_twitter">
                         <th scope="row">
-                            <label for="hmrm_twitter"><?php esc_html_e('Twitter:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_twitter"><?php esc_html_e('Twitter', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_twitter" type="text" placeholder="Twitter" class="regular-text"
@@ -116,7 +125,7 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                     </tr>
                     <tr class="hmrm_facebook">
                         <th scope="row">
-                            <label for="hmrm_facebook"><?php esc_html_e('Facebook:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_facebook"><?php esc_html_e('Facebook', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_facebook" type="text" placeholder="Facebook" class="regular-text"
@@ -125,7 +134,7 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                     </tr>
                     <tr class="hmrm_biographical_info">
                         <th scope="row">
-                            <label for="hmrm_biographical_info"><?php esc_html_e('Career Summary:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_biographical_info"><?php esc_html_e('Career Summary', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <div style="width:700px;">
@@ -140,7 +149,7 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                     </tr>
                     <tr class="hmrm_photograph">
                         <th scope="row">
-                            <label for="hmrm_photograph"><?php esc_html_e('Photgraph:', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_photograph"><?php esc_html_e('Photograph', HMRM_TXT_DOMAIN); ?></label>
                         </th>
                         <td>
                             <input type="hidden" name="hmrm_photograph" id="hmrm_photograph"
@@ -160,8 +169,9 @@ $hmrmGeneralSettings = stripslashes_deep(unserialize(get_option('hmrm_general_se
                     </tr>
                 </table>
                 <hr>
-                <p class="submit"><button id="updateGeneralSettings" name="updateGeneralSettings"
-                        class="hmcs-btn"><?php esc_html_e('Update Settings', HMRM_TXT_DOMAIN); ?></button></p>
+                <p class="submit">
+                    <button id="updatePersonalInfoSettings" name="updatePersonalInfoSettings" class="hmcs-btn"><?php esc_html_e('Update Settings', HMRM_TXT_DOMAIN); ?></button>
+                </p>
             </form>
             
         </div>
