@@ -3,6 +3,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+$hmrmPersonalInfoSettings = $this->hmrm_get_personal_info_settings();
+
+foreach ( $hmrmPersonalInfoSettings as $option_name => $option_value ) {
+    if ( isset( $hmrmPersonalInfoSettings[$option_name] ) ) {
+        ${"" . $option_name} = $option_value;
+    }
+}
+
+/*
 $hmrmCurrentUser = wp_get_current_user();
 
 if (is_array(stripslashes_deep(unserialize(get_option('hmrm_general_settings'))))) {
@@ -31,6 +40,7 @@ if (is_array(stripslashes_deep(unserialize(get_option('hmrm_general_settings')))
     $hmrmFacebook             = '';
     //$hmrmSkills                = '';
 }
+*/
 
 if (is_array(stripslashes_deep(unserialize(get_option('hmrm_style_settings'))))) {
 
@@ -68,12 +78,13 @@ $hmrmSkillsSettings = get_option('hmrm_skills_settings');
 $hmrmImage = array();
 $hmrmPhotograph2 = '';
 
-if ( intval( $hmrmPhotograph ) > 0 ) {
+if ( intval( $hmrm_photograph ) > 0 ) {
 
-    $hmrmImage = wp_get_attachment_image_src( $hmrmPhotograph, 'fulll', false );
+    $hmrmImage = wp_get_attachment_image_src( $hmrm_photograph, 'fulll', false );
     $hmrmPhotograph2 = $hmrmImage[0];
 
 } else {
 
     $hmrmPhotograph2 = HMRM_ASSETS . 'img/noimage.jpg';
 }
+?>

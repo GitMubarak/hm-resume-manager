@@ -53,6 +53,16 @@ trait Hmrm_Core {
                 $this->data[$this->fields[$i]['name']] = isset( $post[$this->fields[$i]['name']] ) ? wp_kses_post( $post[$this->fields[$i]['name']] ) : $this->fields[$i]['default'];
         
             }
+            if ( 'url' === $this->fields[$i]['type'] ) {
+
+                $this->data[$this->fields[$i]['name']] = isset( $post[$this->fields[$i]['name']] ) ? sanitize_url( $post[$this->fields[$i]['name']] ) : $this->fields[$i]['default'];
+
+            }
+            if ( 'file' === $this->fields[$i]['type'] ) {
+
+                $this->data[$this->fields[$i]['name']] = isset( $post[$this->fields[$i]['name']] ) ? sanitize_file_name( $post[$this->fields[$i]['name']] ) : $this->fields[$i]['default'];
+
+            }
 
             $i++;
         }

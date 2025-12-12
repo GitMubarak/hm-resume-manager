@@ -9,42 +9,19 @@ foreach ( $hmrmPersonalInfoSettings as $option_name => $option_value ) {
         ${"" . $option_name} = $option_value;
     }
 }
-
-/*
-if ( isset( $_POST['updateGeneralSettings'] ) ) {
-
-    $hmrmGeneralSettingsInfo = array(
-        'hmrm_author_name'          => ! empty( $_POST['hmrm_author_name'] ) ? sanitize_text_field($_POST['hmrm_author_name']) : $hmrmCurrentUser->display_name,
-        'hmrm_author_title'         => (!empty($_POST['hmrm_author_title']) && (sanitize_text_field($_POST['hmrm_author_title']) != '')) ? sanitize_text_field($_POST['hmrm_author_title']) : '',
-        'hmrm_author_email'         => (!empty($_POST['hmrm_author_email']) && (sanitize_text_field($_POST['hmrm_author_email']) != '')) ? sanitize_text_field($_POST['hmrm_author_email']) : $hmrmCurrentUser->user_email,
-        'hmrm_author_website'       => (!empty($_POST['hmrm_author_website']) && (sanitize_text_field($_POST['hmrm_author_website']) != '')) ? sanitize_text_field($_POST['hmrm_author_website']) : $hmrmCurrentUser->user_url,
-        'hmrm_current_address'      => (!empty($_POST['hmrm_current_address']) && (sanitize_text_field($_POST['hmrm_current_address']) != '')) ? sanitize_text_field($_POST['hmrm_current_address']) : '',
-        'hmrm_contact_number'       => (!empty($_POST['hmrm_contact_number']) && (sanitize_text_field($_POST['hmrm_contact_number']) != '')) ? sanitize_text_field($_POST['hmrm_contact_number']) : '',
-        'hmrm_biographical_info'    => !empty($_POST['hmrm_biographical_info']) ? wp_kses_post($_POST['hmrm_biographical_info']) : '',
-        'hmrm_photograph'           => (sanitize_file_name($_POST['hmrm_photograph']) != '') ? sanitize_file_name($_POST['hmrm_photograph']) : '',
-        'hmrm_twitter'              => (!empty($_POST['hmrm_twitter']) && (sanitize_text_field($_POST['hmrm_twitter']) != '')) ? sanitize_text_field($_POST['hmrm_twitter']) : '',
-        'hmrm_facebook'             => (!empty($_POST['hmrm_facebook']) && (sanitize_text_field($_POST['hmrm_facebook']) != '')) ? sanitize_text_field($_POST['hmrm_facebook']) : '',
-        //'hmrm_skills'               => !empty($_POST['hmrm_skills']) ? wp_kses_post($_POST['hmrm_skills']) : '',
-    );
-
-    $hmrmShowGeneralMessage = update_option( 'hmrm_general_settings', serialize( $hmrmGeneralSettingsInfo ) );
-}
-
-$hmrmGeneralSettings = stripslashes_deep( unserialize( get_option('hmrm_general_settings') ) );
-*/
 ?>
 <div id="hmcs-wrap-all" class="wrap hmcs-settings-wrap">
     
     <div class="hmcs-header-bar">
         <div class="hmcs-header-left">
-            <h2 class="hmcs-header-title"><i class="fa fa-user-secret" aria-hidden="true"></i>&nbsp;<?php _e('Personal Info Settings', HMRM_TXT_DOMAIN); ?></h2>
+            <h2 class="hmcs-header-title"><i class="fa fa-user-secret" aria-hidden="true"></i>&nbsp;<?php _e('Personal Info Settings', 'hm-resume-manager'); ?></h2>
         </div>
     </div>
 
     <?php 
     if ( $hmrmAdminNotification ) {
 
-        $this->hmrm_display_notification('success', __('Your information updated successfully', HMRM_TXT_DOMAIN) );
+        $this->hmrm_display_notification('success', __('Your information updated successfully', 'hm-resume-manager') );
     }
     ?>
 
@@ -57,7 +34,7 @@ $hmrmGeneralSettings = stripslashes_deep( unserialize( get_option('hmrm_general_
                 <table class="form-table">
                     <tr class="hmrm_author_name">
                         <th scope="row">
-                            <label for="hmrm_author_name"><?php esc_html_e('Name', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_author_name"><?php esc_html_e('Name', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
                             <input type="text" name="hmrm_author_name" placeholder="Name" class="regular-text"
@@ -67,101 +44,95 @@ $hmrmGeneralSettings = stripslashes_deep( unserialize( get_option('hmrm_general_
 
                     <tr class="hmrm_author_title">
                         <th scope="row">
-                            <label for="hmrm_author_title"><?php esc_html_e('Title', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_author_title"><?php esc_html_e('Title', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
                             <input type="text" name="hmrm_author_title" placeholder="Title" class="regular-text"
-                                value="<?php echo esc_attr($hmrmGeneralSettings['hmrm_author_title']); ?>">
+                                value="<?php esc_attr_e( $hmrm_author_title ); ?>">
                         </td>
                     </tr>
                     <tr class="hmrm_author_email">
                         <th scope="row">
-                            <label for="hmrm_author_email"><?php esc_html_e('Email', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_author_email"><?php esc_html_e('Email', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_author_email" type="text" placeholder="Email" class="regular-text"
-                                value="<?php echo esc_attr($hmrmGeneralSettings['hmrm_author_email']); ?>">
-                            <br>
-                            <code><i><?php esc_html_e('Keep null to display profile Email', HMRM_TXT_DOMAIN); ?></i></code>
+                                value="<?php esc_attr_e( $hmrm_author_email ); ?>">
                         </td>
                     </tr>
                     <tr class="hmrm_author_website">
                         <th scope="row">
-                            <label for="hmrm_author_website"><?php esc_html_e('Website', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_author_website"><?php esc_html_e('Website', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_author_website" type="text" placeholder="Website" class="regular-text"
-                                value="<?php echo esc_attr($hmrmGeneralSettings['hmrm_author_website']); ?>">
-                            <br>
-                            <code><i><?php esc_html_e('Keep null to display profile Website', HMRM_TXT_DOMAIN); ?></i></code>
+                                value="<?php echo esc_url( $hmrm_author_website ); ?>">
                         </td>
                     </tr>
                     <tr class="hmrm_current_address">
                         <th scope="row">
-                            <label for="hmrm_current_address"><?php esc_html_e('Address', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_current_address"><?php esc_html_e('Address', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
-                            <input name="hmrm_current_address" type="text" placeholder="Address" class="regular-text"
-                                value="<?php echo esc_attr($hmrmGeneralSettings['hmrm_current_address']); ?>">
+                            <input name="hmrm_current_address" type="text" placeholder="Address" class="large-text"
+                                value="<?php esc_attr_e( $hmrm_current_address ); ?>">
                         </td>
                     </tr>
                     <tr class="hmrm_contact_number">
                         <th scope="row">
-                            <label for="hmrm_contact_number"><?php esc_html_e('Contact No.', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_contact_number"><?php esc_html_e('Contact No.', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_contact_number" type="text" placeholder="Contact No." class="regular-text"
-                                value="<?php echo esc_attr($hmrmGeneralSettings['hmrm_contact_number']); ?>">
+                                value="<?php esc_attr_e( $hmrm_contact_number ); ?>">
                         </td>
                     </tr>
                     <tr class="hmrm_twitter">
                         <th scope="row">
-                            <label for="hmrm_twitter"><?php esc_html_e('Twitter', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_twitter"><?php esc_html_e('Twitter', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_twitter" type="text" placeholder="Twitter" class="regular-text"
-                                value="<?php echo esc_attr($hmrmGeneralSettings['hmrm_twitter']); ?>">
+                                value="<?php esc_attr_e( $hmrm_twitter ); ?>">
                         </td>
                     </tr>
                     <tr class="hmrm_facebook">
                         <th scope="row">
-                            <label for="hmrm_facebook"><?php esc_html_e('Facebook', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_facebook"><?php esc_html_e('Facebook', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
                             <input name="hmrm_facebook" type="text" placeholder="Facebook" class="regular-text"
-                                value="<?php echo esc_attr($hmrmGeneralSettings['hmrm_facebook']); ?>">
+                                value="<?php echo esc_url( $hmrm_facebook ); ?>">
                         </td>
                     </tr>
                     <tr class="hmrm_biographical_info">
                         <th scope="row">
-                            <label for="hmrm_biographical_info"><?php esc_html_e('Career Summary', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_biographical_info"><?php esc_html_e('Career Summary', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
                             <div style="width:700px;">
                                 <?php
                                 $hmrmBiographicalInfoSettings   = array('media_buttons' => false, 'textarea_rows' => '10');
-                                $hmrmBiographicalInfoContent    = wp_kses_post($hmrmGeneralSettings['hmrm_biographical_info']);
+                                $hmrmBiographicalInfoContent    = wp_kses_post( $hmrm_biographical_info );
                                 $hmrmBiographicalInfoId         = 'hmrm_biographical_info';
-                                wp_editor($hmrmBiographicalInfoContent, $hmrmBiographicalInfoId, $hmrmBiographicalInfoSettings);
+                                wp_editor( $hmrmBiographicalInfoContent, $hmrmBiographicalInfoId, $hmrmBiographicalInfoSettings );
                                 ?>
                             </div>
                         </td>
                     </tr>
                     <tr class="hmrm_photograph">
                         <th scope="row">
-                            <label for="hmrm_photograph"><?php esc_html_e('Photograph', HMRM_TXT_DOMAIN); ?></label>
+                            <label for="hmrm_photograph"><?php esc_html_e('Photograph', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
-                            <input type="hidden" name="hmrm_photograph" id="hmrm_photograph"
-                                value="<?php echo esc_attr($hmrmGeneralSettings['hmrm_photograph']); ?>" class="regular-text" />
-                            <input type='button' class="button-primary" value="<?php echo esc_attr('Select Photograph'); ?>"
-                                id="hmrm-media-manager" />
+                            <input type="hidden" name="hmrm_photograph" id="hmrm_photograph" value="<?php esc_attr_e( $hmrm_photograph ); ?>" class="regular-text" />
+                            <input type='button' class="button-primary" value="<?php esc_attr_e('Select Photograph'); ?>" id="hmrm-media-manager" />
                             <br><br>
                             <?php
-                            $hmrmImageId = $hmrmGeneralSettings['hmrm_photograph'];
-                            $hmrmImage = "";
-                            if (intval($hmrmImageId) > 0) {
-                                $hmrmImage = wp_get_attachment_image($hmrmImageId, 'thumbnail', false, array('id' => 'hmrm-preview-image'));
+                            $hmrmImage = '';
+
+                            if ( intval( $hmrm_photograph ) > 0 ) {
+                                $hmrmImage = wp_get_attachment_image( $hmrm_photograph, 'thumbnail', false, array('id' => 'hmrm-preview-image' ) );
                             }
                             ?>
                             <div id="hmrm-preview-image"><?php echo $hmrmImage; ?></div>
@@ -170,7 +141,7 @@ $hmrmGeneralSettings = stripslashes_deep( unserialize( get_option('hmrm_general_
                 </table>
                 <hr>
                 <p class="submit">
-                    <button id="updatePersonalInfoSettings" name="updatePersonalInfoSettings" class="hmcs-btn"><?php esc_html_e('Update Settings', HMRM_TXT_DOMAIN); ?></button>
+                    <button id="updatePersonalInfoSettings" name="updatePersonalInfoSettings" class="hmcs-btn"><?php esc_html_e('Update Settings', 'hm-resume-manager'); ?></button>
                 </p>
             </form>
             

@@ -37,6 +37,51 @@ trait Hmrm_Personal_Info_Settings {
                 'type'      => 'text',
                 'default'   => '',
             ],
+            [
+                'name'      => 'hmrm_author_title',
+                'type'      => 'text',
+                'default'   => '',
+            ],
+            [
+                'name'      => 'hmrm_author_email',
+                'type'      => 'email',
+                'default'   => '',
+            ],
+            [
+                'name'      => 'hmrm_author_website',
+                'type'      => 'url',
+                'default'   => '',
+            ],
+            [
+                'name'      => 'hmrm_current_address',
+                'type'      => 'text',
+                'default'   => '',
+            ],
+            [
+                'name'      => 'hmrm_contact_number',
+                'type'      => 'text',
+                'default'   => '',
+            ],
+            [
+                'name'      => 'hmrm_twitter',
+                'type'      => 'text',
+                'default'   => '',
+            ],
+            [
+                'name'      => 'hmrm_facebook',
+                'type'      => 'url',
+                'default'   => '',
+            ],
+            [
+                'name'      => 'hmrm_biographical_info',
+                'type'      => 'kses_post',
+                'default'   => '',
+            ],
+            [
+                'name'      => 'hmrm_photograph',
+                'type'      => 'file',
+                'default'   => '',
+            ],
         ];
     }
 }

@@ -98,12 +98,16 @@
     div.hm_cv_carrer_summary {
         padding: 0 20px 0 30px;
         text-align: justify;
+        margin-top: 10px;
+        font-size: 14px;
+        line-height: 24px;
     }
     
     div.hm_cv_carrer_summary p {
         margin: 0;
         padding: 0;
-        line-height: 20px;
+        line-height: 24px;
+        font-size: 14px;
     }
     
     .hmrm-level-two-right .hmrm-cv-skills {

@@ -14,7 +14,7 @@ include HMRM_PATH . 'assets/css/resume-front.php';
 
         <div class="hmrm-header-left">
         
-            <img src="<?php esc_attr_e( $hmrmPhotograph2 ); ?>" />
+            <img src="<?php echo esc_url( $hmrmPhotograph2 ); ?>" />
         
         </div>
         

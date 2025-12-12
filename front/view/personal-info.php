@@ -3,63 +3,64 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<!-- PERSONAL INFO STARTED -->
 <div class="hmrm-social">
     <ul class="hmrm-social-ul">
         <?php
-        if ( '' !== $hmrmCurrentAddress ) {
+        if ( '' !== $hmrm_current_address ) {
             ?>
             <li>
                 <div class="social-title">
-                    <i class="fa fa-home" aria-hidden="true"></i>
-                    <?php esc_html_e( $hmrmCurrentAddress ); ?>
+                    <i class="fa fa-home" aria-hidden="true"></i>&nbsp;<?php esc_html_e( $hmrm_current_address ); ?>
                 </div>
             </li>
             <?php
         }
-        ?>
-        <li>
-            <div class="social-title">
-                <i class="fa fa-globe" aria-hidden="true"></i>
-                <?php esc_html_e( $hmrmAuthorWebsite ); ?>
-            </div>
-        </li>
-        <?php
-        if ( '' !== $hmrmContactNo ) {
+        
+        if ( '' !== $hmrm_author_website ) {
             ?>
             <li>
                 <div class="social-title">
-                    <i class="fa fa-phone" aria-hidden="true"></i>
-                    <?php esc_html_e( $hmrmContactNo ); ?>
-                </div>
-            </li>
-            <?php
-        }
-        ?>
-        <li>
-            <div class="social-title">
-                <i class="fa-solid fa-envelope"></i>
-                <?php esc_html_e( $hmrmAuthorEmail ); ?>
-            </div>
-        </li>
-        <?php
-        if ( '' !== $hmrmTwitter ) {
-            ?>
-            <li>
-                <div class="social-title">
-                    <i class="fa-brands fa-twitter"></i>
-                    <?php esc_html_e( $hmrmTwitter ); ?>
+                    <i class="fa fa-globe" aria-hidden="true"></i>&nbsp;<?php echo esc_url( $hmrm_author_website ); ?>
                 </div>
             </li>
             <?php
         }
 
-        if ( '' !== $hmrmFacebook ) {
+        if ( '' !== $hmrm_contact_number ) {
             ?>
             <li>
                 <div class="social-title">
-                    <i class="fa-brands fa-facebook"></i>
-                    <?php esc_html_e( $hmrmFacebook ); ?>
+                    <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;<?php esc_html_e( $hmrm_contact_number ); ?>
+                </div>
+            </li>
+            <?php
+        }
+
+        if ( '' !== $hmrm_author_email ) {
+            ?>
+            <li>
+                <div class="social-title">
+                    <i class="fa-solid fa-envelope"></i>&nbsp;<?php esc_html_e( $hmrm_author_email ); ?>
+                </div>
+            </li>
+            <?php
+        }
+
+        if ( '' !== $hmrm_twitter ) {
+            ?>
+            <li>
+                <div class="social-title">
+                    <i class="fa-brands fa-twitter"></i>&nbsp;<?php esc_html_e( $hmrm_twitter ); ?>
+                </div>
+            </li>
+            <?php
+        }
+
+        if ( '' !== $hmrm_facebook ) {
+            ?>
+            <li>
+                <div class="social-title">
+                    <i class="fa-brands fa-facebook"></i>&nbsp;<?php esc_html_e( $hmrm_facebook ); ?>
                 </div>
             </li>
             <?php
@@ -67,4 +68,3 @@ if ( ! defined( 'ABSPATH' ) ) {
         ?>
     </ul>
 </div>
-<!-- PERSONAL INFO ENDED -->

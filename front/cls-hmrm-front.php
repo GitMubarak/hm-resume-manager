@@ -1,14 +1,19 @@
 <?php
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 /**
  *	Front Parent Class
  */
-class Hmrm_Front
-{
-	private $hmrm_version;
+class Hmrm_Front {
 
-	function __construct($version)
-	{
+	use Hmrm_Core, Hmrm_Personal_Info_Settings;
+
+	private $hmrm_version, $hmrm_assets_prefix;
+
+	function __construct( $version ) {
+		
 		$this->hmrm_version = $version;
 		$this->hmrm_assets_prefix = substr(HMRM_PRFX, 0, -1) . '-';
 	}
