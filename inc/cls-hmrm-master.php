@@ -5,6 +5,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once HMRM_PATH . 'core/core.php';
 include_once HMRM_PATH . 'core/personal-info-settings.php';
+include_once HMRM_PATH . 'core/styles-settings.php';
 
 /**
  * Class: Main

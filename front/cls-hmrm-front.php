@@ -8,12 +8,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Hmrm_Front {
 
-	use Hmrm_Core, Hmrm_Personal_Info_Settings;
+	use Hmrm_Core, Hmrm_Personal_Info_Settings, Hmrm_Styles_Settings;
 
 	private $hmrm_version, $hmrm_assets_prefix;
 
 	function __construct( $version ) {
-		
+
 		$this->hmrm_version = $version;
 		$this->hmrm_assets_prefix = substr(HMRM_PRFX, 0, -1) . '-';
 	}

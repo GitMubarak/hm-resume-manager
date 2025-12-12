@@ -8,7 +8,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class Hmrm_Admin {
 
-	use Hmrm_Core, Hmrm_Personal_Info_Settings;
+	use Hmrm_Core, Hmrm_Personal_Info_Settings, Hmrm_Styles_Settings;
 
 	private $hmrm_version;
 	private $hmrm_assets_prefix;
@@ -196,6 +196,24 @@ class Hmrm_Admin {
 	}
 
 	function hmrm_style_settings() {
+
+		if ( ! current_user_can( 'edit_others_posts' ) ) {
+			return;
+		}
+
+		$hmrmAdminNotification = false;
+
+		if ( isset( $_POST['updateStyleSettings'] ) ) {
+			if ( ! isset( $_POST['hmrm_styles_nonce_field'] ) 
+				|| ! wp_verify_nonce( $_POST['hmrm_styles_nonce_field'], 'hmrm_styles_action_field' ) ) {
+				print 'Sorry, your nonce did not verify.';
+				exit;
+			} else {
+				$hmrmAdminNotification = $this->hmrm_set_styles_settings( $_POST );
+			}
+		}
+
+		$hmrmStylesSettings = $this->hmrm_get_styles_settings();
 		
 		require_once HMRM_PATH . 'admin/view/style.php';
 	}
