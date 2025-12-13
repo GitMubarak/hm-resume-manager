@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="hm_education">
 
     <div class="hm_cv_education_title">
-        <i class="fa fa-university" aria-hidden="true"></i>&nbsp;<?php esc_html_e( $hmrmEduLabelText ); ?>
+        <i class="fa fa-university" aria-hidden="true"></i>&nbsp;<?php esc_html_e( $hmrm_edu_label_text ); ?>
     </div>
     
     <?php

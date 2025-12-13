@@ -6,7 +6,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="hm_cv_experience">
 
     <div class="hm_cv_experience_title">
-        <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;<?php esc_html_e( $hmrmExpLabelText ); ?>
+        <i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp;<?php esc_html_e( $hmrm_exp_label_text ); ?>
     </div>
     
     <?php
