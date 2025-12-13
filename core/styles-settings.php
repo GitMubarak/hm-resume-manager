@@ -97,6 +97,36 @@ trait Hmrm_Styles_Settings {
                 'type'      => 'number',
                 'default'   => '28',
             ],
+            [
+                'name'      => 'hmrm_edu_label_text',
+                'type'      => 'text',
+                'default'   => 'Education',
+            ],
+            [
+                'name'      => 'hmrm_edu_label_color',
+                'type'      => 'text',
+                'default'   => '#333333',
+            ],
+            [
+                'name'      => 'hmrm_edu_label_font_size',
+                'type'      => 'number',
+                'default'   => '28',
+            ],
+            [
+                'name'      => 'hmrm_exp_label_text',
+                'type'      => 'text',
+                'default'   => 'Experience',
+            ],
+            [
+                'name'      => 'hmrm_exp_label_color',
+                'type'      => 'text',
+                'default'   => '#333333',
+            ],
+            [
+                'name'      => 'hmrm_exp_label_font_size',
+                'type'      => 'number',
+                'default'   => '28',
+            ],
         ];
     }
 }
