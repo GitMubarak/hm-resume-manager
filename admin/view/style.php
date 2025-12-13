@@ -7,16 +7,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 if (isset($_POST['updateStyleSettings'])) {
 
     $hmrmStyleSettings = array(
-        'hmrm_skill_label_text'     => sanitize_text_field($_POST['hmrm_skill_label_text']) ? sanitize_text_field($_POST['hmrm_skill_label_text']) : 'Skills',
         'hmrm_edu_label_text'       => sanitize_text_field($_POST['hmrm_edu_label_text']) ? sanitize_text_field($_POST['hmrm_edu_label_text']) : 'Education',
         'hmrm_exp_label_text'       => sanitize_text_field($_POST['hmrm_exp_label_text']) ? sanitize_text_field($_POST['hmrm_exp_label_text']) : 'Experience',
-        'hmrm_title_font_size'      => isset($_POST['hmrm_title_font_size']) && filter_var( $_POST['hmrm_title_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_title_font_size']) : 18,
-        'hmrm_carrer_summary_color' => isset($_POST['hmrm_carrer_summary_color']) ? sanitize_text_field($_POST['hmrm_carrer_summary_color']) : '#333333',
-        'hmrm_carrer_summary_font_size' => isset($_POST['hmrm_carrer_summary_font_size']) && filter_var( $_POST['hmrm_carrer_summary_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_carrer_summary_font_size']) : 12,
-        'hmrm_contact_color'        => isset($_POST['hmrm_contact_color']) ? sanitize_text_field($_POST['hmrm_contact_color']) : '#333333',
-        'hmrm_contact_font_size'    => isset($_POST['hmrm_contact_font_size']) && filter_var( $_POST['hmrm_contact_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_contact_font_size']) : 12,
-        'hmrm_skill_label_color'    => isset($_POST['hmrm_skill_label_color']) ? sanitize_text_field($_POST['hmrm_skill_label_color']) : '#333333',
-        'hmrm_skill_label_font_size' => isset($_POST['hmrm_skill_label_font_size']) && filter_var( $_POST['hmrm_skill_label_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_skill_label_font_size']) : 28,
         'hmrm_edu_label_color'      => isset($_POST['hmrm_edu_label_color']) ? sanitize_text_field($_POST['hmrm_edu_label_color']) : '#333333',
         'hmrm_edu_label_font_size'  => isset($_POST['hmrm_edu_label_font_size']) && filter_var( $_POST['hmrm_edu_label_font_size'], FILTER_SANITIZE_NUMBER_INT ) ? sanitize_text_field($_POST['hmrm_edu_label_font_size']) : 28,
         'hmrm_exp_label_color'      => isset($_POST['hmrm_exp_label_color']) ? sanitize_text_field($_POST['hmrm_exp_label_color']) : '#333333',
@@ -104,7 +96,7 @@ foreach ( $hmrmStylesSettings as $option_name => $option_value ) {
                             <label for="hmrm_title_font_size"><?php esc_html_e('Font Size', 'hm-resume-manager'); ?></label>
                         </th>
                         <td colspan="3">
-                            <input type="number" class="small-text" min="12" max="100" name="hmrm_title_font_size" id="hmrm_title_font_size" value="<?php esc_attr_e( $hmrmStyleSettings['hmrm_title_font_size'] ); ?>">
+                            <input type="number" class="small-text" min="12" max="100" name="hmrm_title_font_size" id="hmrm_title_font_size" value="<?php esc_attr_e( $hmrm_title_font_size ); ?>">
                             <code>px</code>
                         </td>
                     </tr>
@@ -113,15 +105,14 @@ foreach ( $hmrmStylesSettings as $option_name => $option_value ) {
                             <label for="hmrm_carrer_summary_color"><?php esc_html_e('Career Summary Color', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
-                            <input class="wsp-wp-color" type="text" name="hmrm_carrer_summary_color" id="hmrm_carrer_summary_color"
-                                value="<?php echo esc_attr($hmrmStyleSettings['hmrm_carrer_summary_color']); ?>">
+                            <input class="wsp-wp-color" type="text" name="hmrm_carrer_summary_color" id="hmrm_carrer_summary_color" value="<?php echo esc_attr( $hmrm_carrer_summary_color ); ?>">
                             <div id="colorpicker"></div>
                         </td>
                         <th scope="row" style="text-align: right;">
                             <label for="hmrm_carrer_summary_font_size"><?php esc_html_e('Font Size', 'hm-resume-manager'); ?></label>
                         </th>
                         <td colspan="3">
-                            <input type="number" class="small-text" min="11" max="100" name="hmrm_carrer_summary_font_size" id="hmrm_carrer_summary_font_size" value="<?php esc_attr_e( $hmrmStyleSettings['hmrm_carrer_summary_font_size'] ); ?>">
+                            <input type="number" class="small-text" min="11" max="100" name="hmrm_carrer_summary_font_size" id="hmrm_carrer_summary_font_size" value="<?php esc_attr_e( $hmrm_carrer_summary_font_size ); ?>">
                             <code>px</code>
                         </td>
                     </tr>
@@ -135,15 +126,14 @@ foreach ( $hmrmStylesSettings as $option_name => $option_value ) {
                             <label for="hmrm_contact_color"><?php esc_html_e('Font Color', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
-                            <input class="wsp-wp-color" type="text" name="hmrm_contact_color" id="hmrm_contact_color"
-                                value="<?php echo esc_attr($hmrmStyleSettings['hmrm_contact_color']); ?>">
+                            <input class="wsp-wp-color" type="text" name="hmrm_contact_color" id="hmrm_contact_color" value="<?php esc_attr_e( $hmrm_contact_color ); ?>">
                             <div id="colorpicker"></div>
                         </td>
                         <th scope="row" style="text-align: right;">
                             <label for="hmrm_contact_font_size"><?php esc_html_e('Font Size', 'hm-resume-manager'); ?></label>
                         </th>
                         <td colspan="3">
-                            <input type="number" class="small-text" min="11" max="100" name="hmrm_contact_font_size" id="hmrm_contact_font_size" value="<?php esc_attr_e( $hmrmStyleSettings['hmrm_contact_font_size'] ); ?>">
+                            <input type="number" class="small-text" min="11" max="100" name="hmrm_contact_font_size" id="hmrm_contact_font_size" value="<?php esc_attr_e( $hmrm_contact_font_size ); ?>">
                             <code>px</code>
                         </td>
                     </tr>
@@ -158,20 +148,20 @@ foreach ( $hmrmStylesSettings as $option_name => $option_value ) {
                                 for="hmrm_skill_label_text"><?php esc_html_e('Label Text', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
-                            <input type="text" name="hmrm_skill_label_text" placeholder="Skills" class="regular-text"
-                                value="<?php echo esc_attr($hmrmStyleSettings['hmrm_skill_label_text']); ?>">
+                            <input type="text" name="hmrm_skill_label_text" placeholder="Skills" class="medium-text" value="<?php esc_attr_e( $hmrm_skill_label_text ); ?>">
                         </td>
                         <th scope="row" style="text-align: right;">
                             <label for="hmrm_skill_label_color"><?php esc_html_e('Label Color', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
-                            <input class="wsp-wp-color" type="text" name="hmrm_skill_label_color" id="hmrm_skill_label_color" value="<?php echo esc_attr($hmrmStyleSettings['hmrm_skill_label_color']); ?>"><div id="colorpicker"></div>
+                            <input class="wsp-wp-color" type="text" name="hmrm_skill_label_color" id="hmrm_skill_label_color" value="<?php esc_attr_e( $hmrm_skill_label_color ); ?>">
+                            <div id="colorpicker"></div>
                         </td>
                         <th scope="row" style="text-align: right;">
                             <label for="hmrm_skill_label_font_size"><?php esc_html_e('Font Size', 'hm-resume-manager'); ?></label>
                         </th>
                         <td>
-                            <input type="number" class="small-text" min="14" max="100" name="hmrm_skill_label_font_size" id="hmrm_skill_label_font_size" value="<?php esc_attr_e( $hmrmStyleSettings['hmrm_skill_label_font_size'] ); ?>"><code>px</code>
+                            <input type="number" class="small-text" min="14" max="100" name="hmrm_skill_label_font_size" id="hmrm_skill_label_font_size" value="<?php esc_attr_e( $hmrm_skill_label_font_size ); ?>"><code>px</code>
                         </td>
                     </tr>
                     <tr>

@@ -57,6 +57,46 @@ trait Hmrm_Styles_Settings {
                 'type'      => 'text',
                 'default'   => '#333333',
             ],
+            [
+                'name'      => 'hmrm_title_font_size',
+                'type'      => 'number',
+                'default'   => '18',
+            ],
+            [
+                'name'      => 'hmrm_carrer_summary_color',
+                'type'      => 'text',
+                'default'   => '#333333',
+            ],
+            [
+                'name'      => 'hmrm_carrer_summary_font_size',
+                'type'      => 'number',
+                'default'   => '12',
+            ],
+            [
+                'name'      => 'hmrm_contact_color',
+                'type'      => 'text',
+                'default'   => '#333333',
+            ],
+            [
+                'name'      => 'hmrm_contact_font_size',
+                'type'      => 'number',
+                'default'   => '12',
+            ],
+            [
+                'name'      => 'hmrm_skill_label_text',
+                'type'      => 'text',
+                'default'   => 'Skills',
+            ],
+            [
+                'name'      => 'hmrm_skill_label_color',
+                'type'      => 'text',
+                'default'   => '#333333',
+            ],
+            [
+                'name'      => 'hmrm_skill_label_font_size',
+                'type'      => 'number',
+                'default'   => '28',
+            ],
         ];
     }
 }
