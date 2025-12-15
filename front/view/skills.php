@@ -21,11 +21,11 @@ if ( ! defined( 'ABSPATH' ) ) {
                     ?>
                     <div class="single-progressbar hmrm-skill-item">
 
-                        <h4 class="title"><?php echo esc_html($hmrmSkills['hmrm_skill_name']); ?></h4>
+                        <h4 class="title"><?php esc_html_e( $hmrmSkills['hmrm_skill_name'] ); ?></h4>
 
                         <div id="progressbar_<?php printf('%d', $hmrmSkillsC); ?>"
-                            data-percentage="<?php echo esc_attr($hmrmSkills['hmrm_skill_percentage']); ?>"
-                            data-color="<?php echo esc_attr($hmrmSkills['hmrm_skill_bg_color']); ?>">
+                            data-percentage="<?php esc_attr_e( $hmrmSkills['hmrm_skill_percentage'] ); ?>"
+                            data-color="<?php esc_attr_e( $hmrmSkills['hmrm_skill_bg_color'] ); ?>">
                         </div>
                     </div>
                     <?php

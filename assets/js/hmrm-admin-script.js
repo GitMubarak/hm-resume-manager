@@ -4,7 +4,8 @@
     "use strict";
 
     var skl;
-    for (skl = 0; skl < $('tr.hmrm-add-skill-row').length; skl++) {
+    for (skl = 0; skl <= $('tr.hmrm-add-skill-row').length; skl++) {
+        //alert(skl);
         $('#hmrm_skill_bg_color_' + skl).wpColorPicker();
     }
 
@@ -203,8 +204,8 @@
         var hmrmSkillsTrSl = $('tr.hmrm-add-skill-row').length;
         var hmrmSkillsTr = '<tr class="hmrm-add-skill-row">' +
             '<td style="vertical-align: middle;">' + (hmrmSkillsTrSl + 1) + '</td>' +
-            '<td class="hmrm_skill_name" style="vertical-align: middle;"><input type="text" name="hmrm_skill_name[]" class="hmrm_skill_name" placeholder="PHP"></td>' +
-            '<td class="hmrm_skill_percentage" style="vertical-align: middle;"><input type="text" name="hmrm_skill_percentage[]" class="hmrm_skill_percentage" placeholder="85"></td>' +
+            '<td class="hmrm_skill_name" style="vertical-align: middle;"><input type="text" name="hmrm_skill_name[]" class="hmrm_skill_name" required></td>' +
+            '<td class="hmrm_skill_percentage" style="vertical-align: middle;"><input type="number" min="0" max="100" step="1" name="hmrm_skill_percentage[]" class="hmrm_skill_percentage" required></td>' +
             '<td class="hmrm_skill_bg_color" style="vertical-align: middle;">' +
             '<input class="hmrm-wp-color" type="text" name="hmrm_skill_bg_color[]" id="hmrm_skill_bg_color_' + (hmrmSkillsTrSl + 1) + '">' +
             '<div id="colorpicker"></div>' +
@@ -219,10 +220,10 @@
 
     //==================================================
     $('tbody.hmrm-add-skill-row-tbody').delegate('.hmrm-skills-delete', 'click', function() {
-        var hmrmSkillsTrSl2 = $('tr.hmrm-add-skill-row').length;
-        if (hmrmSkillsTrSl2 > 1) {
-            $(this).parent().parent().remove();
-        }
+        //var hmrmSkillsTrSl2 = $('tr.hmrm-add-skill-row').length;
+        //if (hmrmSkillsTrSl2 > 1) {
+        $(this).parent().parent().remove();
+        //}
     });
 
 })(jQuery);
