@@ -5,27 +5,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $hmrmAdminNotification = false;
 
-if ( isset( $_POST['updateSettings'] ) ) {
-    
-    if (!isset($_POST['hmrm_update_skills_setting'])) die("Something wrong!");
+if ( isset( $_POST['updateSkills'] ) ) {
 
-    if (!wp_verify_nonce($_POST['hmrm_update_skills_setting'], 'hmrm-update-skills-setting')) die("Something wrong!");
-    
-    for ( $i = 0; $i < count( $_POST['hmrm_skill_name'] ); $i++ ) {
+    if ( ! isset( $_POST['hmrm_skills_nonce_field'] ) 
+        || ! wp_verify_nonce( $_POST['hmrm_skills_nonce_field'], 'hmrm_skills_action_filed' ) ) {
+        print 'Sorry, your nonce did not verify.';
+        exit;
+    } else {
         
-        $hmrmSkillArr[$i] = array(
-            'hmrm_skill_name'   => sanitize_text_field($_POST['hmrm_skill_name'][$i]) ? sanitize_text_field($_POST['hmrm_skill_name'][$i]) : '',
-            'hmrm_skill_percentage'   => sanitize_text_field($_POST['hmrm_skill_percentage'][$i]) ? sanitize_text_field($_POST['hmrm_skill_percentage'][$i]) : null,
-            'hmrm_skill_bg_color'   => sanitize_text_field($_POST['hmrm_skill_bg_color'][$i]) ? sanitize_text_field($_POST['hmrm_skill_bg_color'][$i]) : '#009900',
-        );
-    }
+        if ( isset( $_POST['hmrm_skill_name'] ) ) {
 
-    $hmrmAdminNotification = update_option('hmrm_skills_settings', $hmrmSkillArr);
+            for ( $i = 0; $i < count( $_POST['hmrm_skill_name'] ); $i++ ) {
+            
+                $hmrmSkillArr[$i] = array(
+                    'hmrm_skill_name'   => sanitize_text_field($_POST['hmrm_skill_name'][$i]) ? sanitize_text_field($_POST['hmrm_skill_name'][$i]) : '',
+                    'hmrm_skill_percentage'   => sanitize_text_field($_POST['hmrm_skill_percentage'][$i]) ? sanitize_text_field($_POST['hmrm_skill_percentage'][$i]) : null,
+                    'hmrm_skill_bg_color'   => sanitize_text_field($_POST['hmrm_skill_bg_color'][$i]) ? sanitize_text_field($_POST['hmrm_skill_bg_color'][$i]) : '#009900',
+                );
+            }
+
+            $hmrmAdminNotification = update_option('hmrm_skills_settings', $hmrmSkillArr);
+        }
+    }
 }
 
 $hmrmSkillsSettings = get_option('hmrm_skills_settings');
-//echo '<pre>';
-//print_r($hmrmSkillsSettings);
 ?>
 <div id="hmcs-wrap-all" class="wrap hmcs-settings-wrap">
     
@@ -47,7 +51,7 @@ $hmrmSkillsSettings = get_option('hmrm_skills_settings');
         <div class="hmrm_personal_wrap hmrm_personal_help" style="width: 75%; float: left;">
 
             <form name="wpre-table" role="form" class="form-horizontal" method="post" action="" id="hmrm-settings-form">
-                <input type="hidden" name="hmrm_update_skills_setting" value="<?php printf('%s', wp_create_nonce('hmrm-update-skills-setting')); ?>" />
+                <?php wp_nonce_field( 'hmrm_skills_action_filed', 'hmrm_skills_nonce_field' ); ?>
                 <table class="hmrm-skills-table">
                     <tr>
                         <td colspan="2">
@@ -113,7 +117,7 @@ $hmrmSkillsSettings = get_option('hmrm_skills_settings');
                     </tr>
                 </table>
                 <p class="submit">
-                    <button id="updateSettings" name="updateSettings" class="hmcs-btn"><?php esc_html_e('Update Skills', 'hm-resume-manager'); ?></button>
+                    <button id="updateSkills" name="updateSkills" class="hmcs-btn"><?php esc_html_e('Update Skills', 'hm-resume-manager'); ?></button>
                 </p>
             </form>
         
