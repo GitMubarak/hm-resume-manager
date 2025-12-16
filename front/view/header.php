@@ -3,6 +3,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// // Get all personal info
 $hmrmPersonalInfoSettings = $this->hmrm_get_personal_info_settings();
 
 foreach ( $hmrmPersonalInfoSettings as $option_name => $option_value ) {
@@ -11,6 +12,7 @@ foreach ( $hmrmPersonalInfoSettings as $option_name => $option_value ) {
     }
 }
 
+// Get all general styles
 $hmrmStylesSettings = $this->hmrm_get_styles_settings();
 
 foreach ( $hmrmStylesSettings as $option_name => $option_value ) {
@@ -19,6 +21,7 @@ foreach ( $hmrmStylesSettings as $option_name => $option_value ) {
     }
 }
 
+// Get all skills
 $hmrmSkillsSettings = get_option('hmrm_skills_settings');
 
 // Loading image

@@ -220,15 +220,27 @@ class Hmrm_Admin {
 
 	function hmrm_get_image() {
 
+		if ( ! current_user_can( 'upload_files' ) ) {
+
+			wp_send_json_error();
+		}
+
 		if ( isset( $_GET['id'] ) ) {
 
-			$image = wp_get_attachment_image( filter_input( INPUT_GET, 'id', FILTER_VALIDATE_INT ), 'thumbnail', false, array('id' => 'hmrm-preview-image') );
-			
-			$data = array(
-				'image' => $image,
-			);
+			if ( ! filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT) === false) {
 
-			wp_send_json_success($data);
+				$image = wp_get_attachment_image( esc_html( $_GET['id'] ), 'thumbnail', false, array( 'id' => 'hmrm-preview-image' ) );
+				
+				$data = array(
+					'image' => $image,
+				);
+
+				wp_send_json_success( $data );
+			
+			} else {
+
+				wp_send_json_error();
+			}
 		
 		} else {
 			

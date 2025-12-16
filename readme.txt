@@ -147,6 +147,7 @@ Now create a page and insert the shortode [hm_resume_manager] through TinyMCE ed
 * Address, contact number icon issue fixed when no info given
 * Twitter, Facebook icon issue fixed when no info given
 * Unlimited education display applied
+* Personal image upload issue fixed
 * Code reorganized
 * CSS fixed
 
